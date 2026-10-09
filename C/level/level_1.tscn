@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://dmqw8qhyy2gwu"]
+
+[ext_resource type="Script" uid="uid://c6ot4e00f770e" path="res://scripts/level_1.gd" id="1_jfgjb"]
+[ext_resource type="Texture2D" uid="uid://pel7qmj15p13" path="res://assets/floorTexture.png" id="2_l1g64"]
+[ext_resource type="Texture2D" uid="uid://3vwybdw7bk32" path="res://assets/wallTexture.png" id="3_vb5hv"]
+[ext_resource type="PackedScene" uid="uid://d14gfhnxysggc" path="res://level/hazards/interactive_puzzle.tscn" id="5_k4ctk"]
+[ext_resource type="PackedScene" uid="uid://cf0xkdmufl64i" path="res://level/ui/hud.tscn" id="6_l1g64"]
+[ext_resource type="Script" uid="uid://dtiycl7s81t0f" path="res://scripts/player.gd" id="7_player"]
+[ext_resource type="Script" uid="uid://bybsk1l1cxy8r" path="res://scripts/pointer_manager.gd" id="8_pointer"]
+[ext_resource type="Texture2D" uid="uid://cylmul0emy6n8" path="res://assets/pointer_p1.svg" id="9_p1"]
+[ext_resource type="Texture2D" uid="uid://bwypwmkrhajde" path="res://assets/pointer_p2.svg" id="10_p2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_skxlf"]
+albedo_color = Color(0.85386586, 0.8192529, 0.86806244, 1)
+albedo_texture = ExtResource("2_l1g64")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdc4k"]
+albedo_texture = ExtResource("3_vb5hv")
+
+[node name="level1" type="Node3D" unique_id=420789406]
+script = ExtResource("1_jfgjb")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1724765436]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1389715626]
+transform = Transform3D(0.34961808, -0.089523815, 0.9326054, -0.93689233, -0.03340741, 0.34801832, -1.7319836e-10, -0.9954243, -0.09555401, 6.327526, 11.270904, 5.447613)
+light_color = Color(0.9991484, 0.9999997, 0.92313987, 1)
+
+[node name="floor" type="CSGBox3D" parent="." unique_id=2015931072]
+transform = Transform3D(20, 0, 0, 0, 0.2, 0, 0, 0, 30, 0, 0, 0)
+use_collision = true
+material = SubResource("StandardMaterial3D_skxlf")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=785848293]
+
+[node name="wall" type="CSGBox3D" parent="Node3D" unique_id=548743221]
+transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, -3.2281525, 1.8355882, 10.975652)
+use_collision = true
+size = Vector3(7.6600723, 1, 1)
+material = SubResource("StandardMaterial3D_hdc4k")
+
+[node name="wall10" type="CSGBox3D" parent="Node3D" unique_id=312851778]
+transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, -4.4751315, 1.8355882, 6.2812605)
+use_collision = true
+size = Vector3(9.892801, 1, 1)
+material = SubResource("StandardMaterial3D_hdc4k")
+
+[node name="wall2" type="CSGBox3D" parent="Node3D" unique_id=488374948]
+transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, 0.8865302, 1.8443856, -0.5164921)
+use_collision = true
+size = Vector3(20.32022, 1, 1)
+material = SubResource("StandardMaterial3D_hdc4k")
+
+[node name="wall11" type="CSGBox3D" parent="Node3D" unique_id=2002762688]
+transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, -1.9117388, 1.8443856, 8.446207)
+use_collision = true
+size = Vector3(4.272415, 1, 1)
+material = SubResource("StandardMaterial3D_hdc4k")
+
+[node name="wall3" type="CSGBox3D" parent="Node3D" unique_id=1987045843]
+transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, 0.006687537, 1.8355882, -14.801374)
+use_collision = true
+size = Vector3(17.906387, 1, 1)
+material = SubResource("StandardMaterial3D_hdc4k")
+
+[node name="wall4" type="CSGBox3D" parent="Node3D" unique_id=731884955]
+transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, -2.155787, 1.8355882, -11.978146)
+use_collision = true
+size = Vector3(14.09137, 1, 1)
+material = SubResource("StandardMaterial3D_hdc4k")
+
+[node name="wall5" type="CSGBox3D" parent="Node3D" unique_id=1337441098]
+transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, 6.722133, 1.8443856, 0.8806441)
+use_collision = true
+size = Vector3(17.818634, 1, 1)
+material = SubResource("StandardMaterial3D_hdc4k")
+
+[node name="wall6" type="CSGBox3D" parent="Node3D" unique_id=971464583]
+transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, -1.3982378, 1.8355882, 14.828954)
+use_collision = true
+size = Vector3(15.447769, 1, 1)
+material = SubResource("StandardMaterial3D_hdc4k")
+
+[node name="wall7" type="CSGBox3D" parent="Node3D" unique_id=34867664]
+transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, 8.247477, 1.8355882, 10.619964)
+use_collision = true
+size = Vector3(3.1051064, 1, 1)
+material = SubResource("StandardMaterial3D_hdc4k")
+
+[node name="wall8" type="CSGBox3D" parent="Node3D" unique_id=1224096955]
+transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, 8.247477, 1.8355882, -8.863976)
+use_collision = true
+size = Vector3(3.1051064, 1, 1)
+material = SubResource("StandardMaterial3D_hdc4k")
+
+[node name="wall12" type="CSGBox3D" parent="Node3D" unique_id=1704358798]
+transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, -7.5433617, 1.8355882, -14.1441555)
+use_collision = true
+size = Vector3(1.3793039, 1, 1)
+material = SubResource("StandardMaterial3D_hdc4k")
+
+[node name="wall13" type="CSGBox3D" parent="Node3D" unique_id=2105135229]
+transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, -7.5433617, 1.8355882, -12.5290365)
+use_collision = true
+size = Vector3(1.3772287, 1, 1)
+material = SubResource("StandardMaterial3D_hdc4k")
+
+[node name="wall9" type="CSGBox3D" parent="Node3D" unique_id=401850476]
+transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, -9.307179, 1.836, 10.976)
+use_collision = true
+size = Vector3(1.1929095, 1, 1)
+material = SubResource("StandardMaterial3D_hdc4k")
+
+[node name="InteractivePuzzle" parent="." unique_id=532170018 instance=ExtResource("5_k4ctk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0208807, 0.9461651, -14.460407)
+
+[node name="InteractivePuzzle2" parent="." unique_id=388037999 instance=ExtResource("5_k4ctk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4238186, 0.9461651, -11.369317)
+
+[node name="InteractivePuzzle3" parent="." unique_id=1720302629 instance=ExtResource("5_k4ctk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5864244, 0.9461651, 10.301249)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=636719238]
+transform = Transform3D(-0.06925029, -0.17288196, 0.9825051, 0.005156419, 0.98479426, 0.17364822, -0.997586, 0.017091395, -0.06730583, -3.1017294, 1.4144111, -13.669959)
+current = true
+
+[node name="PlayerP1" type="Node3D" parent="." unique_id=100000001]
+script = ExtResource("7_player")
+camera_path = NodePath("../Camera3D")
+
+[node name="RayCast3D" type="RayCast3D" parent="PlayerP1" unique_id=867048775]
+
+[node name="PlayerP2" type="Node3D" parent="." unique_id=100000002]
+script = ExtResource("7_player")
+player_id = 2
+camera_path = NodePath("../Camera3D")
+
+[node name="RayCast3D" type="RayCast3D" parent="PlayerP2" unique_id=1802824623]
+
+[node name="PointerManager" type="CanvasLayer" parent="." unique_id=100000003]
+script = ExtResource("8_pointer")
+
+[node name="Control" type="Control" parent="PointerManager" unique_id=1246672035]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PointerP1" type="TextureRect" parent="PointerManager/Control" unique_id=541841618]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 273.0
+offset_right = 445.0
+offset_bottom = 415.0
+mouse_filter = 2
+texture = ExtResource("9_p1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PointerP2" type="TextureRect" parent="PointerManager/Control" unique_id=395267963]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 273.0
+offset_right = 902.0
+offset_bottom = 415.0
+mouse_filter = 2
+texture = ExtResource("10_p2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HUD" parent="." unique_id=926142427 instance=ExtResource("6_l1g64")]

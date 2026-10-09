@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cyp8kqoxmkuoa"]
+
+[ext_resource type="Script" uid="uid://8mcq0cgh8ie6" path="res://scripts/elevator_event.gd" id="1_qh7lh"]
+
+[node name="ElevatorEvent" type="Node3D" unique_id=1986692095]
+script = ExtResource("1_qh7lh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1794325671]
+
+[node name="DoorLeft" type="AnimatableBody3D" parent="." unique_id=718706518]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DoorLeft" unique_id=1854466841]
+
+[node name="DoorRight" type="AnimatableBody3D" parent="." unique_id=1152422467]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DoorRight" unique_id=1065543712]
+
+[node name="ElevatorUI" type="CanvasLayer" parent="." unique_id=1341297966]
+
+[node name="KeypadUI" type="Control" parent="ElevatorUI" unique_id=125428650]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WeaponSelectionUI" type="Control" parent="ElevatorUI" unique_id=822134412]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

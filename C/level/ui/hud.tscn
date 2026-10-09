@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cf0xkdmufl64i"]
+
+[ext_resource type="Script" uid="uid://bv624avi8gtbp" path="res://scripts/hud.gd" id="1_kjcda"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jfgjb"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l1g64"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vb5hv"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8w0r3"]
+font_size = 35
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.53083473, 0.5776387, 0.13496163, 0)
+
+[node name="HUD" type="CanvasLayer" unique_id=926142427]
+script = ExtResource("1_kjcda")
+
+[node name="Control" type="Control" parent="." unique_id=1641011032]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=513822180]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 43.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=754330205]
+layout_mode = 2
+
+[node name="labelP1Health" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=943027561]
+layout_mode = 2
+text = "Player 1: 100"
+label_settings = SubResource("LabelSettings_jfgjb")
+
+[node name="labelScore" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=111588019]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Puntaje: 0"
+label_settings = SubResource("LabelSettings_l1g64")
+
+[node name="labelP2Health" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=1613016392]
+layout_mode = 2
+text = "Player 2: 100"
+label_settings = SubResource("LabelSettings_vb5hv")
+
+[node name="LabelMessage" type="Label" parent="Control" unique_id=907174117]
+visible = false
+layout_mode = 0
+offset_left = 443.0
+offset_top = 284.0
+offset_right = 692.0
+offset_bottom = 326.0
+text = "Level Completed!"
+label_settings = SubResource("LabelSettings_8w0r3")

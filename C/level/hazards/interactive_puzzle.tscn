@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d14gfhnxysggc"]
+
+[ext_resource type="Script" uid="uid://852c36tuqg2r" path="res://scripts/interactive_puzzle.gd" id="1_x4gh8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4t55"]
+albedo_color = Color(0.71264863, 0.49309188, 0.96831304, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8w0r3"]
+material = SubResource("StandardMaterial3D_h4t55")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w7mgy"]
+size = Vector3(1.0355225, 1, 1)
+
+[node name="InteractivePuzzle" type="Area3D" unique_id=532170018 groups=["switches"]]
+script = ExtResource("1_x4gh8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1440950156]
+mesh = SubResource("CylinderMesh_8w0r3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1204788996]
+transform = Transform3D(1, 0, 0, 0, 2.1, 0, 0, 0, 1, 0.01776123, 0, 0)
+shape = SubResource("BoxShape3D_w7mgy")
