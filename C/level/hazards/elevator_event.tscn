@@ -1,30 +1,93 @@
 [gd_scene format=3 uid="uid://cyp8kqoxmkuoa"]
 
 [ext_resource type="Script" uid="uid://8mcq0cgh8ie6" path="res://scripts/elevator_event.gd" id="1_qh7lh"]
+[ext_resource type="Texture2D" uid="uid://bmhymxxghjmj5" path="res://assets/elevator_metal wall.png" id="2_bvfrw"]
+[ext_resource type="Texture2D" uid="uid://fncv5ntx5q5k" path="res://assets/fire_extinguisher.png" id="3_ex8sg"]
+[ext_resource type="Texture2D" uid="uid://dein8msxwvnrj" path="res://assets/plastic_tube.webp" id="4_jg32y"]
+[ext_resource type="Texture2D" uid="uid://c5v2kl60ii3ti" path="res://assets/pen.png" id="5_ui470"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8w0r3"]
+albedo_texture = ExtResource("2_bvfrw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4t55"]
+albedo_color = Color(0.8192276, 0.81922776, 0.8192277, 1)
+albedo_texture = ExtResource("2_bvfrw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7mgy"]
+albedo_color = Color(0.82947975, 0.8294798, 0.82947975, 1)
+albedo_texture = ExtResource("2_bvfrw")
 
 [node name="ElevatorEvent" type="Node3D" unique_id=1986692095]
+transform = Transform3D(3.922, 0, 0, 0, 3.4786956, 0, 0, 0, 3.017, 0, 0, 0)
 script = ExtResource("1_qh7lh")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1794325671]
+[node name="back wall" type="CSGBox3D" parent="." unique_id=260407700]
+transform = Transform3D(-4.3711363e-08, 0, 0.9999998, 0, 1, 0, -0.9999998, 0, -4.3711378e-08, -0.491364, 0, -0.0024013564)
+size = Vector3(0.9688721, 1, 0.020019531)
+material = SubResource("StandardMaterial3D_8w0r3")
 
-[node name="DoorLeft" type="AnimatableBody3D" parent="." unique_id=718706518]
+[node name="left wall" type="CSGBox3D" parent="." unique_id=294095766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0, 0.49395868)
+size = Vector3(1, 1, 0.019042969)
+material = SubResource("StandardMaterial3D_8w0r3")
+
+[node name="right wall" type="CSGBox3D" parent="." unique_id=1486752906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0, -0.49355066)
+size = Vector3(1, 1, 0.020507813)
+material = SubResource("StandardMaterial3D_8w0r3")
+
+[node name="ceiling" type="CSGBox3D" parent="." unique_id=1988600057]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.9999998, 0, 0.9999998, -4.3711378e-08, 0, 0.49098828, -0.0017341449)
+size = Vector3(1, 0.98291016, 0.021484375)
+material = SubResource("StandardMaterial3D_8w0r3")
+
+[node name="floor" type="CSGBox3D" parent="." unique_id=1853249032]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.9999998, 0, 0.9999998, -4.3711378e-08, 0, -0.49943566, -0.0017341449)
+size = Vector3(1, 0.98291016, 0.021484375)
+material = SubResource("StandardMaterial3D_8w0r3")
+
+[node name="DoorLeft" type="CSGBox3D" parent="." unique_id=57832252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0.4942627, 0, 0.25256345)
+size = Vector3(0.011474609, 1, 0.49487305)
+material = SubResource("StandardMaterial3D_h4t55")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="DoorLeft" unique_id=1854466841]
 
-[node name="DoorRight" type="AnimatableBody3D" parent="." unique_id=1152422467]
+[node name="DoorRight" type="CSGBox3D" parent="." unique_id=970314524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0.4942627, 0, -0.24815767)
+size = Vector3(0.011474609, 1, 0.4958496)
+material = SubResource("StandardMaterial3D_w7mgy")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="DoorRight" unique_id=1065543712]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DoorRight" unique_id=789309636]
 
-[node name="ElevatorUI" type="CanvasLayer" parent="." unique_id=1341297966]
+[node name="SelectionUI" type="CanvasLayer" parent="." unique_id=1341297966]
 
-[node name="KeypadUI" type="Control" parent="ElevatorUI" unique_id=125428650]
+[node name="Control" type="Control" parent="SelectionUI" unique_id=125428650]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="WeaponSelectionUI" type="Control" parent="ElevatorUI" unique_id=822134412]
-layout_mode = 3
-anchors_preset = 0
+[node name="fire_extinguisher" type="TextureButton" parent="SelectionUI/Control" unique_id=1518339430]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+texture_normal = ExtResource("3_ex8sg")
+
+[node name="plastic_tube" type="TextureButton" parent="SelectionUI/Control" unique_id=1594451120]
+layout_mode = 0
+offset_left = 362.99997
+offset_top = 36.999996
+offset_right = 828.0
+offset_bottom = 387.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("4_jg32y")
+
+[node name="pen" type="TextureButton" parent="SelectionUI/Control" unique_id=916303009]
+layout_mode = 0
+offset_left = 482.0
+offset_top = 44.0
+offset_right = 842.0
+offset_bottom = 404.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("5_ui470")
