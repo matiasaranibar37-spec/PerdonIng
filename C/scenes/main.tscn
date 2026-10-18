@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://bu6fpsf5ghx2w"]
 
 [ext_resource type="PackedScene" uid="uid://dmqw8qhyy2gwu" path="res://level/level_1.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://dedjbv46ot8kp" path="res://level/enemies/zombie_base.tscn" id="2_0wfyh"]
 
 [node name="main" type="Node3D" unique_id=688174575]
 
 [node name="level1" parent="." unique_id=420789406 instance=ExtResource("1_o5qli")]
+
+[node name="CharacterBody3D" parent="." unique_id=373837389 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(0.15046394, 0, 0.9886156, 0, 1, 0, -0.9886156, 0, 0.15046394, -4.716414, 0.12761497, -15.345984)
