@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dedjbv46ot8kp"]
+
+[ext_resource type="Script" uid="uid://cr8tgf5o5b6fw" path="res://scripts/zombie_base.gd" id="1_hv4vd"]
+[ext_resource type="PackedScene" uid="uid://dbvaklb4uy0v" path="res://assets/zombie_model.glb" id="2_jgixa"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=373837389]
+script = ExtResource("1_hv4vd")
+
+[node name="zombie_model" parent="." unique_id=626031704 instance=ExtResource("2_jgixa")]
+
+[editable path="zombie_model"]
