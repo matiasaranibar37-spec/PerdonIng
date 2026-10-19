@@ -31,28 +31,32 @@ expand_margin_right = 25.0
 expand_margin_bottom = 22.0
 
 [node name="InteractivePuzzle" type="CanvasLayer" unique_id=2056521526 groups=["switches"]]
+layer = 10
 script = ExtResource("1_x4gh8")
 
 [node name="Control" type="Control" parent="." unique_id=1688698274]
-custom_minimum_size = Vector2(600, 600)
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1812640134]
-layout_mode = 0
-offset_right = 597.0
-offset_bottom = 665.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -332.5
+offset_right = 304.0
+offset_bottom = 332.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/VBoxContainer" unique_id=865916572]
 position = Vector2(308.50003, 39.999985)

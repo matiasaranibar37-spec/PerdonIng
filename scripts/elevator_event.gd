@@ -5,6 +5,7 @@ extends Node3D
 @onready var door_right: CSGBox3D = $DoorRight
 @onready var zombie_emboscada: Node3D = $ZombieEmboscada
 @onready var selection_ui: CanvasLayer = $SelectionUI
+@onready var puzzle_ui: CanvasLayer = get_node_or_null("InteractivePuzzle") # Referencia al teclado
 
 # Parámetros editables desde el Inspector
 @export var distancia_apertura: float = 1.0  # Distancia que desliza cada puerta
@@ -27,6 +28,19 @@ func _ready() -> void:
 		selection_ui.hide()
 	if zombie_emboscada:
 		zombie_emboscada.hide()
+	
+	# Escuchar cuando se resuelva la clave de 3 dígitos
+	if puzzle_ui:
+		puzzle_ui.hide()
+		if puzzle_ui.has_signal("codigo_correcto"):
+			if not puzzle_ui.codigo_correcto.is_connected(abrir_puertas):
+				puzzle_ui.codigo_correcto.connect(abrir_puertas)
+
+
+# Función llamada por el interruptor para desplegar la UI
+func activar_teclado_puzzle() -> void:
+	if puzzle_ui:
+		puzzle_ui.show()
 
 # ==========================================
 # 1. APERTURA DE PUERTAS (Animación Tween)
