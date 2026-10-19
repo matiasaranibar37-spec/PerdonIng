@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://fncv5ntx5q5k" path="res://assets/fire_extinguisher.png" id="3_ex8sg"]
 [ext_resource type="Texture2D" uid="uid://dein8msxwvnrj" path="res://assets/plastic_tube.webp" id="4_jg32y"]
 [ext_resource type="Texture2D" uid="uid://c5v2kl60ii3ti" path="res://assets/pen.png" id="5_ui470"]
+[ext_resource type="Script" uid="uid://bjywdtskuv0ie" path="res://scripts/elevator_switch.gd" id="6_jg32y"]
+[ext_resource type="PackedScene" uid="uid://d14gfhnxysggc" path="res://level/hazards/interactive_puzzle.tscn" id="7_ui470"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8w0r3"]
 albedo_texture = ExtResource("2_bvfrw")
@@ -17,32 +19,47 @@ albedo_texture = ExtResource("2_bvfrw")
 albedo_color = Color(0.82947975, 0.8294798, 0.82947975, 1)
 albedo_texture = ExtResource("2_bvfrw")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ui470"]
+albedo_color = Color(0.5058824, 0.11764706, 0.16470589, 1)
+albedo_texture = ExtResource("2_bvfrw")
+metallic = 0.04
+roughness = 0.77
+
+[sub_resource type="BoxMesh" id="BoxMesh_jg32y"]
+size = Vector3(0.0077590942, 0.012390137, 0.04901123)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ui470"]
+size = Vector3(0.22671509, 0.8227539, 0.7923584)
+
 [node name="ElevatorEvent" type="Node3D" unique_id=1986692095]
 transform = Transform3D(3.922, 0, 0, 0, 3.4786956, 0, 0, 0, 3.017, 0, 0, 0)
 script = ExtResource("1_qh7lh")
 
-[node name="back wall" type="CSGBox3D" parent="." unique_id=260407700]
-transform = Transform3D(-4.3711363e-08, 0, 0.9999998, 0, 1, 0, -0.9999998, 0, -4.3711378e-08, -0.491364, 0, -0.0024013564)
+[node name="Inside" type="Node3D" parent="." unique_id=1440104522]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="back wall" type="CSGBox3D" parent="Inside" unique_id=260407700]
+transform = Transform3D(-4.3711363e-08, 0, 0.9999998, 0, 1, 0, -0.9999999, 0, -4.371138e-08, -0.491364, 0, -0.0024013566)
 size = Vector3(0.9688721, 1, 0.020019531)
 material = SubResource("StandardMaterial3D_8w0r3")
 
-[node name="left wall" type="CSGBox3D" parent="." unique_id=294095766]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0, 0.49395868)
+[node name="left wall" type="CSGBox3D" parent="Inside" unique_id=294095766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0.4939587)
 size = Vector3(1, 1, 0.019042969)
 material = SubResource("StandardMaterial3D_8w0r3")
 
-[node name="right wall" type="CSGBox3D" parent="." unique_id=1486752906]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0, -0.49355066)
+[node name="right wall" type="CSGBox3D" parent="Inside" unique_id=1486752906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, -0.4935507)
 size = Vector3(1, 1, 0.020507813)
 material = SubResource("StandardMaterial3D_8w0r3")
 
-[node name="ceiling" type="CSGBox3D" parent="." unique_id=1988600057]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.9999998, 0, 0.9999998, -4.3711378e-08, 0, 0.49098828, -0.0017341449)
+[node name="ceiling" type="CSGBox3D" parent="Inside" unique_id=1988600057]
+transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, -0.9999998, 0, 0.9999999, -4.371138e-08, 0, 0.49098828, -0.001734145)
 size = Vector3(1, 0.98291016, 0.021484375)
 material = SubResource("StandardMaterial3D_8w0r3")
 
-[node name="floor" type="CSGBox3D" parent="." unique_id=1853249032]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.9999998, 0, 0.9999998, -4.3711378e-08, 0, -0.49943566, -0.0017341449)
+[node name="floor" type="CSGBox3D" parent="Inside" unique_id=1853249032]
+transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, -0.9999998, 0, 0.9999999, -4.371138e-08, 0, -0.4994357, -0.001734145)
 size = Vector3(1, 0.98291016, 0.021484375)
 material = SubResource("StandardMaterial3D_8w0r3")
 
@@ -91,3 +108,18 @@ offset_right = 842.0
 offset_bottom = 404.0
 scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("5_ui470")
+
+[node name="Elevator_switch" type="Area3D" parent="." unique_id=458127024]
+transform = Transform3D(11.788162, 0, 0, 0, 12.951622, 0, 0, 0, 0.7298345, 0.56325793, 0, -0.48525456)
+script = ExtResource("6_jg32y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Elevator_switch" unique_id=761438808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0006137267, -0.0015364728, -0.010015249)
+material_override = SubResource("StandardMaterial3D_ui470")
+mesh = SubResource("BoxMesh_jg32y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Elevator_switch" unique_id=1746886863]
+transform = Transform3D(0.034288384, 0, 0, 0, 0.015059884, 0, 0, 0, 0.064757645, -0.00063914433, -0.0014890756, -0.008765876)
+shape = SubResource("BoxShape3D_ui470")
+
+[node name="InteractivePuzzle" parent="." unique_id=2056521526 instance=ExtResource("7_ui470")]

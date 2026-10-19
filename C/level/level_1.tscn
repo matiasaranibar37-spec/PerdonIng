@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://pel7qmj15p13" path="res://assets/floorTexture.png" id="2_l1g64"]
 [ext_resource type="Texture2D" uid="uid://3vwybdw7bk32" path="res://assets/wallTexture.png" id="3_vb5hv"]
 [ext_resource type="Texture2D" uid="uid://bp48o314vbp5g" path="res://assets/wall_blood.png" id="4_nlkbw"]
+[ext_resource type="Script" uid="uid://dbdx8ou33r6t5" path="res://scripts/camera_3dlevel1.gd" id="5_q08ld"]
 [ext_resource type="PackedScene" uid="uid://cf0xkdmufl64i" path="res://level/ui/hud.tscn" id="6_l1g64"]
 [ext_resource type="Script" uid="uid://dtiycl7s81t0f" path="res://scripts/player.gd" id="7_player"]
 [ext_resource type="Script" uid="uid://bybsk1l1cxy8r" path="res://scripts/pointer_manager.gd" id="8_pointer"]
@@ -49,6 +50,13 @@ albedo_texture = ExtResource("4_nlkbw")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56pii"]
 albedo_texture = ExtResource("3_vb5hv")
+
+[sub_resource type="Curve3D" id="Curve3D_q08ld"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -11.51276, -0.7062013, -1.7414618, 0, 0, 0, 0, 0, 0, -15.202761, -0.7062013, -1.7064667, 0, 0, 0, 0, 0, 0, -16.300505, -0.7062013, -0.6995888, 0, 0, 0, 0, 0, 0, -16.257984, -0.7062013, 2.874587, 0, 0, 0, 0, 0, 0, -5.7467914, -0.7062013, 2.9059105, 0, 0, 0, 0, 0, 0, -6.9935117, -0.7062013, -1.647335, 0, 0, 0, 0, 0, 0, -6.980834, -0.7062013, -5.570304, 0, 0, 0, 0, 0, 0, -6.943547, -0.7062013, -5.7827005, 0, 0, 0, 0, 0, 0, -6.879265, -0.7062013, -6.0593452, 0, 0, 0, 0, 0, 0, -6.8078847, -0.7062013, -6.249076, 0, 0, 0, 0, 0, 0, -6.7224536, -0.7062013, -6.43322, 0, 0, 0, 0, 0, 0, -6.6558776, -0.7062013, -6.584609, 0, 0, 0, 0, 0, 0, -6.59328, -0.7062013, -6.7131443, 0, 0, 0, 0, 0, 0, -6.523519, -0.7062013, -6.81995, 0, 0, 0, 0, 0, 0, -6.2161264, -0.7062013, -7.0245714, 0, 0, 0, 0, 0, 0, -5.898838, -0.7062013, -7.063873, 0, 0, 0, 0, 0, 0, -5.45715, -0.7062013, -6.973286, 0, 0, 0, 0, 0, 0, -2.079764, -0.7062013, -6.329967, 0, 0, 0, 0, 0, 0, -1.3677526, -0.7062013, -6.546017, 0, 0, 0, 0, 0, 0, -0.8921199, -0.7062013, -7.226556, 0, 0, 0, 0, 0, 0, -1.0461717, -0.7062018, -7.6708326, 0, 0, 0, 0, 0, 0, -1.3440142, -0.70620203, -7.9538937, 0, 0, 0, 0, 0, 0, -1.7941313, -0.70620227, -8.138514, 0, 0, 0, 0, 0, 0, -3.2787538, -0.70620036, -6.722441, 0, 0, 0, 0, 0, 0, -7.4155426, -0.7062013, -8.505085, 0, 0, 0, 0, 0, 0, -7.3036776, -0.7062013, -13.1545, 0, 0, 0, 0, 0, 0, -6.374645, -0.7062013, -16.673773, 0, 0, 0, 0, 0, 0, -6.4868255, -0.70620227, -21.878532, 0, 0, 0, 0, 0, 0, -6.5149307, -0.7062013, -24.989971, 0, 0, 0, 0, 0, 0, -4.2686973, -0.70620036, -24.93187, 0, 0, 0, 0, 0, 0, 2.9845643, -0.70620036, -24.421013, 0, 0, 0, 0, 0, 0, 3.099341, -0.70620036, -28.00509, 0, 0, 0, 0, 0, 0, -13.637527, -0.7062013, -28.43683),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 33
 
 [node name="level1" type="Node3D" unique_id=420789406]
 script = ExtResource("1_jfgjb")
@@ -216,20 +224,30 @@ use_collision = true
 size = Vector3(15.447769, 1, 1)
 material = SubResource("StandardMaterial3D_hdc4k")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=636719238]
-transform = Transform3D(0.9879734, 0.021818876, -0.15307671, 0.0051564123, 0.98479426, 0.17364824, 0.15453787, -0.17234915, 0.97283804, -1.1752491, 1.4144111, 8.808038)
-current = true
+[node name="CameraRail" type="Path3D" parent="." unique_id=2123817714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.366365, 0.80620074, 12.9167)
+curve = SubResource("Curve3D_q08ld")
+
+[node name="RailFollow" type="PathFollow3D" parent="CameraRail" unique_id=664040273]
+transform = Transform3D(-0.009483336, 0, 0.99995476, 0, 1.0000021, 0, -0.9999401, 0, -0.009483474, -11.51276, -0.7062013, -1.7414618)
+rotation_mode = 1
+loop = false
+tilt_enabled = false
+
+[node name="Camera3D" type="Camera3D" parent="CameraRail/RailFollow" unique_id=937610133]
+transform = Transform3D(1.000015, 1.5832752e-08, 8.381903e-09, -1.5832482e-08, 0.9999979, -4.190941e-09, -6.519258e-09, 4.190951e-09, 1.0000004, 0.38868713, 1.2987883, -0.018977642)
+script = ExtResource("5_q08ld")
 
 [node name="PlayerP1" type="Node3D" parent="." unique_id=100000001]
 script = ExtResource("7_player")
-camera_path = NodePath("../Camera3D")
+camera_path = NodePath("../CameraRail")
 
 [node name="RayCast3D" type="RayCast3D" parent="PlayerP1" unique_id=867048775]
 
 [node name="PlayerP2" type="Node3D" parent="." unique_id=100000002]
 script = ExtResource("7_player")
 player_id = 2
-camera_path = NodePath("../Camera3D")
+camera_path = NodePath("../CameraRail")
 
 [node name="RayCast3D" type="RayCast3D" parent="PlayerP2" unique_id=1802824623]
 

@@ -2,7 +2,7 @@ extends Node3D
 
 @export var interruptores_necesarios: int = 3
 @export_file("*.tscn") var siguiente_nivel: String = "res://level/level_2.tscn"
-@export var velocidad_camara: float = 2.0
+@export var velocidad_camara: float = 1.0
 
 var interruptores_activados: int = 0
 var nivel_completado := false
@@ -34,6 +34,10 @@ func _process(delta: float) -> void:
 	# Mueve la cámara sobre el riel hacia el fondo del pasillo
 	if not camino_completado and rail_follow:
 		rail_follow.progress += velocidad_camara * delta
+		# FORZAR A LA CÁMARA A MANTENERSE TOTALMENTE HORIZONTAL
+		
+		if $CameraRail/RailFollow/Camera3D:
+			$CameraRail/RailFollow/Camera3D.rotation.z = 0.0 # Cancela la inclinación lateral
 		
 		# Al llegar cerca del final del pasillo (frente a la puerta del ascensor)
 		if rail_follow.progress_ratio >= 0.98:
