@@ -26,15 +26,15 @@ func actualizar_hud() -> void:
 		
 		# Validamos que cada etiqueta exista antes de cambiar su texto
 		if label_score:
-			label_score.text = "Puntaje: " + str(gm.score)
+			label_score.text = "SCORE: " + str(gm.score)
 		if label_p1_health:
-			label_p1_health.text = "P1 Salud: " + str(gm.p1_health)
+			label_p1_health.text = "P1 HEALTH: " + str(gm.p1_health)
 		if label_p2_health:
-			label_p2_health.text = "P2 Salud: " + str(gm.p2_health)
+			label_p2_health.text = "P2 HEALTH: " + str(gm.p2_health)
 
 func _on_score_updated(nuevo_puntaje: int) -> void:
 	if label_score:
-		label_score.text = "Puntaje: " + str(nuevo_puntaje)
+		label_score.text = "SCORE: " + str(nuevo_puntaje)
 
 func mostrar_mensaje_transicion(texto: String) -> void:
 	if label_mensaje:

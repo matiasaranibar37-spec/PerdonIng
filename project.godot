@@ -12,7 +12,7 @@ config_version=5
 
 config/name="videojuegoModelo1"
 run/main_scene="res://scenes/character_select.tscn"
-config/features=PackedStringArray("4.6", "Mobile")
+config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]

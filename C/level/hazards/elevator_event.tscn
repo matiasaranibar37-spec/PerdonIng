@@ -87,8 +87,10 @@ offset_bottom = 40.0
 
 [node name="fire_extinguisher" type="TextureButton" parent="SelectionUI/Control" unique_id=1518339430]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 126.0
+offset_top = 75.0
+offset_right = 486.0
+offset_bottom = 435.0
 texture_normal = ExtResource("3_ex8sg")
 
 [node name="plastic_tube" type="TextureButton" parent="SelectionUI/Control" unique_id=1594451120]

@@ -53,7 +53,7 @@ label_settings = SubResource("LabelSettings_jfgjb")
 [node name="labelScore" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=111588019]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "Puntaje: 0"
+text = "SCORE: 0"
 label_settings = SubResource("LabelSettings_l1g64")
 
 [node name="labelP2Health" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=1613016392]
