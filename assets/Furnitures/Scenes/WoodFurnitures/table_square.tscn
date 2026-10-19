@@ -1,0 +1,66 @@
+[gd_scene format=4 uid="uid://cikfs8lwq8a24"]
+
+[ext_resource type="Material" uid="uid://cm3jc3s13cjr5" path="res://assets/Furnitures/material/WoodTrimStacked.material" id="1_5rru4"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l2a4j"]
+_surfaces = [{
+"aabb": AABB(-0.635885, 0, -0.635885, 1.27178, 1.12001, 1.27177),
+"format": 34896613377,
+"index_count": 252,
+"index_data": PackedByteArray("AAAGAAQAAAACAAYAAwAGAAIAAwAHAAYABwAEAAYABwAFAAQABQADAAEABQAHAAMAAQACAAAAAQADAAIABQAAAAQABQABAAAACAAOAAwACAAKAA4ACwAOAAoACwAPAA4ADwAMAA4ADwANAAwADQALAAkADQAPAAsACQAKAAgACQALAAoADQAIAAwADQAJAAgAEAAWABIAEAAUABYAEwAWABcAEwASABYAFwAUABUAFwAWABQAFQATABcAFQARABMAEQASABMAEQAQABIAFQAQABEAFQAUABAAGAAeABoAGAAcAB4AGwAeAB8AGwAaAB4AHwAcAB0AHwAeABwAHQAbAB8AHQAZABsAGQAaABsAGQAYABoAHQAYABkAHQAcABgAIAAmACQAIAAiACYAIwAmACIAIwAnACYAJwAkACYAJwAlACQAJQAjACEAJQAnACMAIQAiACAAIQAjACIAJQAgACQAJQAhACAAKwAuACoAKwAvAC4ALQArACkALQAvACsALQAoACwALQApACgAMwA2ADcAMwAyADYANQAzADcANQAxADMANQAwADEANQA0ADAAOwA+AD8AOwA6AD4APQA7AD8APQA5ADsAPQA4ADkAPQA8ADgAQwBGAEIAQwBHAEYARQBDAEEARQBHAEMARQBAAEQARQBBAEAA"),
+"name": "WoodTrimStacked",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("/v/+/wAAAAD+/5DkAAAAAP7//v///wAA/v+Q5P//AAAAAP7/AAAAAAAAkOQAAAAAAAD+////AAAAAJDk//8AACkikOTV3QAAKSIAANXdAAApIpDkkvYAACkiAACS9gAAbAmQ5NXdAABsCQAA1d0AAGwJkOSS9gAAbAkAAJL2AADV3ZDk1d0AANXdAADV3QAA1d2Q5JL2AADV3QAAkvYAAJH2kOTV3QAAkfYAANXdAACR9pDkkvYAAJH2AACS9gAAKSKQ5CkiAAApIgAAKSIAACkikORsCQAAKSIAAGwJAABsCZDkKSIAAGwJAAApIgAAbAmQ5GwJAABsCQAAbAkAANXdkOQpIgAA1d0AACkiAADV3ZDkbAkAANXdAABsCQAAkfaQ5CkiAACR9gAAKSIAAJH2kORsCQAAkfYAAGwJAADV3ZDkIOMAANXdzMwg4wAA1d2Q5EfxAADV3czMR/EAACkikOQg4wAAKSLMzCDjAAApIpDkR/EAACkizMxH8QAAH+OQ5NXdAAAf48zM1d0AAEfxkOTV3QAAR/HMzNXdAAAf45DkKSIAAB/jzMwpIgAAR/GQ5CkiAABH8czMKSIAAN4ckOQpIgAA3hzMzCkiAAC3DpDkKSIAALcOzMwpIgAA3hyQ5NXdAADeHMzM1d0AALcOkOTV3QAAtw7MzNXdAAApIpDk3hwAACkizMzeHAAAKSKQ5LcOAAApIszMtw4AANXdkOTeHAAA1d3MzN4cAADV3ZDktw4AANXdzMy3DgAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4kbg0"]
+resource_name = "WoodFurnitures_2_Furns_Table_Square_1"
+_surfaces = [{
+"aabb": AABB(-0.635885, 0, -0.635885, 1.27178, 1.12001, 1.27177),
+"attribute_data": PackedByteArray("hf7FcFuBrUB5gTl/or5RX4X+OX95gcVwhf45f1uBUV+F/jl/or6tQIX+xXCF/sVwhf45f3mBxXCivq1Ahf7FcFuBUV95gTl/eYE5f3mBOX+ivlFfeYHFcFuBrUB5gcVweYE5f1uBrUB5gTl/W4GtQIX+OX+F/jl/eYHFcFuBUV95gcVwW4FRX4X+xXCF/sVweYE5f3mBxXCivq1Ahf45f6K+rUCF/sVweYHFcHmBOX+ivlFfhf7FcKK+UV+F/jl/eYE5f3mBOX9bga1Ahf45f1uBrUCF/jl/eYHFcHmBxXBbgVFfhf7FcFuBUV+F/sVweYHFcKK+rUB5gTl/or6tQIX+xXCF/jl/eYE5f6K+UV95gcVwor5RX4X+OX+F/sVweYE5f1uBrUB5gTl/W4GtQIX+OX+F/jl/eYHFcFuBUV95gcVwW4FRX4X+xXCF/sVweYE5f3mBxXCivq1Ahf45f6K+rUCF/sVweYHFcHmBOX+ivlFfhf7FcKK+UV+F/jl/eYE5f3mBOX9bga1Ahf45f1uBrUCF/jl/eYHFcHmBxXBbgVFfhf7FcFuBUV+F/sVweYHFcKK+rUB5gTl/or6tQIX+xXCF/jl/eYE5f6K+UV95gcVwor5RX4X+OX+F/sVweYHFcIkBlWB5gTl/hf45f4kBaW+F/sVwhf7FcHX+lWCF/jl/eYE5f3X+aW95gcVweYHFcHmBOX+JAZVghf45f4kBaW+F/sVwhf7FcIX+OX91/pVgeYE5f3X+aW95gcVweYHFcIkBlWB5gTl/hf45f4X+xXCJAWlvhf7FcHX+lWCF/jl/eYE5f3mBxXB1/mlveYHFcIkBlWB5gTl/hf45f4kBaW+F/sVwhf7FcHX+lWCF/jl/eYE5f3X+aW95gcVw"),
+"format": 34896613399,
+"index_count": 252,
+"index_data": PackedByteArray("AQAUAA4AAQAHABQACgATAAYACgAXABMAFQAMABIAFQAPAAwAEAAJAAMAEAAWAAkABQAIAAIABQALAAgAEQAAAA0AEQAEAAAAGQAsACYAGQAfACwAIgArAB4AIgAvACsALQAkACoALQAnACQAKAAhABsAKAAuACEAHQAgABoAHQAjACAAKQAYACUAKQAcABgAMgBDADgAMgA9AEMAOwBCAEYAOwA3AEIARwA+AEEARwBEAD4APwA6AEUAPwA0ADoAMwA2ADkAMwAwADYAQAAxADUAQAA8ADEASQBcAE8ASQBWAFwAUgBbAF8AUgBOAFsAXQBUAFcAXQBaAFQAWABRAF4AWABLAFEATQBQAFMATQBKAFAAWQBIAEwAWQBVAEgAYgBzAG0AYgBoAHMAawByAGcAawB2AHIAdwBuAHQAdwBxAG4AbwBqAGQAbwB1AGoAYwBmAGAAYwBpAGYAcABhAGwAcABlAGEAfQCBAHsAfQCDAIEAfwB8AHkAfwCCAHwAgAB4AH4AgAB6AHgAiQCNAI8AiQCHAI0AjACIAI4AjACGAIgAiwCEAIUAiwCKAIQAlACZAJoAlACTAJkAlwCVAJsAlwCRAJUAmACQAJIAmACWAJAAoQClAJ8AoQCnAKUAowCgAJ0AowCmAKAApACcAKIApACeAJwA"),
+"material": ExtResource("1_5rru4"),
+"name": "WoodTrimStacked",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 168,
+"vertex_data": PackedByteArray("/v/+/wAAAAD+//7/AAAAAP7//v8AAP///v+Q5AAA/7/+/5DkAAAAAP7/kOQAAP///v/+/////n/+//7///8AAP7//v///////v+Q5P///7/+/5Dk///+f/7/kOT/////AAD+/wAA//8AAP7/AAAAAAAA/v8AAAAAAACQ5AAA//8AAJDkAAD/vwAAkOQAAAAAAAD+//////8AAP7////+fwAA/v///wAAAACQ5P////8AAJDk////vwAAkOT///5/KSKQ5NXd//8pIpDk1d0AACkikOTV3aoqKSIAANXd//8pIgAA1d3//ykiAADV3aoqKSKQ5JL2/78pIpDkkvYAACkikOSS9qoqKSIAAJL2//8pIgAAkvb/vykiAACS9qoqbAmQ5NXdVNVsCZDk1d3//2wJkOTV3QAAbAkAANXdVNVsCQAA1d3//2wJAADV3f//bAmQ5JL2VNVsCZDkkvb/v2wJkOSS9gAAbAkAAJL2VNVsCQAAkvb//2wJAACS9v+/1d2Q5NXdVNXV3ZDk1d0AANXdkOTV3f+/1d0AANXdVNXV3QAA1d3/P9XdAADV3QAA1d2Q5JL2VNXV3ZDkkvb/P9XdkOSS9v+/1d0AAJL2VNXV3QAAkvb/P9XdAACS9v8/kfaQ5NXdAACR9pDk1d3/v5H2kOTV3aoqkfYAANXd/z+R9gAA1d0AAJH2AADV3aoqkfaQ5JL2/z+R9pDkkvb/v5H2kOSS9qoqkfYAAJL2/z+R9gAAkvb/P5H2AACS9qoqKSKQ5Cki/z8pIpDkKSL//ykikOQpIlTVKSIAACkiAAApIgAAKSL/PykiAAApIlTVKSKQ5GwJAAApIpDkbAn//ykikORsCVTVKSIAAGwJAAApIgAAbAkAACkiAABsCVTVbAmQ5CkiqipsCZDkKSL/P2wJkOQpIv//bAkAACkiqipsCQAAKSIAAGwJAAApIv8/bAmQ5GwJqipsCZDkbAkAAGwJkORsCf//bAkAAGwJqipsCQAAbAkAAGwJAABsCQAA1d2Q5CkiqirV3ZDkKSL/v9XdkOQpIv8/1d0AACkiqirV3QAAKSL/v9XdAAApIv+/1d2Q5GwJqirV3ZDkbAn//9XdkORsCf8/1d0AAGwJqirV3QAAbAn/v9XdAABsCf//kfaQ5Cki/7+R9pDkKSL/P5H2kOQpIlTVkfYAACki/7+R9gAAKSL/v5H2AAApIlTVkfaQ5GwJ//+R9pDkbAn/P5H2kORsCVTVkfYAAGwJ/7+R9gAAbAn//5H2AABsCVTV1d2Q5CDj///V3czMIOP//9XdzMwg4///1d2Q5Efx/n/V3czMR/H//9XdzMxH8f5/KSKQ5CDj//8pIszMIOP//ykizMwg4///KSKQ5Efx/n8pIszMR/H//ykizMxH8f5/H+OQ5NXdAAAf48zM1d0AAB/jzMzV3aoqR/GQ5NXd//9H8czM1d2qKkfxzMzV3f//H+OQ5CkiAAAf48zMKSIAAB/jzMwpIqoqR/GQ5Cki//9H8czMKSKqKkfxzMwpIv//3hyQ5CkiAADeHMzMKSKqKt4czMwpIgAAtw6Q5Cki//+3DszMKSL//7cOzMwpIqoq3hyQ5NXdAADeHMzM1d2qKt4czMzV3QAAtw6Q5NXd//+3DszM1d3//7cOzMzV3aoqKSKQ5N4c/38pIszM3hz/vykizMzeHP9/KSKQ5LcOAAApIszMtw7/vykizMy3DgAA1d2Q5N4c/3/V3czM3hz/v9XdzMzeHP9/1d2Q5LcOAADV3czMtw7/v9XdzMy3DgAA////f/9//7//v/9/AAD/f////3//v/9//3////9//7//v/9/AAD/f/9/////v/9//z//f////3//f/+//z//fwAA/3////9//z//f/9/////f/+//z//fwAA/3//f////z//v/9//7+qqlRV/3//P/8//7+qqlRV/3//f/9//7+qqlRV/3//P/9//3+qqlRVVFWqqv8//7//f/+/VFWqqv9//z//P/+/VFWqqv9//3//f/+/VFWqqv9//z//f/9/VFWqqv8//7////9/VFWqqgAA/3//P/+/VFWqqv9//3////9/VFWqqgAA/3//f/9//z//v////3+qqlRVAAD/f/8//7+qqlRV/3//f////3+qqlRVAAD/f/9//3+qqlRV/3//f/9//7+qqlRV/3//P/9//3+qqlRV/z//v/9//7+qqlRV/3//P/8//7+qqlRVVFWqqv9//3//f/+/VFWqqv9//z//f/9/VFWqqv8//7//f/+/VFWqqv9//z//P/+/VFWqqv9//3////9/VFWqqgAA/3//f/9/VFWqqv8//7////9/VFWqqgAA/3//P/+//3//f////3+qqlRVAAD/f/9//3+qqlRV/z//v////3+qqlRVAAD/f/8//7+qqlRV/3/+//9//z//f/7//3////9//z//f////3/+//9//z//f/7//3////9//z//f////z//f/8//39UVVRV/7//f1RVVFX/v/9//z//f/8//39UVVRV/7//f1RVVFX/v/9//7//f6oqVNX/v/9//z//f/8//3+qKlTV/7//f6oqVNX/v/9//z//f/8//3+qKlTV/3///wAA/3//f////3/+/wAA/3//f/7//3///wAA/3//f////3/+/wAA/3//f/7/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_l2a4j")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l86c4"]
+size = Vector3(1.27515, 0.125, 1.2627)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lh8en"]
+size = Vector3(0.125977, 1, 0.126465)
+
+[node name="Table_Square" type="StaticBody3D" unique_id=467066703]
+
+[node name="Table_Square" type="MeshInstance3D" parent="." unique_id=258611342]
+mesh = SubResource("ArrayMesh_4kbg0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=302504035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05945, 0)
+shape = SubResource("BoxShape3D_l86c4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1029025368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528099, 0.50536, 0.5268)
+shape = SubResource("BoxShape3D_lh8en")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1017046958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528099, 0.50536, -0.527977)
+shape = SubResource("BoxShape3D_lh8en")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=248076078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52445, 0.50536, 0.5268)
+shape = SubResource("BoxShape3D_lh8en")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=1056143672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52445, 0.50536, -0.527977)
+shape = SubResource("BoxShape3D_lh8en")

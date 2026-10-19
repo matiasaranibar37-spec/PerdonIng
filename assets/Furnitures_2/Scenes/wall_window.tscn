@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cn62iwfldspp5"]
+
+[ext_resource type="PackedScene" uid="uid://digws4h3p02u1" path="res://assets/Furnitures_2/Models/GLTF format/wallWindow.glb" id="1_bt5a2"]
+
+[node name="wallWindow" unique_id=1540973814 instance=ExtResource("1_bt5a2")]

@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://d14gfhnxysggc"]
+
+[ext_resource type="Script" uid="uid://852c36tuqg2r" path="res://scripts/interactive_puzzle.gd" id="1_x4gh8"]
+[ext_resource type="Texture2D" uid="uid://rf43w2v027wh" path="res://assets/code_screen.webp" id="2_3mdut"]
+[ext_resource type="Texture2D" uid="uid://dspide0mu7ab2" path="res://assets/button.webp" id="3_f3j41"]
+[ext_resource type="Script" uid="uid://w46guw10vked" path="res://scripts/buttons_scripts/button_1.gd" id="4_f3j41"]
+[ext_resource type="Script" uid="uid://c36a80kskvn78" path="res://scripts/buttons_scripts/button_2.gd" id="5_v6f15"]
+[ext_resource type="Script" uid="uid://4fsiyxibd50t" path="res://scripts/buttons_scripts/button_3.gd" id="6_btxym"]
+[ext_resource type="Script" uid="uid://g10tvmqdlnqt" path="res://scripts/buttons_scripts/button_4.gd" id="7_mlpeq"]
+[ext_resource type="Script" uid="uid://dnudtpmv87oj8" path="res://scripts/buttons_scripts/button_5.gd" id="8_pb1iw"]
+[ext_resource type="Script" uid="uid://bqcya730p8qgy" path="res://scripts/buttons_scripts/button_6.gd" id="9_tevaa"]
+[ext_resource type="Script" uid="uid://by58i8ppwayvg" path="res://scripts/buttons_scripts/button_7.gd" id="10_jic7a"]
+[ext_resource type="Script" uid="uid://c556udfq47suf" path="res://scripts/buttons_scripts/button_8.gd" id="11_4lmyn"]
+[ext_resource type="Script" uid="uid://d4gu5ncsr6tav" path="res://scripts/buttons_scripts/button_9.gd" id="12_kq2pk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8w0r3"]
+font_size = 60
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8w0r3"]
+texture = ExtResource("3_f3j41")
+expand_margin_left = 25.0
+expand_margin_top = 22.0
+expand_margin_right = 25.0
+expand_margin_bottom = 22.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w7mgy"]
+texture = ExtResource("3_f3j41")
+expand_margin_left = 25.0
+expand_margin_top = 22.0
+expand_margin_right = 25.0
+expand_margin_bottom = 22.0
+
+[node name="InteractivePuzzle" type="CanvasLayer" unique_id=2056521526 groups=["switches"]]
+script = ExtResource("1_x4gh8")
+
+[node name="Control" type="Control" parent="." unique_id=1688698274]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1812640134]
+layout_mode = 0
+offset_right = 597.0
+offset_bottom = 665.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/VBoxContainer" unique_id=865916572]
+position = Vector2(308.50003, 39.999985)
+scale = Vector2(1.4612737, 0.42285717)
+texture = ExtResource("2_3mdut")
+
+[node name="DisplayLabel" type="Label" parent="Control/VBoxContainer" unique_id=792470427]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "000"
+label_settings = SubResource("LabelSettings_8w0r3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KeypadGrid" type="GridContainer" parent="Control/VBoxContainer" unique_id=603909401]
+layout_mode = 2
+columns = 3
+
+[node name="Button1" type="Button" parent="Control/VBoxContainer/KeypadGrid" unique_id=1375226537]
+custom_minimum_size = Vector2(200, 170)
+layout_mode = 2
+tooltip_text = "1"
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxTexture_8w0r3")
+text = "1"
+script = ExtResource("4_f3j41")
+
+[node name="Button2" type="Button" parent="Control/VBoxContainer/KeypadGrid" unique_id=1588655099]
+custom_minimum_size = Vector2(200, 170)
+layout_mode = 2
+tooltip_text = "2"
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxTexture_w7mgy")
+text = "2"
+script = ExtResource("5_v6f15")
+
+[node name="Button3" type="Button" parent="Control/VBoxContainer/KeypadGrid" unique_id=1916482515]
+custom_minimum_size = Vector2(200, 170)
+layout_mode = 2
+tooltip_text = "3"
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxTexture_w7mgy")
+text = "3"
+script = ExtResource("6_btxym")
+
+[node name="Button4" type="Button" parent="Control/VBoxContainer/KeypadGrid" unique_id=1673094020]
+custom_minimum_size = Vector2(200, 170)
+layout_mode = 2
+tooltip_text = "4"
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxTexture_w7mgy")
+text = "4"
+script = ExtResource("7_mlpeq")
+
+[node name="Button5" type="Button" parent="Control/VBoxContainer/KeypadGrid" unique_id=2142579641]
+custom_minimum_size = Vector2(200, 170)
+layout_mode = 2
+tooltip_text = "5"
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxTexture_w7mgy")
+text = "5"
+script = ExtResource("8_pb1iw")
+
+[node name="Button6" type="Button" parent="Control/VBoxContainer/KeypadGrid" unique_id=75506129]
+custom_minimum_size = Vector2(200, 170)
+layout_mode = 2
+tooltip_text = "6"
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxTexture_w7mgy")
+text = "6"
+script = ExtResource("9_tevaa")
+
+[node name="Button7" type="Button" parent="Control/VBoxContainer/KeypadGrid" unique_id=206804346]
+custom_minimum_size = Vector2(200, 170)
+layout_mode = 2
+tooltip_text = "7"
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxTexture_w7mgy")
+text = "7"
+script = ExtResource("10_jic7a")
+
+[node name="Button8" type="Button" parent="Control/VBoxContainer/KeypadGrid" unique_id=787481100]
+custom_minimum_size = Vector2(200, 170)
+layout_mode = 2
+tooltip_text = "8"
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxTexture_w7mgy")
+text = "8"
+script = ExtResource("11_4lmyn")
+
+[node name="Button9" type="Button" parent="Control/VBoxContainer/KeypadGrid" unique_id=1514034012]
+custom_minimum_size = Vector2(200, 170)
+layout_mode = 2
+tooltip_text = "9"
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxTexture_w7mgy")
+text = "9"
+script = ExtResource("12_kq2pk")
