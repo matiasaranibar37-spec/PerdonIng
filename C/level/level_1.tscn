@@ -247,7 +247,7 @@ camera_path = NodePath("../CameraRail/RailFollow/Camera3D")
 [node name="PlayerP2" type="Node3D" parent="." unique_id=100000002]
 script = ExtResource("7_player")
 player_id = 2
-camera_path = NodePath("../CameraRail")
+camera_path = NodePath("../CameraRail/RailFollow/Camera3D")
 
 [node name="RayCast3D" type="RayCast3D" parent="PlayerP2" unique_id=1802824623]
 

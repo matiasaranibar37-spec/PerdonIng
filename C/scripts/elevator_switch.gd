@@ -1,14 +1,22 @@
 extends Area3D
 
-signal interruptor_disparado
+#@export var puzzle_ui: CanvasLayer # Arrastrado en el Inspector
+#
+#func recibir_disparo(_jugador_id: String) -> void:
+	#print("¡Interruptor disparado! Mostrando teclado numérico.")
+	#if puzzle_ui:
+		#puzzle_ui.show()
+		#puzzle_ui.visible = true
+		#
+		# Forzar que el nodo Control y sus hijos también se muestren
+		#var control_node = puzzle_ui.get_node_or_null("Control")
+		#if control_node:
+			#control_node.show()
+			#control_node.visible = true
+			
 
-@export var puzzle_ui: CanvasLayer # Arrastra la escena InteractivePuzzle aquí en el Inspector
-
-# Esta función es invocada por el pointer_manager al hacer clic/disparar
 func recibir_disparo(_jugador_id: String) -> void:
 	print("¡Interruptor disparado! Mostrando teclado numérico.")
-	
-	if puzzle_ui:
-		puzzle_ui.show()
-	
-	interruptor_disparado.emit()
+	var ascensor_padre = get_parent()
+	if ascensor_padre and ascensor_padre.has_method("activar_teclado_puzzle"):
+		ascensor_padre.activar_teclado_puzzle()
