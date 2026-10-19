@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://vcqu3yhphrpn"]
+
+[ext_resource type="PackedScene" uid="uid://y0rn2342upe3" path="res://assets/Furnitures_2/Models/GLTF format/doorwayOpen.glb" id="1_ev00x"]
+
+[node name="doorwayOpen" unique_id=626077370 instance=ExtResource("1_ev00x")]
