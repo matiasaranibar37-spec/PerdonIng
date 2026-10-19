@@ -34,6 +34,7 @@ func shoot(screen_position: Vector2) -> void:
 	raycast.global_basis = Basis.looking_at(ray_direction, Vector3.UP)
 	raycast.target_position = Vector3(0.0, 0.0, -ray_length)
 	raycast.force_raycast_update()
+	
 	if raycast.is_colliding():
 		end_point = raycast.get_collision_point()
 		var target: Object = raycast.get_collider()

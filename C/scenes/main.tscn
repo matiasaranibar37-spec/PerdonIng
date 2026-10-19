@@ -6,6 +6,15 @@
 [node name="main" type="Node3D" unique_id=688174575]
 
 [node name="level1" parent="." unique_id=420789406 instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.545349, 0, -17.023098)
 
-[node name="CharacterBody3D" parent="." unique_id=373837389 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(0.15046394, 0, 0.9886156, 0, 1, 0, -0.9886156, 0, 0.15046394, -4.716414, 0.12761497, -15.345984)
+[node name="zombies" type="Node3D" parent="." unique_id=202535608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.661598, 0, -1.0600901)
+
+[node name="CharacterBody3D" parent="zombies" unique_id=373837389 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.727942, 0, 0.56975603)
+speed = 2.0
+
+[node name="CharacterBody3D3" parent="zombies" unique_id=402766436 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.55577, 0, 0.07946777)
+speed = 1.5

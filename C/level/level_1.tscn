@@ -240,7 +240,7 @@ script = ExtResource("5_q08ld")
 
 [node name="PlayerP1" type="Node3D" parent="." unique_id=100000001]
 script = ExtResource("7_player")
-camera_path = NodePath("../CameraRail")
+camera_path = NodePath("../CameraRail/RailFollow/Camera3D")
 
 [node name="RayCast3D" type="RayCast3D" parent="PlayerP1" unique_id=867048775]
 
