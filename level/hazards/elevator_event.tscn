@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://c5v2kl60ii3ti" path="res://assets/pen.png" id="5_ui470"]
 [ext_resource type="Script" uid="uid://bjywdtskuv0ie" path="res://scripts/elevator_switch.gd" id="6_jg32y"]
 [ext_resource type="PackedScene" uid="uid://d14gfhnxysggc" path="res://level/hazards/interactive_puzzle.tscn" id="7_ui470"]
+[ext_resource type="PackedScene" uid="uid://cwhb3p8cd63w7" path="res://assets/Figures3D/fire_extinguisher_3d.tscn" id="8_mpcr2"]
+[ext_resource type="PackedScene" uid="uid://c7aqe10rfvfg" path="res://assets/Figures3D/pen_3d.tscn" id="9_wy5ea"]
+[ext_resource type="PackedScene" uid="uid://b7pmdpwp2q472" path="res://assets/Figures3D/plastic_tube_3d.tscn" id="10_jcs1d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8w0r3"]
 albedo_texture = ExtResource("2_bvfrw")
@@ -60,6 +63,7 @@ material = SubResource("StandardMaterial3D_8w0r3")
 
 [node name="floor" type="CSGBox3D" parent="Inside" unique_id=1853249032]
 transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, -0.9999998, 0, 0.9999999, -4.371138e-08, 0, -0.4994357, -0.001734145)
+use_collision = true
 size = Vector3(1, 0.98291016, 0.021484375)
 material = SubResource("StandardMaterial3D_8w0r3")
 
@@ -78,6 +82,7 @@ material = SubResource("StandardMaterial3D_w7mgy")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="DoorRight" unique_id=789309636]
 
 [node name="SelectionUI" type="CanvasLayer" parent="." unique_id=1341297966]
+visible = false
 
 [node name="Control" type="Control" parent="SelectionUI" unique_id=125428650]
 layout_mode = 3
@@ -123,3 +128,14 @@ transform = Transform3D(0.034288384, 0, 0, 0, 0.015059884, 0, 0, 0, 0.064757645,
 shape = SubResource("BoxShape3D_ui470")
 
 [node name="InteractivePuzzle" parent="." unique_id=2056521526 instance=ExtResource("7_ui470")]
+
+[node name="PuzzleObjects" type="Node3D" parent="." unique_id=1671605835]
+
+[node name="Fire_Extinguisher3D" parent="PuzzleObjects" unique_id=1986192298 instance=ExtResource("8_mpcr2")]
+transform = Transform3D(0.19999997, 0, 0, 0, 0.19999997, 0, 0, 0, 0.19999997, -0.18422009, -0.16319112, 0.15039188)
+
+[node name="Pen3D" parent="PuzzleObjects" unique_id=1888261788 instance=ExtResource("9_wy5ea")]
+transform = Transform3D(0.39999998, 0, 0, 0, 0.39999998, 0, 0, 0, 0.39999998, 0.19888684, 0, 0)
+
+[node name="Plastic_Tube3D" parent="PuzzleObjects" unique_id=1667504072 instance=ExtResource("10_jcs1d")]
+transform = Transform3D(0.45, 0, 0, 0, 0.44999993, 0, 0, 0, 0.44999993, -0.09311777, 0, -0.10682523)

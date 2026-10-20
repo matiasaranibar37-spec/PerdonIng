@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cwhb3p8cd63w7"]
+
+[ext_resource type="Script" uid="uid://cjidol5db4lsm" path="res://scripts/objects/fire_extinguisher_3d.gd" id="1_1nxao"]
+[ext_resource type="Texture2D" uid="uid://bmhymxxghjmj5" path="res://assets/elevator_metal wall.png" id="1_3k2h0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8w0r3"]
+height = 3.1572266
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydnqi"]
+albedo_color = Color(0.9529412, 0, 0.023529412, 1)
+albedo_texture = ExtResource("1_3k2h0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd40g"]
+albedo_texture = ExtResource("1_3k2h0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8w0r3"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 0.12
+metallic_specular = 0.59
+
+[node name="Fire_Extinguisher3D" type="Area3D" unique_id=1986192298]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_1nxao")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=357149455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26611328, 0)
+shape = SubResource("CapsuleShape3D_8w0r3")
+
+[node name="ExtinguisherFigure" type="CSGCombiner3D" parent="." unique_id=2102928744]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="ExtinguisherFigure" unique_id=583373156]
+sides = 20
+material = SubResource("StandardMaterial3D_ydnqi")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="ExtinguisherFigure" unique_id=763187044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98052216, 0)
+radius = 0.49755868
+material = SubResource("StandardMaterial3D_ydnqi")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="ExtinguisherFigure" unique_id=2088746376]
+transform = Transform3D(0.27746606, 0, 0, 0, 0.2698844, 0, 0, 0, 0.29183468, 0, 1.4941957, 0)
+material = SubResource("StandardMaterial3D_cd40g")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="ExtinguisherFigure" unique_id=892539110]
+transform = Transform3D(0.1809607, 0, 0, 0, -8.064174e-09, -0.17630114, 0, 0.1844868, -7.706368e-09, 0, 1.5316272, -0.30754584)
+sides = 30
+material = SubResource("StandardMaterial3D_8w0r3")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="ExtinguisherFigure" unique_id=1545979929]
+transform = Transform3D(0.092028156, 0, 0, 0, 0.047748704, -0.05606073, 0, 0.17820057, 0.015021429, 0, 1.6005166, 0.28627765)
+sides = 30
+material = SubResource("StandardMaterial3D_8w0r3")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="ExtinguisherFigure" unique_id=1920751477]
+transform = Transform3D(0.092028156, 0, 0, 0, -0.0477487, -0.05606073, 0, 0.17820057, -0.015021428, 0, 1.5112509, 0.28627765)
+sides = 30
+material = SubResource("StandardMaterial3D_8w0r3")

@@ -243,6 +243,7 @@ script = ExtResource("7_player")
 camera_path = NodePath("../CameraRail/RailFollow/Camera3D")
 
 [node name="RayCast3D" type="RayCast3D" parent="PlayerP1" unique_id=867048775]
+collide_with_areas = true
 
 [node name="PlayerP2" type="Node3D" parent="." unique_id=100000002]
 script = ExtResource("7_player")
@@ -250,6 +251,7 @@ player_id = 2
 camera_path = NodePath("../CameraRail/RailFollow/Camera3D")
 
 [node name="RayCast3D" type="RayCast3D" parent="PlayerP2" unique_id=1802824623]
+collide_with_areas = true
 
 [node name="PointerManager" type="CanvasLayer" parent="." unique_id=100000003]
 script = ExtResource("8_pointer")

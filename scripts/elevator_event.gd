@@ -4,8 +4,8 @@ extends Node3D
 @onready var door_left: CSGBox3D = $DoorLeft
 @onready var door_right: CSGBox3D = $DoorRight
 @onready var zombie_emboscada: Node3D = $ZombieEmboscada
-@onready var selection_ui: CanvasLayer = $SelectionUI
 @onready var puzzle_ui: CanvasLayer = get_node_or_null("InteractivePuzzle") # Referencia al teclado
+@onready var puzzle_objects: Node3D = get_node_or_null("PuzzleObjects") # Referencia a los objetos 3D interactivos
 
 # Parámetros editables desde el Inspector
 @export var distancia_apertura: float = 1.0  # Distancia que desliza cada puerta
@@ -19,15 +19,23 @@ var pos_inicial_izq: Vector3
 var pos_inicial_der: Vector3
 
 func _ready() -> void:
+	# Nos unimos al grupo para que los objetos 3D y el interruptor puedan encontrar este nodo fácilmente
+	add_to_group("elevator_event")
+	
 	# Guardamos las posiciones iniciales de las puertas cerradas
 	pos_inicial_izq = door_left.position
 	pos_inicial_der = door_right.position
 	
-	# Ocultamos la UI y el zombie al arrancar la escena
-	if selection_ui:
-		selection_ui.hide()
+	## Ocultamos la UI y el zombie al arrancar la escena
+	#if selection_ui:
+		#selection_ui.hide()
+	#if zombie_emboscada:
+		#zombie_emboscada.hide()
+	# Ocultamos la UI del teclado, el zombie y los objetos 3D al arrancar
 	if zombie_emboscada:
 		zombie_emboscada.hide()
+	if puzzle_objects:
+		puzzle_objects.hide()
 	
 	# Escuchar cuando se resuelva la clave de 3 dígitos
 	if puzzle_ui:
@@ -68,13 +76,22 @@ func _ejecutar_emboscada_zombie() -> void:
 	if zombie_emboscada:
 		zombie_emboscada.show()
 		
-	if selection_ui:
-		selection_ui.show()
+	#if selection_ui:
+		#selection_ui.show()
+	# Hacemos visibles los objetos 3D para que los jugadores puedan dispararles
+	if puzzle_objects:
+		puzzle_objects.show()
+		# Iniciar el efecto de flotación en todos los objetos 3D
+		for objeto in puzzle_objects.get_children():
+			if objeto.has_method("iniciar_efecto_flotacion"):
+				objeto.iniciar_efecto_flotacion()
 
 # Función que procesa la elección realizada por el jugador
 func seleccionar_objeto(objeto_elegido: Objeto) -> void:
-	if selection_ui:
-		selection_ui.hide()
+	#if selection_ui:
+		#selection_ui.hide()
+	if puzzle_objects:
+		puzzle_objects.hide()
 		
 	if objeto_elegido == OBJETO_CORRECTO:
 		print("¡Correcto! Neutralizaste al zombie con el extintor.")

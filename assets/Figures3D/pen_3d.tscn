@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c7aqe10rfvfg"]
+
+[ext_resource type="Script" uid="uid://du1yqmtqs0jey" path="res://scripts/objects/pen_3d.gd" id="1_2yv85"]
+[ext_resource type="Texture2D" uid="uid://bmhymxxghjmj5" path="res://assets/elevator_metal wall.png" id="1_wc75p"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8w0r3"]
+radius = 0.037
+height = 0.35
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7mgy"]
+albedo_color = Color(0.24080771, 0.31740844, 0.4153554, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8w0r3"]
+albedo_color = Color(0.6847321, 0.68473184, 0.68473196, 1)
+albedo_texture = ExtResource("1_wc75p")
+
+[node name="Pen3D" type="Area3D" unique_id=1888261788]
+script = ExtResource("1_2yv85")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=216188317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.031870347, 0)
+shape = SubResource("CapsuleShape3D_8w0r3")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=461796941]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1322845816]
+radius = 0.03
+height = 0.3
+cone = true
+material = SubResource("StandardMaterial3D_w7mgy")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1303752913]
+transform = Transform3D(0.026830617, 0, 0, 0, 0.058327828, 0, 0, 0, -0.022269182, 0, -0.17320634, 0)
+material = SubResource("StandardMaterial3D_8w0r3")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1632602645]
+transform = Transform3D(0.056134403, 0, 0, 0, 0.015309531, 0, 0, 0, -0.067709014, 0, -0.15518126, 0)
+material = SubResource("StandardMaterial3D_8w0r3")
