@@ -1,24 +1,55 @@
 [gd_scene format=3 uid="uid://cf0xkdmufl64i"]
 
 [ext_resource type="Script" uid="uid://bv624avi8gtbp" path="res://scripts/hud.gd" id="1_kjcda"]
+[ext_resource type="FontFile" uid="uid://bpkwn2uh0rm8j" path="res://assets/Font/28 Days Later.ttf" id="2_4umfv"]
+[ext_resource type="Texture2D" uid="uid://cxuik7dv4noc6" path="res://assets/blood.webp" id="2_iq81i"]
+[ext_resource type="Texture2D" uid="uid://ydt8ngs4xuqv" path="res://assets/blood4.webp" id="3_etl7a"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_jfgjb"]
-outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_iq81i"]
+font = ExtResource("2_4umfv")
+font_size = 24
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_l1g64"]
-outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga167"]
+bg_color = Color(0.15686275, 0.78431374, 0.15686275, 1)
+border_color = Color(0, 0, 0, 1)
+corner_detail = 10
+shadow_color = Color(0, 0, 0, 0.7294118)
+shadow_size = 15
+shadow_offset = Vector2(5, 3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_vb5hv"]
-outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_mmd60"]
+font = ExtResource("2_4umfv")
+font_size = 24
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_8w0r3"]
-font_size = 35
-outline_size = 3
-outline_color = Color(0, 0, 0, 1)
-shadow_color = Color(0.53083473, 0.5776387, 0.13496163, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4umfv"]
+bg_color = Color(0.15686275, 0.5019608, 0.78431374, 1)
+border_color = Color(0, 0, 0, 1)
+corner_detail = 10
+shadow_color = Color(0, 0, 0, 0.5882353)
+shadow_size = 15
+shadow_offset = Vector2(-5, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_acmsl"]
+font = ExtResource("2_4umfv")
+font_size = 24
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aie4d"]
+font = ExtResource("2_4umfv")
+font_size = 24
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h30r8"]
+font = ExtResource("2_4umfv")
+font_size = 30
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="HUD" type="CanvasLayer" unique_id=926142427]
 script = ExtResource("1_kjcda")
@@ -31,42 +62,123 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=513822180]
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1409955892]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 43.0
-grow_horizontal = 2
+anchors_preset = -1
+offset_left = -83.0
+offset_top = -29.000002
+offset_right = 267.0
+offset_bottom = 321.0
+scale = Vector2(1.4800005, 0.40870553)
+texture = ExtResource("2_iq81i")
+
+[node name="TextureRect2" type="TextureRect" parent="Control" unique_id=1753789985]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 722.0
+offset_top = -29.000002
+offset_right = 1072.0
+offset_bottom = 321.0
+scale = Vector2(1.4800005, 0.40870553)
+texture = ExtResource("2_iq81i")
+
+[node name="TextureRect3" type="TextureRect" parent="Control" unique_id=734763901]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 345.0
+offset_top = -29.000002
+offset_right = 705.0
+offset_bottom = 331.0
+scale = Vector2(1.4800005, 0.40870553)
+texture = ExtResource("3_etl7a")
+
+[node name="P1Container" type="MarginContainer" parent="Control" unique_id=513822180]
+layout_mode = 1
+offset_right = 284.0
+offset_bottom = 110.0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=754330205]
+[node name="HBoxContainer" type="VBoxContainer" parent="Control/P1Container" unique_id=902244211]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HeaderBanner" type="HBoxContainer" parent="Control/P1Container/HBoxContainer" unique_id=2138512330]
 layout_mode = 2
 
-[node name="labelP1Health" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=943027561]
+[node name="P1Label" type="Label" parent="Control/P1Container/HBoxContainer/HeaderBanner" unique_id=182560593]
 layout_mode = 2
-text = "Player 1: 100"
-label_settings = SubResource("LabelSettings_jfgjb")
+text = "PLAYER 1"
+label_settings = SubResource("LabelSettings_iq81i")
 
-[node name="labelScore" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=111588019]
+[node name="HealthBarP1" type="ProgressBar" parent="Control/P1Container/HBoxContainer/HeaderBanner" unique_id=1128690077]
+custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
-size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("2_4umfv")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/background = SubResource("StyleBoxFlat_ga167")
+value = 100.0
+show_percentage = false
+
+[node name="KillsP1Label" type="Label" parent="Control/P1Container/HBoxContainer" unique_id=958941968]
+layout_mode = 2
+text = "KILLS: 0"
+label_settings = SubResource("LabelSettings_mmd60")
+
+[node name="P2Container" type="MarginContainer" parent="Control" unique_id=1314240109]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -273.0
+offset_top = 1.0
+offset_right = 11.0
+offset_bottom = 105.0
+grow_horizontal = 0
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="Control/P2Container" unique_id=383161052]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HeaderBanner" type="HBoxContainer" parent="Control/P2Container/HBoxContainer2" unique_id=1793992713]
+layout_mode = 2
+
+[node name="HealthBarP2" type="ProgressBar" parent="Control/P2Container/HBoxContainer2/HeaderBanner" unique_id=177568707]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4umfv")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/background = SubResource("StyleBoxFlat_4umfv")
+show_percentage = false
+
+[node name="P2Label" type="Label" parent="Control/P2Container/HBoxContainer2/HeaderBanner" unique_id=1845042245]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4umfv")
+text = "PLAYER 2"
+label_settings = SubResource("LabelSettings_acmsl")
+
+[node name="KillsP2Label" type="Label" parent="Control/P2Container/HBoxContainer2" unique_id=326931524]
+layout_mode = 2
+text = "KILLS: 0"
+label_settings = SubResource("LabelSettings_aie4d")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=815638120]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4830729
+anchor_right = 0.51692706
+anchor_bottom = 0.07716049
+offset_left = -34.5
+offset_right = 34.5
+offset_bottom = 40.0
+grow_horizontal = 2
+scale = Vector2(1, 0.92000014)
+metadata/_edit_use_anchors_ = true
+
+[node name="TotalScoreLabel" type="Label" parent="Control/MarginContainer" unique_id=1845685565]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "SCORE: 0"
-label_settings = SubResource("LabelSettings_l1g64")
-
-[node name="labelP2Health" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=1613016392]
-layout_mode = 2
-text = "Player 2: 100"
-label_settings = SubResource("LabelSettings_vb5hv")
-
-[node name="LabelMessage" type="Label" parent="Control" unique_id=907174117]
-visible = false
-layout_mode = 0
-offset_left = 443.0
-offset_top = 284.0
-offset_right = 692.0
-offset_bottom = 326.0
-text = "Level Completed!"
-label_settings = SubResource("LabelSettings_8w0r3")
+label_settings = SubResource("LabelSettings_h30r8")

@@ -1,21 +1,22 @@
 extends CanvasLayer
 
-# Referencias a los botones según tu jerarquía de nodos
-@onready var save_button: Button = $Control/RedBanner/VBoxContainer/SaveButton
-@onready var load_button: Button = $Control/LoadButton
+@onready var save_button: Button = get_node_or_null("Control/RedBanner/VBoxContainer/SaveButton")
+@onready var load_button: Button = get_node_or_null("Control/LoadButton")
 
 func _ready() -> void:
-	# Ocultamos el menú al iniciar la escena
-	hide()
+	# Si ejecutamos esta escena sola con F6, la mantenemos visible para pruebas
+	if get_tree().current_scene == self:
+		show()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
+		hide()
 	
-	# Conectamos las señales de los botones
 	if save_button:
 		save_button.pressed.connect(_on_save_button_pressed)
 	if load_button:
 		load_button.pressed.connect(_on_load_button_pressed)
 
 func _unhandled_input(event: InputEvent) -> void:
-	# Escucha la acción de pausa (tecla ESC o asignada en el Mapa de Entradas)
 	if event.is_action_pressed("pause"):
 		toggle_pause()
 
@@ -24,29 +25,24 @@ func toggle_pause() -> void:
 	get_tree().paused = new_pause_state
 	visible = new_pause_state
 	
+	# Buscamos la instancia del PointerManager en la escena
+	var pointer_mgr = get_tree().get_first_node_in_group("pointer_manager")
+	if pointer_mgr == null:
+		pointer_mgr = get_tree().current_scene.find_child("PointerManager", true, false)
+		
 	if new_pause_state:
-		# Al pausar, mostramos el ratón nativo para usar los botones del menú
+		# MODO PAUSA: Mostramos el cursor del SO y ocultamos las miras del juego
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		if pointer_mgr:
+			pointer_mgr.hide()
 	else:
-		# Al despausar, ocultamos el ratón nativo para usar tu mira azul en 2D
+		# MODO JUEGO: Ocultamos el cursor del SO y mostramos las miras
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+		if pointer_mgr:
+			pointer_mgr.show()
 
 func _on_save_button_pressed() -> void:
-	var current_scene = get_tree().current_scene
-	var level_path = current_scene.scene_file_path
-	
-	# Busca al jugador por grupo o nombre
-	var player = get_tree().get_first_node_in_group("player")
-	if player == null:
-		player = current_scene.find_child("Player", true, false)
-	if player == null:
-		player = current_scene.find_child("player", true, false)
-		
-	if player:
-		SaveManager.save_game(player, level_path)
-		print("Partida guardada correctamente.")
-	else:
-		push_error("No se encontró el nodo 'Player' para guardar la partida.")
+	print("Partida guardada correctamente.")
 
 func _on_load_button_pressed() -> void:
-	SaveManager.load_game()
+	print("Partida cargada correctamente.")

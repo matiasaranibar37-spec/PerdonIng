@@ -17,6 +17,8 @@ var mouse_camera_enabled: bool = false
 var gamepad_shooting := {1: false, 2: false}
 
 func _ready() -> void:
+	# Agrega este nodo al grupo para que el menú de pausa pueda ocultarlo
+	add_to_group("pointer_manager")
 	# Inicializamos los punteros al centro
 	_center_pointer(pointer_p1)
 	_center_pointer(pointer_p2)

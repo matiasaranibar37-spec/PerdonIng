@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dmqw8qhyy2gwu" path="res://level/level_1.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dedjbv46ot8kp" path="res://level/enemies/zombie_base.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cosy8ldhe5feo" path="res://scenes/pause_menu.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cf0xkdmufl64i" path="res://level/ui/hud.tscn" id="5_tbgi4"]
 
 [node name="main" type="Node3D" unique_id=688174575]
 script = ExtResource("1_jyhfs")
@@ -32,4 +33,7 @@ transform = Transform3D(-0.90489167, 0, -0.42564148, 0, 1, 0, 0.42564148, 0, -0.
 [node name="CharacterBody3D6" parent="zombies" unique_id=872857008 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(0.35538465, 0, -0.9347203, 0, 1, 0, 0.9347203, 0, 0.35538465, -1.1803513, 0, -32.233356)
 
+[node name="HUD" parent="." unique_id=926142427 instance=ExtResource("5_tbgi4")]
+
 [node name="PauseMenu" parent="." unique_id=1100457287 instance=ExtResource("3_sugp2")]
+layer = 10

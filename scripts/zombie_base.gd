@@ -18,6 +18,7 @@ var is_dead: bool = false
 var is_attacking: bool = false
 var can_attack: bool = true
 var is_player_detected: bool = false # Estado de alerta del zombie
+var ultimo_jugador_que_disparo: String = "1" # Guarda qué jugador (P1 o P2) le disparó
 
 func _ready() -> void:
 	if animation_player == null:
@@ -40,19 +41,15 @@ func _physics_process(_delta: float) -> void:
 	# 1. COMPROBAR SI ESTÁ EN EL RANGO Y DELANTE DEL ZOMBIE
 	if not is_player_detected:
 		if distance <= detection_distance:
-			# Vector desde el zombie hacia el jugador (aplanado en el plano XZ)
 			var to_player = (target_position - global_transform.origin)
 			to_player.y = 0.0
 			to_player = to_player.normalized()
 			
-			# Hacia dónde está mirando el zombie actualmente (-Z es el frente por defecto en Godot)
 			var zombie_forward = -global_transform.basis.z
 			zombie_forward.y = 0.0
 			zombie_forward = zombie_forward.normalized()
 			
-			# Producto punto para calcular el ángulo coseno entre la mirada y el jugador
 			var dot_prod = zombie_forward.dot(to_player)
-			# Convertir el ángulo límite a coseno (el coseno del ángulo de visión / 2)
 			var angle_limit = cos(deg_to_rad(detection_angle_degrees / 2.0))
 			
 			if dot_prod >= angle_limit:
@@ -82,21 +79,21 @@ func _physics_process(_delta: float) -> void:
 		if can_attack:
 			trigger_attack()
 
-# MÉTODOS DE COMPATIBILIDAD CON MOBILEPLAYER 
+# MÉTODOS DE COMPATIBILIDAD CON MOBILEPLAYER Y DISPAROS
 
-func recibir_disparo(_jugador_id: String) -> void:
+func recibir_disparo(jugador_id: String) -> void:
+	if jugador_id != "":
+		ultimo_jugador_que_disparo = jugador_id
 	recibir_dano(1)
 
 func recibir_dano(cantidad: int) -> void:
 	take_damage(cantidad)
 
-# SALUD, ANIMACIONES Y DAÑO
-
 func take_damage(amount: int) -> void:
 	if is_dead:
 		return
 		
-	# Si le disparan desde fuera de su campo de visión, se activa automáticamente para defenderse
+	# Si le disparan desde fuera de su campo de visión, se activa automáticamente
 	is_player_detected = true
 	
 	health -= amount
@@ -118,37 +115,33 @@ func trigger_attack() -> void:
 	can_attack = false
 	play_animation("attack")
 	
+	# Descontamos salud a través de las funciones globales de GameManager
 	if get_node_or_null("/root/GameManager"):
-		var gm = get_node("/root/GameManager")
-		gm.p1_health = max(0, gm.p1_health - attack_damage)
-		gm.p2_health = max(0, gm.p2_health - attack_damage)
+		var gm = GameManager
+		var nueva_salud_p1 = max(0, gm.p1_health - attack_damage)
+		var nueva_salud_p2 = max(0, gm.p2_health - attack_damage)
 		
-		var hud = get_tree().current_scene.get_node_or_null("HUD")
-		
-		if hud and hud.has_method("actualizar_hud"):
-			hud.actualizar_hud()
-					
-			print("¡El zombie atacó a los jugadores! Daño: ", attack_damage)
-			
-			await get_tree().create_timer(attack_cooldown).timeout
-			can_attack = true
-			is_attacking = false
+		# Actualiza la salud en GameManager y notifica al HUD automáticamente
+		gm.update_player_health(1, nueva_salud_p1)
+		gm.update_player_health(2, nueva_salud_p2)
+		print("¡El zombie atacó a los jugadores! Daño: ", attack_damage)
+
+	await get_tree().create_timer(attack_cooldown).timeout
+	can_attack = true
+	is_attacking = false
 
 func die() -> void:
 	if is_dead:
 		return
-		
 	is_dead = true
 	velocity = Vector3.ZERO
 	
 	if get_node_or_null("/root/GameManager"):
-		GameManager.add_score(score_value)
+		GameManager.add_kill(ultimo_jugador_que_disparo, score_value)
 		
 	play_animation("death")
-	
 	if animation_player and animation_player.has_animation("death"):
 		await animation_player.animation_finished
-		
 	queue_free()
 
 func play_animation(anim_name: String) -> void:

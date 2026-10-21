@@ -6,7 +6,6 @@
 [ext_resource type="Material" uid="uid://cv1mwwmcfrudr" path="res://assets/Furnitures/material/WoodTrim.material" id="3_vseoc"]
 [ext_resource type="Texture2D" uid="uid://bp48o314vbp5g" path="res://assets/wall_blood.png" id="4_nlkbw"]
 [ext_resource type="Script" uid="uid://dbdx8ou33r6t5" path="res://scripts/camera_3dlevel1.gd" id="5_q08ld"]
-[ext_resource type="PackedScene" uid="uid://cf0xkdmufl64i" path="res://level/ui/hud.tscn" id="6_l1g64"]
 [ext_resource type="Script" uid="uid://3clhu5rvteb" path="res://level/rail_follow.gd" id="6_svqf6"]
 [ext_resource type="Script" uid="uid://dtiycl7s81t0f" path="res://scripts/player.gd" id="7_player"]
 [ext_resource type="Script" uid="uid://bybsk1l1cxy8r" path="res://scripts/pointer_manager.gd" id="8_pointer"]
@@ -498,7 +497,7 @@ texture_filter = 1
 offset_right = 1151.0
 offset_bottom = 649.0
 
-[node name="PointerManager" type="CanvasLayer" parent="." unique_id=100000003]
+[node name="PointerManager" type="CanvasLayer" parent="." unique_id=100000003 groups=["pointer_manager"]]
 script = ExtResource("8_pointer")
 
 [node name="Control" type="Control" parent="PointerManager" unique_id=1246672035]
@@ -531,8 +530,6 @@ mouse_filter = 2
 texture = ExtResource("10_p2")
 expand_mode = 1
 stretch_mode = 5
-
-[node name="HUD" parent="." unique_id=926142427 instance=ExtResource("6_l1g64")]
 
 [node name="Decoration" type="Node3D" parent="." unique_id=551087369]
 

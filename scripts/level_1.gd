@@ -22,6 +22,9 @@ func _ready() -> void:
 		if puzle_ui.has_signal("codigo_correcto"):
 			if not puzle_ui.codigo_correcto.is_connected(_on_codigo_correcto):
 				puzle_ui.codigo_correcto.connect(_on_codigo_correcto)
+	# Regenerar la salud de los jugadores al iniciar el nivel
+	if get_node_or_null("/root/GameManager"):
+		GameManager.reset_health_for_new_level()
 
 	# 2. Conectar interactuables o cilindros del grupo "switches" (si aún los usas)
 	var interruptores = get_tree().get_nodes_in_group("switches")

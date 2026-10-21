@@ -40,16 +40,24 @@ func shoot(screen_position: Vector2) -> void:
 		var target: Object = raycast.get_collider()
 		if target:
 			var hit_enemy := false
-			# Los zombis usan recibir_disparo; otros enemigos pueden usar recibir_dano.
+			# Identificador del jugador convertido a texto ("1" o "2")
+			var pid_str: String = str(player_id)
+			
+			# Compatibilidad con zombies y enemigos generales
 			if target.has_method("recibir_disparo"):
-				target.call("recibir_disparo", str(player_id))
+				target.call("recibir_disparo", pid_str)
 				hit_enemy = true
 			elif target.has_method("recibir_dano"):
 				target.call("recibir_dano", damage)
 				hit_enemy = true
-			# Sumar puntos por cada impacto confirmado, no por disparos fallidos.
+			elif target.has_method("take_damage"):
+				target.call("take_damage", damage)
+				hit_enemy = true
+
+			# Sumar puntos globales al impacto
 			if hit_enemy and get_node_or_null("/root/GameManager"):
 				GameManager.add_score(points_per_hit)
+	
 	_create_shot_effect(ray_origin, end_point, raycast.is_colliding())
 
 func shoot_from_center() -> void:

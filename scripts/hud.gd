@@ -1,42 +1,52 @@
 extends CanvasLayer
 
-# Usamos get_node_or_null para evitar cierres inesperados si la ruta del nodo cambia
-@onready var label_score: Label = get_node_or_null("Control/MarginContainer/HBoxContainer/labelScore")
-@onready var label_p1_health: Label = get_node_or_null("Control/MarginContainer/HBoxContainer/labelP1Health")
-@onready var label_p2_health: Label = get_node_or_null("Control/MarginContainer/HBoxContainer/labelP2Health")
-@onready var label_mensaje: Label = get_node_or_null("Control/LabelMessage")
+# Referencias a los nodos de vida y score
+@onready var health_bar_p1: ProgressBar = get_node_or_null("Control/P1Container/HBoxContainer/HeaderBanner/HealthBarP1")
+@onready var health_bar_p2: ProgressBar = get_node_or_null("Control/P2Container/HBoxContainer2/HeaderBanner/HealthBarP2")
+@onready var score_label: Label = get_node_or_null("Control/MarginContainer/TotalScoreLabel")
+
+# Referencias directas a los Labels de Kills según tu árbol de escena de HUD
+@onready var kills_label_p1: Label = get_node_or_null("Control/P1Container/HBoxContainer/KillsP1Label")
+@onready var kills_label_p2: Label = get_node_or_null("Control/P2Container/HBoxContainer2/KillsP2Label")
 
 func _ready() -> void:
-	# Ocultar mensaje de transición inicialmente
-	if label_mensaje:
-		label_mensaje.visible = false
-	
-	# Conectar la señal de puntuación desde el Singleton GameManager
-	if get_node_or_null("/root/GameManager"):
-		var gm = get_node("/root/GameManager")
-		if gm.has_signal("score_updated"):
-			if not gm.score_updated.is_connected(_on_score_updated):
-				gm.score_updated.connect(_on_score_updated)
-	
-	actualizar_hud()
+	# Búsqueda alternativa si los Labels están como hijos directos de P1Container/P2Container
+	if kills_label_p1 == null:
+		kills_label_p1 = get_node_or_null("Control/P1Container/KillsP1Label")
+	if kills_label_p2 == null:
+		kills_label_p2 = get_node_or_null("Control/P2Container/KillsP2Label")
 
-func actualizar_hud() -> void:
+	# Nos conectamos a las señales emitidas por GameManager
 	if get_node_or_null("/root/GameManager"):
-		var gm = get_node("/root/GameManager")
-		
-		# Validamos que cada etiqueta exista antes de cambiar su texto
-		if label_score:
-			label_score.text = "SCORE: " + str(gm.score)
-		if label_p1_health:
-			label_p1_health.text = "P1 HEALTH: " + str(gm.p1_health)
-		if label_p2_health:
-			label_p2_health.text = "P2 HEALTH: " + str(gm.p2_health)
+		var gm = GameManager
+		if gm.has_signal("score_updated") and not gm.score_updated.is_connected(_on_score_updated):
+			gm.score_updated.connect(_on_score_updated)
+		if gm.has_signal("kills_updated") and not gm.kills_updated.is_connected(_on_kills_updated):
+			gm.kills_updated.connect(_on_kills_updated)
+		if gm.has_signal("health_updated") and not gm.health_updated.is_connected(_on_health_updated):
+			gm.health_updated.connect(_on_health_updated)
+
+	actualizar_todo()
+
+func actualizar_todo() -> void:
+	if get_node_or_null("/root/GameManager"):
+		var gm = GameManager
+		_on_score_updated(gm.score)
+		_on_kills_updated(gm.p1_kills, gm.p2_kills)
+		_on_health_updated(gm.p1_health, gm.p2_health)
 
 func _on_score_updated(nuevo_puntaje: int) -> void:
-	if label_score:
-		label_score.text = "SCORE: " + str(nuevo_puntaje)
+	if score_label:
+		score_label.text = "SCORE: " + str(nuevo_puntaje)
 
-func mostrar_mensaje_transicion(texto: String) -> void:
-	if label_mensaje:
-		label_mensaje.text = texto
-		label_mensaje.visible = true
+func _on_kills_updated(p1_k: int, p2_k: int) -> void:
+	if kills_label_p1:
+		kills_label_p1.text = "KILLS: " + str(p1_k)
+	if kills_label_p2:
+		kills_label_p2.text = "KILLS: " + str(p2_k)
+
+func _on_health_updated(p1_hp: int, p2_hp: int) -> void:
+	if health_bar_p1:
+		health_bar_p1.value = p1_hp
+	if health_bar_p2:
+		health_bar_p2.value = p2_hp
