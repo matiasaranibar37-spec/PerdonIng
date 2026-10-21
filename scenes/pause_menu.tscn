@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://cosy8ldhe5feo"]
+
+[ext_resource type="Script" uid="uid://d0rfbi77g0ylo" path="res://scripts/pause_menu.gd" id="1_5d2l8"]
+[ext_resource type="Texture2D" uid="uid://bof2o0k1oatkg" path="res://assets/red_banner-removebg-preview.png" id="1_kukqi"]
+[ext_resource type="FontFile" uid="uid://bpkwn2uh0rm8j" path="res://assets/Font/28 Days Later.ttf" id="2_5d2l8"]
+[ext_resource type="FontFile" uid="uid://dv3ob2gnwbxwf" path="res://assets/Font/horrendo.ttf" id="3_7l7mv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uahpa"]
+font_size = 65
+shadow_size = 20
+shadow_color = Color(0.20456707, 1.8650666e-06, 1.0408274e-06, 0.9254902)
+shadow_offset = Vector2(2, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8w0r3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4t55"]
+bg_color = Color(1, 1, 1, 0.7529412)
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4e15o"]
+bg_color = Color(1, 1, 1, 0.9254902)
+border_color = Color(1, 1, 1, 1)
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1100457287]
+process_mode = 3
+script = ExtResource("1_5d2l8")
+
+[node name="Control" type="Control" parent="." unique_id=1849017120]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect_Blur" type="ColorRect" parent="Control" unique_id=2050856404]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.11764706)
+
+[node name="RedBannerShadow" type="TextureRect" parent="Control" unique_id=2037975629]
+modulate = Color(0.13725491, 0.03529412, 0.023529412, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.2482639
+anchor_bottom = 1.0
+offset_right = 400.0
+grow_vertical = 2
+texture = ExtResource("1_kukqi")
+metadata/_edit_use_anchors_ = true
+
+[node name="RedBanner" type="TextureRect" parent="Control" unique_id=480234541]
+self_modulate = Color(0.60784316, 0.25882354, 0.21568628, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.22222222
+anchor_bottom = 1.0
+offset_right = 400.0
+grow_vertical = 2
+texture = ExtResource("1_kukqi")
+metadata/_edit_use_anchors_ = true
+
+[node name="OrangeHeader" type="ColorRect" parent="Control/RedBanner" unique_id=1881179056]
+layout_mode = 1
+offset_top = 118.0
+offset_right = 418.0
+offset_bottom = 204.0
+color = Color(0.14926016, 0.37035584, 0.21626562, 0.6901961)
+
+[node name="TitleLabel" type="Label" parent="Control/RedBanner/OrangeHeader" unique_id=1757997052]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_5d2l8")
+text = "P A U S E"
+label_settings = SubResource("LabelSettings_uahpa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/RedBanner" unique_id=413538631]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -80.5
+offset_right = -36.0
+offset_bottom = 80.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveButton" type="Button" parent="Control/RedBanner/VBoxContainer" unique_id=2131821162]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7l7mv")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8w0r3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h4t55")
+text = "SAVE GAME"
+
+[node name="LoadButton" type="Button" parent="Control/RedBanner/VBoxContainer" unique_id=436264629]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7l7mv")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8w0r3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4e15o")
+text = "LOAD GAME"

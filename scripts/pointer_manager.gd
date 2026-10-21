@@ -37,12 +37,12 @@ func _process(delta: float) -> void:
 	var size := get_viewport().get_visible_rect().size
 	
 	if not DisplayServer.is_touchscreen_available():
-		# 1. ACTUALIZAR POSICIÓN DE P1 CON EL MOUSE EN TIEMPO REAL
+		# ACTUALIZAR POSICIÓN DE P1 CON EL MOUSE EN TIEMPO REAL
 		if pointer_p1:
 			var mouse_pos := get_viewport().get_mouse_position()
 			pointer_p1.position = mouse_pos - (pointer_p1.size * 0.5)
-		
-		# 2. CONTROL ALTERNATIVO DE P2 CON TECLADO (I, J, K, L) CUANDO NO HAY GAMEPAD
+			
+		# CONTROL ALTERNATIVO DE P2 CON TECLADO (W, A, S, D) CUANDO NO HAY GAMEPAD
 		if not Input.get_connected_joypads().has(1) and pointer_p2:
 			var input_dir := Vector2.ZERO
 			if Input.is_key_pressed(KEY_D): input_dir.x += 1.0
@@ -55,13 +55,16 @@ func _process(delta: float) -> void:
 				pointer_p2.position.x = clampf(pointer_p2.position.x, 0.0, size.x - pointer_p2.size.x)
 				pointer_p2.position.y = clampf(pointer_p2.position.y, 0.0, size.y - pointer_p2.size.y)
 			
-			# Tecla U para disparar con P2
 			if Input.is_key_pressed(KEY_T):
 				if not gamepad_shooting[2]:
 					_shoot(2)
 					gamepad_shooting[2] = true
 			else:
 				gamepad_shooting[2] = false
+
+	# Mover miras con gamepads
+	_update_gamepad_pointer(pointer_p1, 0, 1, size)
+	_update_gamepad_pointer(pointer_p2, 1, 2, size)
 
 	# Mover miras con gamepads (Mando 0 para P1, Mando 1 para P2)
 	_update_gamepad_pointer(pointer_p1, 0, 1, size)
