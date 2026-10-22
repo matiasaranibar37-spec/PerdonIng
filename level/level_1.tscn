@@ -526,7 +526,7 @@ offset_bottom = 649.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.661598, 0, -1.0600901)
 
 [node name="CharacterBody3D" parent="zombies" unique_id=373837389 instance=ExtResource("23_lag3f")]
-transform = Transform3D(-0.033143863, 0, 0.99945056, 0, 1, 0, -0.99945056, 0, -0.033143863, 14.000123, 0.05093503, 15.903154)
+transform = Transform3D(-0.033143863, 0, 0.99945056, 0, 1, 0, -0.99945056, 0, -0.033143863, 15.138143, 0.05093503, 15.903154)
 
 [node name="CharacterBody3D3" parent="zombies" unique_id=145638001 instance=ExtResource("23_lag3f")]
 transform = Transform3D(-0.033034045, 0, 0.9994545, 0, 1, 0, -0.9994545, 0, -0.033034045, 12.814897, 0.08318806, 16.571754)
@@ -545,6 +545,31 @@ transform = Transform3D(-0.010800093, 0, -0.9999419, 0, 1, 0, 0.9999419, 0, -0.0
 
 [node name="CharacterBody3D7" parent="zombies" unique_id=146957413 instance=ExtResource("23_lag3f")]
 transform = Transform3D(-0.95244783, 0, 0.30470178, 0, 1, 0, -0.30470178, 0, -0.95244783, 9.197393, 0, -9.191953)
+sound_screech = null
+sound_attack = null
+sound_dying_1 = null
+sound_dying_2 = null
+sound_running = null
+
+[node name="CharacterBody3D8" parent="zombies" unique_id=2076988439 instance=ExtResource("23_lag3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3025913, 0.21440458, -2.4551935)
+script = null
+
+[node name="CharacterBody3D9" parent="zombies" unique_id=717901367 instance=ExtResource("23_lag3f")]
+transform = Transform3D(-0.54522574, 0, -0.83828926, 0, 1, 0, 0.83828926, 0, -0.54522574, 12.239482, 0.23414838, 2.2973852)
+script = null
+
+[node name="CharacterBody3D10" parent="zombies" unique_id=1565851499 instance=ExtResource("23_lag3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.384792, 0.15351969, 2.3790112)
+script = null
+
+[node name="CharacterBody3D11" parent="zombies" unique_id=1810773014 instance=ExtResource("23_lag3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.604635, 0.2761681, 3.7784762)
+script = null
+
+[node name="CharacterBody3D13" parent="zombies" unique_id=383178628 instance=ExtResource("23_lag3f")]
+transform = Transform3D(0.3209546, 0, -0.94709456, 0, 1, 0, 0.94709456, 0, 0.3209546, 16.347286, 0.32842743, 7.6193285)
+script = null
 
 [node name="PointerManager" type="CanvasLayer" parent="." unique_id=100000003 groups=["pointer_manager"]]
 layer = 2
