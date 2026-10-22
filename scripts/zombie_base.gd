@@ -194,9 +194,14 @@ func die() -> void:
 	velocity = Vector3.ZERO
 	stop_running_sound()
 	
+	# Desactivar la colisión del zombie para que los jugadores o disparos lo atraviesen y no estorbe
+	var collision_shape = get_node_or_null("CollisionShape3D")
+	if collision_shape:
+		collision_shape.disabled = true
+		
 	# Selección aleatoria entre los dos sonidos de muerte
 	if audio_player:
-		var elegir_dying_2 = randf() < 0.5 # 50% de probabilidad para cada uno
+		var elegir_dying_2 = randf() < 0.5 # 50% de probabilidad
 		if elegir_dying_2 and sound_dying_2:
 			audio_player.stream = sound_dying_2
 			audio_player.play()
@@ -204,13 +209,17 @@ func die() -> void:
 			audio_player.stream = sound_dying_1
 			audio_player.play()
 	
+	# Sumar puntos / kills
 	if get_node_or_null("/root/GameManager"):
 		GameManager.add_kill(ultimo_jugador_que_disparo, score_value)
 		
+	# Reproducir animación de muerte y esperar a que termine
 	play_animation("death")
 	if animation_player and animation_player.has_animation("death"):
 		await animation_player.animation_finished
-	queue_free()
+		
+	# para que el cuerpo se quede permanentemente tirado en el suelo sin gastar recursos de código.
+	set_physics_process(false)
 
 func play_animation(anim_name: String) -> void:
 	if animation_player and animation_player.has_animation(anim_name):
