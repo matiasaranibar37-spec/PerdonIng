@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://dedjbv46ot8kp"]
 
 [ext_resource type="Script" uid="uid://cr8tgf5o5b6fw" path="res://scripts/zombie_base.gd" id="1_hv4vd"]
+[ext_resource type="AudioStream" uid="uid://c6y5m1ry65ngd" path="res://assets/zombie_sounds/zombie_screech.wav" id="2_3wkqw"]
 [ext_resource type="PackedScene" uid="uid://djdyr2tmk87ya" path="res://assets/zombie_model.glb" id="2_hv4vd"]
+[ext_resource type="AudioStream" uid="uid://vp7auhwqaq6s" path="res://assets/zombie_sounds/zombie_attack.wav" id="3_uskkf"]
+[ext_resource type="AudioStream" uid="uid://cpgouwbnyl05n" path="res://assets/zombie_sounds/zombie_dying.wav" id="4_fi1o0"]
+[ext_resource type="AudioStream" uid="uid://b63vxdqgvch1i" path="res://assets/zombie_sounds/zombie_dying2.wav" id="5_ssmxl"]
+[ext_resource type="AudioStream" uid="uid://cl1xtbr8xc4jy" path="res://assets/zombie_sounds/zombie_running.wav" id="6_3nve0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8w0r3"]
 radius = 0.2836914
@@ -11,10 +16,19 @@ height = 2.0228524
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_hv4vd")
+sound_screech = ExtResource("2_3wkqw")
+sound_attack = ExtResource("3_uskkf")
+sound_dying_1 = ExtResource("4_fi1o0")
+sound_dying_2 = ExtResource("5_ssmxl")
+sound_running = ExtResource("6_3nve0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1440019210]
 transform = Transform3D(0.9164075, -0.030089201, -0.39911383, -0.06193286, -0.9958207, -0.067129605, -0.39542583, 0.08623629, -0.914441, -0.02895447, 0.8923546, -0.08313194)
 shape = SubResource("CapsuleShape3D_8w0r3")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1094810421]
+
+[node name="RunAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1061104133]
 
 [node name="zombie_model" parent="." unique_id=1008913003 instance=ExtResource("2_hv4vd")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
