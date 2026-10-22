@@ -3,10 +3,14 @@ extends Node3D
 @export var interruptores_necesarios: int = 3
 @export_file("*.tscn") var siguiente_nivel: String = "res://level/level_2.tscn"
 @export var velocidad_camara: float = 1.0
+## Si un zombie ya detectó a los jugadores y está a esta distancia (o menos) de la cámara,
+## la cámara se detiene hasta que lo maten.
+@export var distancia_parada_camara: float = 5.0
 
 var interruptores_activados: int = 0
 var nivel_completado := false
 var camino_completado := false
+var camara_bloqueada := false
 
 # Referencias a los nodos de la escena
 @onready var hud = $HUD
@@ -37,6 +41,11 @@ func _ready() -> void:
 	SaveManager.apply_save_data(self)
 
 func _process(delta: float) -> void:
+	# Si un zombie está atacando de cerca, la cámara se detiene hasta matarlo
+	_actualizar_bloqueo_camara()
+	if camara_bloqueada:
+		return
+
 	# Mueve la cámara sobre el riel hacia el fondo del pasillo
 	if not camino_completado and rail_follow:
 		rail_follow.progress += velocidad_camara * delta
@@ -49,6 +58,33 @@ func _process(delta: float) -> void:
 		if rail_follow.progress_ratio >= 0.98:
 			camino_completado = true
 			_llegar_al_ascensor()
+
+# Detiene (o reanuda) la cámara según haya un zombie vivo cerca atacando
+func _actualizar_bloqueo_camara() -> void:
+	var bloquear := _hay_zombie_cerca()
+	if bloquear == camara_bloqueada:
+		return
+	camara_bloqueada = bloquear
+	if rail_follow:
+		rail_follow.set("moving", not bloquear)
+	# Los pasos suenan solo mientras la cámara avanza
+	var pasos: AudioStreamPlayer = get_node_or_null("Pasos")
+	if pasos:
+		pasos.stream_paused = bloquear
+
+func _hay_zombie_cerca() -> bool:
+	var cam: Camera3D = get_viewport().get_camera_3d()
+	if cam == null:
+		return false
+	for z in get_tree().get_nodes_in_group("zombies"):
+		# El grupo "zombies" también incluye RayCast3D hijos: solo nos interesan los zombies
+		if not (z is CharacterBody3D) or not ("is_dead" in z):
+			continue
+		if z.is_dead or not z.is_player_detected or not z.is_visible_in_tree():
+			continue
+		if z.global_position.distance_to(cam.global_position) <= distancia_parada_camara:
+			return true
+	return false
 
 # Se ejecuta al llegar físicamente al fondo del pasillo
 func _llegar_al_ascensor() -> void:

@@ -128,6 +128,7 @@ func load_game_from_file(file_path: String) -> void:
 		return
 
 	pending_data = data
+	GameManager.is_game_over = false
 
 	# Restauramos el estado global (puntos, kills, vida y personajes)
 	GameManager.score = int(data.get("score", 0))

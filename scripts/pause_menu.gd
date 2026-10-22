@@ -52,6 +52,10 @@ func _input(event: InputEvent) -> void:
 
 
 func toggle_pause() -> void:
+	# No se puede pausar/reanudar con Esc mientras se muestra el Game Over
+	if GameManager.is_game_over:
+		return
+
 	# Si el menú de carga está abierto, primero lo cerramos
 	if load_menu_panel and load_menu_panel.visible:
 		load_menu_panel.hide()

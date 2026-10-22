@@ -10,9 +10,15 @@ var bob_amp_tilt: float = 0.1    # inclinacion
 
 var time_passed: float = 0.0
 
+# level_1.gd lo pone en false cuando un zombie está atacando de cerca
+var moving: bool = true
+
 @onready var camera = $Camera3D 
 
 func _process(delta):
+	if not moving:
+		return
+	
 	progress += speed * delta
 	
 	time_passed += delta * bob_freq

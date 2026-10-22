@@ -5,6 +5,7 @@ signal score_updated(new_score: int)
 signal level_change_requested(scene_path: String)
 signal kills_updated(p1_kills: int, p2_kills: int)
 signal health_updated(p1_hp: int, p2_hp: int)
+signal game_over_triggered(dead_player_id: int)
 
 # Variables globales de estado y puntuación
 var score: int = 0
@@ -12,6 +13,9 @@ var p1_kills: int = 0
 var p2_kills: int = 0
 var p1_health: int = 100
 var p2_health: int = 100
+var is_game_over: bool = false
+
+const GAME_OVER_SCENE: String = "res://scenes/game_over.tscn"
 
 # Selección de personajes desde el menú inicial
 var p1_character: Dictionary = {"id": "default", "name": "Jugador 1", "health": 100}
@@ -48,6 +52,26 @@ func update_player_health(player_id: int, new_health: int) -> void:
 		
 	health_updated.emit(p1_health, p2_health)
 
+	# Si la vida de un jugador llega a 0, termina la partida
+	if new_health <= 0:
+		trigger_game_over(player_id)
+
+
+func trigger_game_over(dead_player_id: int) -> void:
+	if is_game_over:
+		return
+	is_game_over = true
+	game_over_triggered.emit(dead_player_id)
+
+	var scene: PackedScene = load(GAME_OVER_SCENE)
+	if scene == null:
+		push_error("No se encontró la escena de Game Over: " + GAME_OVER_SCENE)
+		return
+	var screen: Node = scene.instantiate()
+	screen.set("dead_player_id", dead_player_id)
+	get_tree().root.add_child.call_deferred(screen)
+	get_tree().paused = true
+
 
 func reset_health_for_new_level() -> void:
 	p1_health = int(p1_character.get("health", 100))
@@ -56,6 +80,7 @@ func reset_health_for_new_level() -> void:
 
 
 func reset_game() -> void:
+	is_game_over = false
 	score = 0
 	p1_kills = 0
 	p2_kills = 0

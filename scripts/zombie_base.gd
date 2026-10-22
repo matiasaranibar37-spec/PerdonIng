@@ -5,7 +5,7 @@ extends CharacterBody3D
 @export var score_value: int = 100
 @export var attack_distance: float = 2.0
 @export var attack_damage: int = 10
-@export var attack_cooldown: float = 1.5
+@export var attack_cooldown: float = 0.1
 
 @export_group("Vision y Deteccion")
 @export var detection_distance: float = 15.0
