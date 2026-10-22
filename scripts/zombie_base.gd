@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export var run_speed: float = 3.5
-@export var health: int = 2
+@export var health: int = 5
 @export var score_value: int = 100
 @export var attack_distance: float = 2.0
 @export var attack_damage: int = 10
