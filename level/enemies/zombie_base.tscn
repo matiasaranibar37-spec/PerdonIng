@@ -33,7 +33,7 @@ shape = SubResource("CapsuleShape3D_8w0r3")
 [node name="zombie_model" parent="." unique_id=1008913003 instance=ExtResource("2_hv4vd")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="zombie_model/Armature" parent_id_path=PackedInt32Array(1008913003, 1121240236) index="0" unique_id=1316468546]
+[node name="Skeleton3D" parent="zombie_model/Armature" parent_id_path=PackedInt32Array(1008913003, 847720516) index="0" unique_id=1013591140]
 bones/0/position = Vector3(0.55093193, -1.156564, -98.26806)
 bones/0/rotation = Quaternion(-0.6228452, -0.12563503, 0.1062903, 0.7648413)
 bones/1/rotation = Quaternion(0.1349148, 0.40374544, 0.88679636, -0.17994426)
