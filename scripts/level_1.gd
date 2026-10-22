@@ -33,6 +33,9 @@ func _ready() -> void:
 			if not interruptor.activado.is_connected(_on_interruptor_activado):
 				interruptor.activado.connect(_on_interruptor_activado)
 
+	# 3. Si el jugador eligió "Load Game", restauramos aquí la partida guardada
+	SaveManager.apply_save_data(self)
+
 func _process(delta: float) -> void:
 	# Mueve la cámara sobre el riel hacia el fondo del pasillo
 	if not camino_completado and rail_follow:
@@ -90,3 +93,41 @@ func completar_nivel_1() -> void:
 		get_tree().change_scene_to_file(siguiente_nivel)
 	else:
 		print("Crea la escena del siguiente nivel en la ruta: ", siguiente_nivel)
+
+
+# ==========================================
+# GUARDAR / CARGAR PARTIDA
+# ==========================================
+# SaveManager llama a estas dos funciones para guardar y restaurar el nivel.
+func get_save_state() -> Dictionary:
+	var zombies_vivos: Array = []
+	var zombies_node: Node = get_node_or_null("zombies")
+	if zombies_node:
+		for z in zombies_node.get_children():
+			if z.is_queued_for_deletion():
+				continue
+			if "is_dead" in z and z.is_dead:
+				continue
+			zombies_vivos.append(str(z.name))
+
+	return {
+		"rail_progress": rail_follow.progress if rail_follow else 0.0,
+		"camino_completado": camino_completado,
+		"interruptores_activados": interruptores_activados,
+		"zombies_vivos": zombies_vivos
+	}
+
+func apply_save_state(state: Dictionary) -> void:
+	if rail_follow and state.has("rail_progress"):
+		rail_follow.progress = float(state["rail_progress"])
+	camino_completado = bool(state.get("camino_completado", false))
+	interruptores_activados = int(state.get("interruptores_activados", 0))
+
+	# Los zombies que ya habían sido eliminados no deben reaparecer
+	if state.has("zombies_vivos"):
+		var vivos: Array = state["zombies_vivos"]
+		var zombies_node: Node = get_node_or_null("zombies")
+		if zombies_node:
+			for z in zombies_node.get_children():
+				if not vivos.has(str(z.name)):
+					z.queue_free()

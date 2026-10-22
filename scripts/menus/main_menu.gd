@@ -41,6 +41,7 @@ func _ready() -> void:
 
 func _on_new_game_pressed() -> void:
 	print("Iniciando nueva partida...")
+	SaveManager.pending_data.clear()
 	if get_node_or_null("/root/GameManager"):
 		GameManager.reset_game()
 	

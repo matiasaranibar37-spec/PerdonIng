@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://cyp8kqoxmkuoa" path="res://level/hazards/elevator_event.tscn" id="20_q08ld"]
 [ext_resource type="PackedScene" uid="uid://dedjbv46ot8kp" path="res://level/enemies/zombie_base.tscn" id="23_lag3f"]
 [ext_resource type="PackedScene" uid="uid://cf0xkdmufl64i" path="res://level/ui/hud.tscn" id="24_gj5ex"]
+[ext_resource type="PackedScene" uid="uid://cosy8ldhe5feo" path="res://scenes/pause_menu.tscn" id="25_pausemenu"]
 [ext_resource type="AudioStream" uid="uid://xhqtxkwxljrt" path="res://assets/soundtrack.mp3" id="24_sb0gx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q08ld"]
@@ -1041,3 +1042,5 @@ autoplay = true
 parameters/looping = true
 
 [node name="HUD" parent="." unique_id=926142427 instance=ExtResource("24_gj5ex")]
+
+[node name="PauseMenu" parent="." unique_id=1100457288 instance=ExtResource("25_pausemenu")]
