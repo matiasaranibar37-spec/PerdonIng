@@ -17,8 +17,9 @@ var mouse_camera_enabled: bool = false
 var gamepad_shooting := {1: false, 2: false}
 
 func _ready() -> void:
-	# Agrega este nodo al grupo para que el menú de pausa pueda ocultarlo
+	# Registrar este nodo en el grupo para que pause_menu.gd pueda ocultarlo/mostrarlo
 	add_to_group("pointer_manager")
+	
 	# Inicializamos los punteros al centro
 	_center_pointer(pointer_p1)
 	_center_pointer(pointer_p2)
@@ -26,9 +27,8 @@ func _ready() -> void:
 	if camera:
 		camera_pitch = camera.rotation.x
 		
-	# Si estamos en PC (sin pantalla táctil)
+	# Si estamos en PC (sin pantalla táctil), ocultamos el cursor del sistema
 	if not DisplayServer.is_touchscreen_available():
-		# Ocultamos el cursor del sistema para usar la mira rosa/azul de Godot
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 func _center_pointer(pointer: Control) -> void:
@@ -39,12 +39,12 @@ func _process(delta: float) -> void:
 	var size := get_viewport().get_visible_rect().size
 	
 	if not DisplayServer.is_touchscreen_available():
-		# ACTUALIZAR POSICIÓN DE P1 CON EL MOUSE EN TIEMPO REAL
+		# 1. ACTUALIZAR POSICIÓN DE P1 CON EL MOUSE EN TIEMPO REAL
 		if pointer_p1:
 			var mouse_pos := get_viewport().get_mouse_position()
 			pointer_p1.position = mouse_pos - (pointer_p1.size * 0.5)
 			
-		# CONTROL ALTERNATIVO DE P2 CON TECLADO (W, A, S, D) CUANDO NO HAY GAMEPAD
+		# 2. CONTROL ALTERNATIVO DE P2 CON TECLADO (W, A, S, D) CUANDO NO HAY GAMEPAD
 		if not Input.get_connected_joypads().has(1) and pointer_p2:
 			var input_dir := Vector2.ZERO
 			if Input.is_key_pressed(KEY_D): input_dir.x += 1.0
@@ -64,29 +64,25 @@ func _process(delta: float) -> void:
 			else:
 				gamepad_shooting[2] = false
 
-	# Mover miras con gamepads
-	_update_gamepad_pointer(pointer_p1, 0, 1, size)
-	_update_gamepad_pointer(pointer_p2, 1, 2, size)
-
 	# Mover miras con gamepads (Mando 0 para P1, Mando 1 para P2)
 	_update_gamepad_pointer(pointer_p1, 0, 1, size)
 	_update_gamepad_pointer(pointer_p2, 1, 2, size)
 
 func _input(event: InputEvent) -> void:
-	# Disparo de P1 con el Clic Izquierdo del Ratón
+	# Disparo de P1 con Clic Izquierdo
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if not DisplayServer.is_touchscreen_available():
 			_shoot(1)
 			return
 
-	# Control de cámara con mouse (si está habilitado)
+	# Control de cámara 3D con movimiento del mouse
 	if event is InputEventMouseMotion and mouse_camera_enabled and camera and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		camera.rotation.y -= event.relative.x * mouse_sensitivity
 		camera_pitch = clampf(camera_pitch - event.relative.y * mouse_sensitivity, deg_to_rad(-80.0), deg_to_rad(80.0))
 		camera.rotation.x = camera_pitch
 		return
 
-	# Soporte para Pantallas Táctiles (Móvil)
+	# Soporte para Pantallas Táctiles (Dispositivos Móviles)
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			var player_id := 1 if event.position.x < get_viewport().get_visible_rect().size.x * 0.5 else 2
@@ -127,7 +123,6 @@ func _set_pointer(player_id: int, position: Vector2) -> void:
 
 func _shoot(player_id: int) -> void:
 	if player_id == 1 and player_p1 and pointer_p1:
-		# Se dispara exactamente a las coordenadas 2D donde apunta el centro de la mira en pantalla
 		var centro_mira := pointer_p1.position + (pointer_p1.size * 0.5)
 		player_p1.shoot(centro_mira)
 	elif player_id == 2 and player_p2 and pointer_p2:

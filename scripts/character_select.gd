@@ -1,12 +1,15 @@
 extends Control
 
-const GAME_SCENE := "res://scenes/main.tscn"
+# Al confirmar la selección, regresamos al Menú Principal
+const MAIN_MENU_SCENE := "res://scenes/main_menu.tscn"
+
 const CHARACTERS := [
   {"id": "docente", "name": "Teacher", "health": 150, "description": "Higher endurance and leadership."},
   {"id": "estudiante_1", "name": "Student 1", "health": 100, "description": "Agile and balanced."},
   {"id": "estudiante_2", "name": "Student 2", "health": 110, "description": "Versatile and strategic."},
   {"id": "limpieza", "name": "Janitor", "health": 125, "description": "Resilient and consistent."}
 ]
+
 const CHARACTER_IMAGES := [
 	preload("res://assets/characters/docente.png"),
 	preload("res://assets/characters/estudiante_1.png"),
@@ -19,6 +22,7 @@ var cards: Dictionary = {}
 var status_label: Label
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_build_interface()
 	_refresh_cards()
 
@@ -114,13 +118,13 @@ func _build_interface() -> void:
 	status_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	layout.add_child(status_label)
 
-	var start := Button.new()
-	start.text = "▶ START GAME"
-	start.custom_minimum_size = Vector2(0, 48)
-	start.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	start.add_theme_font_size_override("font_size", 20)
-	start.pressed.connect(_start_game)
-	layout.add_child(start)
+	var confirm_button := Button.new()
+	confirm_button.text = "✔ CONFIRMAR Y VOLVER"
+	confirm_button.custom_minimum_size = Vector2(0, 48)
+	confirm_button.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	confirm_button.add_theme_font_size_override("font_size", 20)
+	confirm_button.pressed.connect(_confirm_and_return)
+	layout.add_child(confirm_button)
 
 func _panel_style(color: Color) -> StyleBoxFlat:
 	var style := StyleBoxFlat.new()
@@ -144,6 +148,9 @@ func _refresh_cards() -> void:
 		var p2: Dictionary = CHARACTERS[selections[2]]
 		status_label.text = "P1: %s (%d Health)     |     P2: %s (%d Health)" % [p1.name, p1.health, p2.name, p2.health]
 
-func _start_game() -> void:
-	GameManager.set_character_selection(CHARACTERS[selections[1]], CHARACTERS[selections[2]])
-	get_tree().change_scene_to_file(GAME_SCENE)
+func _confirm_and_return() -> void:
+	# Guardamos la selección de personajes en GameManager
+	if get_node_or_null("/root/GameManager"):
+		GameManager.set_character_selection(CHARACTERS[selections[1]], CHARACTERS[selections[2]])
+	# Regresamos al Menú Principal
+	get_tree().change_scene_to_file(MAIN_MENU_SCENE)

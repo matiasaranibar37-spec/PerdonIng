@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://7xr7bkyfm020" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dmqw8qhyy2gwu" path="res://level/level_1.tscn" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://dedjbv46ot8kp" path="res://level/enemies/zombie_base.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cosy8ldhe5feo" path="res://scenes/pause_menu.tscn" id="3_sugp2"]
-[ext_resource type="PackedScene" uid="uid://cf0xkdmufl64i" path="res://level/ui/hud.tscn" id="5_tbgi4"]
 
 [node name="main" type="Node3D" unique_id=688174575]
 script = ExtResource("1_jyhfs")
@@ -12,31 +10,4 @@ script = ExtResource("1_jyhfs")
 [node name="level1" parent="." unique_id=420789406 instance=ExtResource("1_o5qli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.545349, 0, -17.023098)
 
-[node name="zombies" type="Node3D" parent="." unique_id=202535608]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.661598, 0, -1.0600901)
-
-[node name="CharacterBody3D" parent="zombies" unique_id=373837389 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(-0.033143863, 0, 0.99945056, 0, 1, 0, -0.99945056, 0, -0.033143863, 8.231753, 0, 0.0021779537)
-
-[node name="CharacterBody3D3" parent="zombies" unique_id=402766436 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(-0.033034045, 0, 0.9994545, 0, 1, 0, -0.9994545, 0, -0.033034045, 9.863451, 0.08318806, -0.77902055)
-
-[node name="CharacterBody3D2" parent="zombies" unique_id=962697534 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(-0.9985134, 0, -0.05450744, 0, 1, 0, 0.05450744, 0, -0.9985134, 1.7948523, 0, -27.371838)
-
-[node name="CharacterBody3D4" parent="zombies" unique_id=664126951 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(0.010864321, 0, 0.99994093, 0, 1, 0, -0.99994093, 0, 0.010864321, 14.193613, 0, -11.353187)
-
-[node name="CharacterBody3D5" parent="zombies" unique_id=1477589969 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(-0.9870061, 0, 0.1606814, 0, 1, 0, -0.1606814, 0, -0.9870061, 2.7271328, 0, -28.9292)
-
-[node name="CharacterBody3D6" parent="zombies" unique_id=872857008 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(-0.010800093, 0, -0.9999419, 0, 1, 0, 0.9999419, 0, -0.010800093, -1.1803513, 0, -32.233356)
-
-[node name="CharacterBody3D7" parent="zombies" unique_id=985352095 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(-0.95244783, 0, 0.30470178, 0, 1, 0, -0.30470178, 0, -0.95244783, 3.5805445, 0, -26.586521)
-
-[node name="HUD" parent="." unique_id=926142427 instance=ExtResource("5_tbgi4")]
-
 [node name="PauseMenu" parent="." unique_id=1100457287 instance=ExtResource("3_sugp2")]
-layer = 10

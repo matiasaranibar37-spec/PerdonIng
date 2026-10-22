@@ -21,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://bmrt3d6oa65s" path="res://assets/blood3.webp" id="18_svqf6"]
 [ext_resource type="Texture2D" uid="uid://cxuik7dv4noc6" path="res://assets/blood.webp" id="19_5tdg5"]
 [ext_resource type="PackedScene" uid="uid://cyp8kqoxmkuoa" path="res://level/hazards/elevator_event.tscn" id="20_q08ld"]
+[ext_resource type="PackedScene" uid="uid://dedjbv46ot8kp" path="res://level/enemies/zombie_base.tscn" id="23_lag3f"]
+[ext_resource type="PackedScene" uid="uid://cf0xkdmufl64i" path="res://level/ui/hud.tscn" id="24_gj5ex"]
 [ext_resource type="AudioStream" uid="uid://xhqtxkwxljrt" path="res://assets/soundtrack.mp3" id="24_sb0gx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q08ld"]
@@ -497,7 +499,32 @@ texture_filter = 1
 offset_right = 1151.0
 offset_bottom = 649.0
 
+[node name="zombies" type="Node3D" parent="." unique_id=1155894941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.661598, 0, -1.0600901)
+
+[node name="CharacterBody3D" parent="zombies" unique_id=373837389 instance=ExtResource("23_lag3f")]
+transform = Transform3D(-0.033143863, 0, 0.99945056, 0, 1, 0, -0.99945056, 0, -0.033143863, 14.000123, 0.05093503, 15.903154)
+
+[node name="CharacterBody3D3" parent="zombies" unique_id=145638001 instance=ExtResource("23_lag3f")]
+transform = Transform3D(-0.033034045, 0, 0.9994545, 0, 1, 0, -0.9994545, 0, -0.033034045, 12.814897, 0.08318806, 16.571754)
+
+[node name="CharacterBody3D2" parent="zombies" unique_id=21376398 instance=ExtResource("23_lag3f")]
+transform = Transform3D(-0.9985134, 0, -0.05450744, 0, 1, 0, 0.05450744, 0, -0.9985134, 7.4117017, 0, -9.977269)
+
+[node name="CharacterBody3D4" parent="zombies" unique_id=1625384088 instance=ExtResource("23_lag3f")]
+transform = Transform3D(0.010864321, 0, 0.99994093, 0, 1, 0, -0.99994093, 0, 0.010864321, 19.810461, 0, 6.041381)
+
+[node name="CharacterBody3D5" parent="zombies" unique_id=97599302 instance=ExtResource("23_lag3f")]
+transform = Transform3D(-0.9870061, 0, 0.1606814, 0, 1, 0, -0.1606814, 0, -0.9870061, 8.343983, 0, -11.534631)
+
+[node name="CharacterBody3D6" parent="zombies" unique_id=1820654499 instance=ExtResource("23_lag3f")]
+transform = Transform3D(-0.010800093, 0, -0.9999419, 0, 1, 0, 0.9999419, 0, -0.010800093, 4.436498, 0, -14.838788)
+
+[node name="CharacterBody3D7" parent="zombies" unique_id=146957413 instance=ExtResource("23_lag3f")]
+transform = Transform3D(-0.95244783, 0, 0.30470178, 0, 1, 0, -0.30470178, 0, -0.95244783, 9.197393, 0, -9.191953)
+
 [node name="PointerManager" type="CanvasLayer" parent="." unique_id=100000003 groups=["pointer_manager"]]
+layer = 2
 script = ExtResource("8_pointer")
 
 [node name="Control" type="Control" parent="PointerManager" unique_id=1246672035]
@@ -1012,3 +1039,5 @@ volume_db = 1.0
 pitch_scale = 0.8
 autoplay = true
 parameters/looping = true
+
+[node name="HUD" parent="." unique_id=926142427 instance=ExtResource("24_gj5ex")]

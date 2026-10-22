@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://8w01t6ghjyrq"]
+
+[ext_resource type="Script" uid="uid://cy3gf1v5e05s6" path="res://scripts/menus/load_menu.gd" id="1_8tv1f"]
+[ext_resource type="Texture2D" uid="uid://ddtqa23ruw3nu" path="res://assets/menus/background_maim_menu.png" id="1_o70tx"]
+[ext_resource type="FontFile" uid="uid://civxeuja2wp8b" path="res://assets/Font/bloodlust/bloodlustgrad.ttf" id="2_8tv1f"]
+[ext_resource type="FontFile" uid="uid://brkvxae4tt4ah" path="res://assets/Font/CFNightofTerrorPERSONAL-Reg.ttf" id="3_xnhyc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1ygq"]
+bg_color = Color(0, 0.11372549, 0, 0.3529412)
+shadow_color = Color(0, 0, 0, 0.07058824)
+shadow_size = 15
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8w0r3"]
+font = ExtResource("2_8tv1f")
+font_size = 80
+shadow_size = 15
+shadow_color = Color(0.5261731, 0.21096617, 0.08902552, 0.73333335)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5sn6s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctcqp"]
+
+[node name="LoadMenu" type="CanvasLayer" unique_id=900733461]
+layer = 10
+script = ExtResource("1_8tv1f")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1976218572]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o70tx")
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=174064663]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o1ygq")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1090133173]
+layout_mode = 2
+
+[node name="HeaderLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1535693060]
+layout_mode = 2
+text = "LOAD GAME"
+label_settings = SubResource("LabelSettings_8w0r3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer" unique_id=141252076]
+custom_minimum_size = Vector2(0, 470)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="SlotsContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer" unique_id=1330209275]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="CloseButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=182821203]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/align_to_largest_stylebox = 4
+theme_override_fonts/font = ExtResource("3_xnhyc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5sn6s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ctcqp")
+text = "RETURN"
+icon_alignment = 1

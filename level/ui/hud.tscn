@@ -64,31 +64,36 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=1409955892]
 layout_mode = 1
-anchors_preset = -1
-offset_left = -83.0
-offset_top = -29.000002
-offset_right = 267.0
-offset_bottom = 321.0
+offset_left = -80.0
+offset_top = -35.0
+offset_right = 270.0
+offset_bottom = 315.0
 scale = Vector2(1.4800005, 0.40870553)
 texture = ExtResource("2_iq81i")
 
 [node name="TextureRect2" type="TextureRect" parent="Control" unique_id=1753789985]
 layout_mode = 1
-anchors_preset = -1
-offset_left = 722.0
-offset_top = -29.000002
-offset_right = 1072.0
-offset_bottom = 321.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -407.0
+offset_top = -35.0
+offset_right = -57.0
+offset_bottom = 315.0
+grow_horizontal = 0
 scale = Vector2(1.4800005, 0.40870553)
 texture = ExtResource("2_iq81i")
 
 [node name="TextureRect3" type="TextureRect" parent="Control" unique_id=734763901]
 layout_mode = 1
-anchors_preset = -1
-offset_left = 345.0
-offset_top = -29.000002
-offset_right = 705.0
-offset_bottom = 331.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -226.0
+offset_top = -35.0
+offset_right = 134.0
+offset_bottom = 325.0
+grow_horizontal = 2
 scale = Vector2(1.4800005, 0.40870553)
 texture = ExtResource("3_etl7a")
 

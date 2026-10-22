@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://caddv640sj2m6"]
+
+[ext_resource type="Texture2D" uid="uid://ddtqa23ruw3nu" path="res://assets/menus/background_maim_menu.png" id="1_bqqt6"]
+[ext_resource type="Script" uid="uid://bh1m523li5hdi" path="res://scripts/menus/main_menu.gd" id="1_wu84c"]
+[ext_resource type="FontFile" uid="uid://dv3ob2gnwbxwf" path="res://assets/Font/horrendo.ttf" id="2_wu84c"]
+[ext_resource type="FontFile" uid="uid://bpkwn2uh0rm8j" path="res://assets/Font/28 Days Later.ttf" id="3_8ln24"]
+[ext_resource type="PackedScene" uid="uid://8w01t6ghjyrq" path="res://scenes/load_menu.tscn" id="5_8ln24"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
+font = ExtResource("2_wu84c")
+font_size = 55
+shadow_size = 30
+shadow_color = Color(0.44705883, 0.14117648, 0, 0.45882353)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tefeu"]
+font = ExtResource("3_8ln24")
+font_size = 32
+shadow_size = 15
+shadow_color = Color(0, 0.19607843, 0, 0.58431375)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o6xl0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tipki"]
+bg_color = Color(1, 0.3428768, 0.2803858, 1)
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+border_color = Color(1, 1, 1, 1)
+
+[node name="MainMenu" type="Control" unique_id=1061429864]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wu84c")
+character_select_scene = "res://scenes/character_select.tscn"
+first_level_path = "uid://dmqw8qhyy2gwu"
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="." unique_id=881714667]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_bqqt6")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1612366816]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_right = 422.0
+offset_bottom = -7.0
+grow_vertical = 2
+text = "ZOMBIE KILL"
+label_settings = SubResource("LabelSettings_tbgi4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubTitleLabel2" type="Label" parent="." unique_id=488602218]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -1.0
+offset_right = 387.0
+offset_bottom = 29.0
+grow_vertical = 2
+text = "Scape the University"
+label_settings = SubResource("LabelSettings_tefeu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1124737252]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -281.0
+offset_right = 396.0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="NewGameButton" type="Button" parent="VBoxContainer" unique_id=1348626667]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9999997, 0.22826594, 0.15114617, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o6xl0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
+text = "START GAME"
+
+[node name="LoadGameButton" type="Button" parent="VBoxContainer" unique_id=835324774]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o6xl0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
+text = "LOAD GAME"
+
+[node name="SelectCharacterButton" type="Button" parent="VBoxContainer" unique_id=742178364]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o6xl0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+text = "SELECT CHARACTER"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=736518681]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o6xl0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+text = "EXIT"
+
+[node name="LoadMenu" parent="." unique_id=900733461 instance=ExtResource("5_8ln24")]

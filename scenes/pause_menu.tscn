@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bof2o0k1oatkg" path="res://assets/red_banner-removebg-preview.png" id="1_kukqi"]
 [ext_resource type="FontFile" uid="uid://bpkwn2uh0rm8j" path="res://assets/Font/28 Days Later.ttf" id="2_5d2l8"]
 [ext_resource type="FontFile" uid="uid://dv3ob2gnwbxwf" path="res://assets/Font/horrendo.ttf" id="3_7l7mv"]
+[ext_resource type="PackedScene" uid="uid://8w01t6ghjyrq" path="res://scenes/load_menu.tscn" id="5_7l7mv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uahpa"]
 font_size = 65
@@ -23,6 +24,7 @@ border_color = Color(1, 1, 1, 1)
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1100457287]
 process_mode = 3
+layer = 15
 script = ExtResource("1_5d2l8")
 
 [node name="Control" type="Control" parent="." unique_id=1849017120]
@@ -102,6 +104,17 @@ offset_bottom = 80.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ContinueButton" type="Button" parent="Control/RedBanner/VBoxContainer" unique_id=447043773]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7l7mv")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8w0r3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h4t55")
+text = "CONTINUE"
+
 [node name="SaveButton" type="Button" parent="Control/RedBanner/VBoxContainer" unique_id=2131821162]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -123,3 +136,27 @@ theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8w0r3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4e15o")
 text = "LOAD GAME"
+
+[node name="RestartButton" type="Button" parent="Control/RedBanner/VBoxContainer" unique_id=407418959]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7l7mv")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8w0r3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4e15o")
+text = "RESTART LEVEL"
+
+[node name="ExitButton" type="Button" parent="Control/RedBanner/VBoxContainer" unique_id=1810488819]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7l7mv")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8w0r3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4e15o")
+text = "EXIT GAME"
+
+[node name="LoadMenu" parent="." unique_id=900733461 instance=ExtResource("5_7l7mv")]
