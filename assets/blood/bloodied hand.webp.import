@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k4tymee4ae28"
-path.s3tc="res://.godot/imported/blood6.png-721d0385e2c1d236742e0aeec34b3e4f.s3tc.ctex"
+uid="uid://sgq26votcobv"
+path.s3tc="res://.godot/imported/bloodied hand.webp-08d31106f87494c9202392f159d770dc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/blood6.png"
-dest_files=["res://.godot/imported/blood6.png-721d0385e2c1d236742e0aeec34b3e4f.s3tc.ctex"]
+source_file="res://assets/blood/bloodied hand.webp"
+dest_files=["res://.godot/imported/bloodied hand.webp-08d31106f87494c9202392f159d770dc.s3tc.ctex"]
 
 [params]
 

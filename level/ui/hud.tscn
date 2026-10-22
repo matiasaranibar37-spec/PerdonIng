@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bv624avi8gtbp" path="res://scripts/hud.gd" id="1_kjcda"]
 [ext_resource type="FontFile" uid="uid://bpkwn2uh0rm8j" path="res://assets/Font/28 Days Later.ttf" id="2_4umfv"]
-[ext_resource type="Texture2D" uid="uid://cxuik7dv4noc6" path="res://assets/blood.webp" id="2_iq81i"]
-[ext_resource type="Texture2D" uid="uid://ydt8ngs4xuqv" path="res://assets/blood4.webp" id="3_etl7a"]
+[ext_resource type="Texture2D" uid="uid://cxuik7dv4noc6" path="res://assets/blood/blood.webp" id="2_iq81i"]
+[ext_resource type="Texture2D" uid="uid://ydt8ngs4xuqv" path="res://assets/blood/blood4.webp" id="3_etl7a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iq81i"]
 font = ExtResource("2_4umfv")

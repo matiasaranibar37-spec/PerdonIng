@@ -15,16 +15,17 @@
 [ext_resource type="PackedScene" uid="uid://cmds781w8g6r0" path="res://assets/Furnitures/Scenes/WoodFurnitures/chair.tscn" id="11_hdc4k"]
 [ext_resource type="Texture2D" uid="uid://c8c0dy2oqirji" path="res://assets/board.webp" id="12_aive4"]
 [ext_resource type="PackedScene" uid="uid://biq1ib1bjwu2" path="res://assets/Furnitures_2/Scenes/doorway.tscn" id="13_6jaql"]
-[ext_resource type="Texture2D" uid="uid://k4tymee4ae28" path="res://assets/blood6.png" id="15_5tdg5"]
-[ext_resource type="Texture2D" uid="uid://sgq26votcobv" path="res://assets/bloodied hand.webp" id="16_q08ld"]
-[ext_resource type="Texture2D" uid="uid://b7u1yfatuixf7" path="res://assets/blood2.png" id="17_vseoc"]
-[ext_resource type="Texture2D" uid="uid://bmrt3d6oa65s" path="res://assets/blood3.webp" id="18_svqf6"]
-[ext_resource type="Texture2D" uid="uid://cxuik7dv4noc6" path="res://assets/blood.webp" id="19_5tdg5"]
+[ext_resource type="Texture2D" uid="uid://k4tymee4ae28" path="res://assets/blood/blood6.png" id="15_5tdg5"]
+[ext_resource type="Texture2D" uid="uid://sgq26votcobv" path="res://assets/blood/bloodied hand.webp" id="16_q08ld"]
+[ext_resource type="Texture2D" uid="uid://b7u1yfatuixf7" path="res://assets/blood/blood2.png" id="17_vseoc"]
+[ext_resource type="Texture2D" uid="uid://bmrt3d6oa65s" path="res://assets/blood/blood3.webp" id="18_svqf6"]
+[ext_resource type="Texture2D" uid="uid://cxuik7dv4noc6" path="res://assets/blood/blood.webp" id="19_5tdg5"]
 [ext_resource type="PackedScene" uid="uid://cyp8kqoxmkuoa" path="res://level/hazards/elevator_event.tscn" id="20_q08ld"]
+[ext_resource type="PackedScene" uid="uid://bgt5meewurtn6" path="res://assets/Furnitures_2/Models/GLTF format/pottedPlant.glb" id="22_ypb11"]
 [ext_resource type="PackedScene" uid="uid://dedjbv46ot8kp" path="res://level/enemies/zombie_base.tscn" id="23_lag3f"]
 [ext_resource type="PackedScene" uid="uid://cf0xkdmufl64i" path="res://level/ui/hud.tscn" id="24_gj5ex"]
+[ext_resource type="AudioStream" uid="uid://xhqtxkwxljrt" path="res://assets/sounds/soundtrack.mp3" id="24_sb0gx"]
 [ext_resource type="PackedScene" uid="uid://cosy8ldhe5feo" path="res://scenes/pause_menu.tscn" id="25_pausemenu"]
-[ext_resource type="AudioStream" uid="uid://xhqtxkwxljrt" path="res://assets/soundtrack.mp3" id="24_sb0gx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q08ld"]
 albedo_color = Color(0.4509804, 0.47058824, 0.49019608, 1)
@@ -1026,6 +1027,11 @@ texture = ExtResource("19_5tdg5")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.1330209, 0.11827898, -12.1886635)
 modulate = Color(0.29660225, 0.29660237, 0.29660228, 1)
 texture = ExtResource("17_vseoc")
+
+[node name="Hallways" type="Node3D" parent="Decoration" unique_id=33343337]
+
+[node name="pottedPlant" parent="Decoration/Hallways" unique_id=140939708 instance=ExtResource("22_ypb11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5552688, 0, 0.6826811)
 
 [node name="ElevatorEvent" parent="." unique_id=1986692095 instance=ExtResource("20_q08ld")]
 transform = Transform3D(3.922, 0, 0, 0, 3.4786956, 0, 0, 0, 3.017, -9.387091, 1.8874106, -15.550852)
