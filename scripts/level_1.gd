@@ -111,6 +111,38 @@ func _on_interruptor_activado() -> void:
 	if interruptores_activados >= interruptores_necesarios:
 		completar_nivel_1()
 
+# Lo llama el ascensor al terminar la cinemática final (pantalla ya en negro)
+func ir_al_siguiente_nivel() -> void:
+	if nivel_completado:
+		return
+	nivel_completado = true
+
+	var ruta: String = _resolver_ruta_siguiente_nivel()
+	if ruta != "":
+		if get_node_or_null("/root/GameManager"):
+			GameManager.change_level(ruta)
+		else:
+			get_tree().change_scene_to_file(ruta)
+	else:
+		push_warning("No se encontró level_2.tscn. Indica su ruta en 'siguiente_nivel' (Inspector de level_1).")
+		await get_tree().create_timer(2.0).timeout
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+# Usa 'siguiente_nivel' si existe; si no, prueba las carpetas más comunes
+func _resolver_ruta_siguiente_nivel() -> String:
+	var candidatas: Array[String] = [
+		siguiente_nivel,
+		"res://level_2/level_2.tscn",
+		"res://level/level_2.tscn",
+		"res://level_2/level/level_2.tscn",
+		"res://levels/level_2.tscn",
+		"res://scenes/level_2.tscn",
+	]
+	for ruta in candidatas:
+		if ruta != "" and ResourceLoader.exists(ruta):
+			return ruta
+	return ""
+
 func completar_nivel_1() -> void:
 	if nivel_completado:
 		return

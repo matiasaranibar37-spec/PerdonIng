@@ -15,6 +15,9 @@ var p1_health: int = 100
 var p2_health: int = 100
 var is_game_over: bool = false
 
+# Posición del puntero de P1 (la leen los scripts de los objetos del ascensor)
+var p1_pointer_position: Vector2 = Vector2.ZERO
+
 const GAME_OVER_SCENE: String = "res://scenes/game_over.tscn"
 
 # Selección de personajes desde el menú inicial

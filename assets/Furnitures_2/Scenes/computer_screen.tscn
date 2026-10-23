@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bl0s7d5uaels5"]
+
+[ext_resource type="PackedScene" uid="uid://b26dhky443tvb" path="res://assets/Furnitures_2/Models/GLTF format/computerScreen.glb" id="1_grmvw"]
+
+[node name="computerScreen" unique_id=1384597817 instance=ExtResource("1_grmvw")]

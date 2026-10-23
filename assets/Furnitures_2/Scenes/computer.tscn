@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://utbp3hkqngb6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8w0r3"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4t55"]
+albedo_color = Color(0.1893278, 0.18932778, 0.1893278, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7mgy"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8w0r3"]
+size = Vector3(0.9299011, 0.7744751, 1)
+
+[node name="computer" type="StaticBody3D" unique_id=249321596]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1488474429]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1708903995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011718094, -0.015360922, -0.027969256)
+size = Vector3(0.23596191, 0.1282959, 0.008361816)
+material = SubResource("StandardMaterial3D_8w0r3")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1837674883]
+transform = Transform3D(0.9068855, 0, 0, 0, 0.86139315, 0, 0, 0, 0.4282468, -0.011718094, -0.015360922, -0.024709836)
+size = Vector3(0.23596191, 0.1282959, 0.008361816)
+material = SubResource("StandardMaterial3D_h4t55")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=124698745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009777725, -0.0976516, -0.033226147)
+size = Vector3(0.015945435, 0.042663574, 0.008361816)
+material = SubResource("StandardMaterial3D_w7mgy")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=777969016]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, -0.011944115, -0.11487907, -0.033226147)
+size = Vector3(0.0946846, 0.042663574, 0.005645752)
+material = SubResource("StandardMaterial3D_w7mgy")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1342538873]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, -0.018652737, -0.116717756, 0.024402961)
+size = Vector3(0.12865162, 0.042663574, 0.0019683838)
+material = SubResource("StandardMaterial3D_w7mgy")
+
+[node name="CSGTorus3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1097723847]
+transform = Transform3D(0.73467064, 0, 0, 0, 1, 0, 0, 0, 1.3827896, 0.067236006, -0.11577788, 0.00671421)
+radius = 0.010253906
+height = 0.007385254
+sides = 15
+material = SubResource("StandardMaterial3D_w7mgy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=856816]
+transform = Transform3D(0.2608777, 0, 0, 0, 0.22260232, 0, 0, 0, 0.11290374, -0.009143617, -0.027913602, 0)
+shape = SubResource("BoxShape3D_8w0r3")

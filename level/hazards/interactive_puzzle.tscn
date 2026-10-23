@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://852c36tuqg2r" path="res://scripts/interactive_puzzle.gd" id="1_x4gh8"]
 [ext_resource type="Texture2D" uid="uid://rf43w2v027wh" path="res://assets/code_screen.webp" id="2_3mdut"]
+[ext_resource type="FontFile" uid="uid://bpkwn2uh0rm8j" path="res://assets/Font/28 Days Later.ttf" id="2_dnt11"]
 [ext_resource type="Texture2D" uid="uid://dspide0mu7ab2" path="res://assets/button.webp" id="3_f3j41"]
 [ext_resource type="Script" uid="uid://w46guw10vked" path="res://scripts/buttons_scripts/button_1.gd" id="4_f3j41"]
 [ext_resource type="Script" uid="uid://c36a80kskvn78" path="res://scripts/buttons_scripts/button_2.gd" id="5_v6f15"]
@@ -12,6 +13,22 @@
 [ext_resource type="Script" uid="uid://by58i8ppwayvg" path="res://scripts/buttons_scripts/button_7.gd" id="10_jic7a"]
 [ext_resource type="Script" uid="uid://c556udfq47suf" path="res://scripts/buttons_scripts/button_8.gd" id="11_4lmyn"]
 [ext_resource type="Script" uid="uid://d4gu5ncsr6tav" path="res://scripts/buttons_scripts/button_9.gd" id="12_kq2pk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydnqi"]
+bg_color = Color(0.67635643, 0.590776, 0.39756432, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.41960785)
+shadow_size = 15
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h4t55"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0.5803922, 0, 0.1254902, 0.1764706)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8w0r3"]
 font_size = 60
@@ -43,11 +60,30 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="Hint" type="Label" parent="Control" unique_id=2014841454]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -227.0
+offset_top = 41.0
+offset_right = -53.0
+offset_bottom = 140.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_dnt11")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_ydnqi")
+text = "HINT:
+Seven in binary code"
+label_settings = SubResource("LabelSettings_h4t55")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1812640134]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.55169755
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -304.0

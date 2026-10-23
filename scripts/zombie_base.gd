@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+## Se emite cuando el zombie muere (la usa el evento del ascensor)
+signal died
+
 @export var run_speed: float = 3.5
 @export var health: int = 5
 @export var score_value: int = 100
@@ -212,6 +215,8 @@ func die() -> void:
 	# Sumar puntos / kills
 	if get_node_or_null("/root/GameManager"):
 		GameManager.add_kill(ultimo_jugador_que_disparo, score_value)
+	
+	died.emit()
 		
 	# Reproducir animación de muerte y esperar a que termine
 	play_animation("death")

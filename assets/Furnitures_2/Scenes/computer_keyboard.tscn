@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bgimsloq37lu4"]
+
+[ext_resource type="PackedScene" uid="uid://3vfbanuq71w4" path="res://assets/Furnitures_2/Models/GLTF format/computerKeyboard.glb" id="1_vqich"]
+
+[node name="computerKeyboard" unique_id=659106903 instance=ExtResource("1_vqich")]

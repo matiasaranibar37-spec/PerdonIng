@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://iulhdo8a7px"]
+
+[ext_resource type="PackedScene" uid="uid://djlw3cbqcjmxp" path="res://assets/Furnitures_2/Models/GLTF format/books.glb" id="1_8mhcu"]
+
+[node name="books" unique_id=187160649 instance=ExtResource("1_8mhcu")]

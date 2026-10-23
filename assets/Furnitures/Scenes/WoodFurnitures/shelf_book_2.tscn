@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cdmpjpvhhuiuv"]
 
 [ext_resource type="Material" uid="uid://cm3jc3s13cjr5" path="res://assets/Furnitures/material/WoodTrimStacked.material" id="1_j1hy4"]
+[ext_resource type="PackedScene" uid="uid://iulhdo8a7px" path="res://assets/Furnitures_2/Scenes/books.tscn" id="2_babnf"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5nopb"]
 _surfaces = [{
@@ -93,3 +94,52 @@ shape = SubResource("BoxShape3D_p06qn")
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=728116764]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.308741, 0)
 shape = SubResource("BoxShape3D_p06qn")
+
+[node name="Books" type="Node3D" parent="." unique_id=923337840]
+
+[node name="Row" type="Node3D" parent="Books" unique_id=1716512669]
+
+[node name="books" parent="Books/Row" unique_id=187160649 instance=ExtResource("2_babnf")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -0.88891566, 1.6318963, 0.12764525)
+
+[node name="books2" parent="Books/Row" unique_id=1192919992 instance=ExtResource("2_babnf")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -0.3707531, 1.6318963, 0.12764525)
+
+[node name="books3" parent="Books/Row" unique_id=174384173 instance=ExtResource("2_babnf")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0.28145146, 1.6318963, 0.12764525)
+
+[node name="Row2" type="Node3D" parent="Books" unique_id=1553415741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4252743, 0)
+
+[node name="books" parent="Books/Row2" unique_id=384451574 instance=ExtResource("2_babnf")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -0.88891566, 1.6318963, 0.12764525)
+
+[node name="books2" parent="Books/Row2" unique_id=678246929 instance=ExtResource("2_babnf")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.1994481, 1.6318963, 0.12764525)
+
+[node name="books3" parent="Books/Row2" unique_id=2060711800 instance=ExtResource("2_babnf")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0.28145146, 1.6318963, 0.12764525)
+
+[node name="Row3" type="Node3D" parent="Books" unique_id=955892222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8664508, 0)
+
+[node name="books" parent="Books/Row3" unique_id=547921460 instance=ExtResource("2_babnf")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.88891566, 1.6318963, 0.12764525)
+
+[node name="books2" parent="Books/Row3" unique_id=563153402 instance=ExtResource("2_babnf")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -0.3707531, 1.6318963, 0.12764525)
+
+[node name="books3" parent="Books/Row3" unique_id=530147875 instance=ExtResource("2_babnf")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.28145146, 1.6318963, 0.12764525)
+
+[node name="Row4" type="Node3D" parent="Books" unique_id=1624309523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3012333, 0)
+
+[node name="books" parent="Books/Row4" unique_id=1751652481 instance=ExtResource("2_babnf")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -0.88891566, 1.6318963, 0.12764525)
+
+[node name="books2" parent="Books/Row4" unique_id=1652375205 instance=ExtResource("2_babnf")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -0.3707531, 1.6318963, 0.12764525)
+
+[node name="books3" parent="Books/Row4" unique_id=1153254033 instance=ExtResource("2_babnf")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0.28145146, 1.6318963, 0.12764525)

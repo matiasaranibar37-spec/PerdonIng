@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://8mcq0cgh8ie6" path="res://scripts/elevator_event.gd" id="1_qh7lh"]
 [ext_resource type="Texture2D" uid="uid://bmhymxxghjmj5" path="res://assets/elevator_metal wall.png" id="2_bvfrw"]
-[ext_resource type="Texture2D" uid="uid://fncv5ntx5q5k" path="res://assets/fire_extinguisher.png" id="3_ex8sg"]
-[ext_resource type="Texture2D" uid="uid://dein8msxwvnrj" path="res://assets/plastic_tube.webp" id="4_jg32y"]
-[ext_resource type="Texture2D" uid="uid://c5v2kl60ii3ti" path="res://assets/pen.png" id="5_ui470"]
+[ext_resource type="PackedScene" uid="uid://dedjbv46ot8kp" path="res://level/enemies/zombie_base.tscn" id="5_mpcr2"]
 [ext_resource type="Script" uid="uid://bjywdtskuv0ie" path="res://scripts/elevator_switch.gd" id="6_jg32y"]
 [ext_resource type="PackedScene" uid="uid://d14gfhnxysggc" path="res://level/hazards/interactive_puzzle.tscn" id="7_ui470"]
 [ext_resource type="PackedScene" uid="uid://cwhb3p8cd63w7" path="res://assets/Figures3D/fire_extinguisher_3d.tscn" id="8_mpcr2"]
+[ext_resource type="FontFile" uid="uid://bpkwn2uh0rm8j" path="res://assets/Font/28 Days Later.ttf" id="9_egbrn"]
+[ext_resource type="AudioStream" uid="uid://cyunfyc4b6wfo" path="res://assets/sounds/elevator_fall_sound1.wav" id="9_jcs1d"]
 [ext_resource type="PackedScene" uid="uid://c7aqe10rfvfg" path="res://assets/Figures3D/pen_3d.tscn" id="9_wy5ea"]
 [ext_resource type="PackedScene" uid="uid://b7pmdpwp2q472" path="res://assets/Figures3D/plastic_tube_3d.tscn" id="10_jcs1d"]
 
@@ -34,6 +34,866 @@ size = Vector3(0.0077590942, 0.012390137, 0.04901123)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ui470"]
 size = Vector3(0.22671509, 0.8227539, 0.7923584)
 
+[sub_resource type="Animation" id="Animation_wy5ea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DoorLeft:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.4942627, 0, 0.25256345)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DoorRight:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.4942627, 0, -0.24815767)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CharacterBody3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/LabelMensaje:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Elige un objeto para defenderte del zombie"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/LabelMensaje:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PuzzleObjects/Fire_Extinguisher3D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0021505088, -0.18752488, 0.27831784)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PuzzleObjects/Fire_Extinguisher3D:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1.5707964)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PuzzleObjects/Pen3D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.25666213, -0.4807514, -0.07856323)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PuzzleObjects/Pen3D:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.686438, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PuzzleObjects/Plastic_Tube3D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.08743028, 0, -0.2821011)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PuzzleObjects/Plastic_Tube3D:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Camera3D:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Inside:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Inside:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Inside/back wall2:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.491364, 0, -0.0024013566)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Inside/left wall2:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.49395868)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Inside/right wall2:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.4935507)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Inside/ceiling:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.49098828, -0.001734145)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Inside/floor:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.4994357, -0.001734145)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Inside/back wall2:rotation")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Inside/left wall2:rotation")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Inside/right wall2:rotation")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Inside/ceiling:rotation")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5707964, 0, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Inside/floor:rotation")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5707964, 0, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Inside/back wall2:visible")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Inside/left wall2:visible")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Inside/right wall2:visible")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Inside/ceiling:visible")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Inside/floor:visible")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("CanvasLayer/LabelMensaje2:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("CanvasLayer/ColorRectFade:self_modulate")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("CanvasLayer/ColorRectFade:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_egbrn"]
+resource_name = "elevator_fall"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inside:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.99999994, 1.0999999, 1.1999999, 1.3, 1.4, 1.5, 1.5999999),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.05, 0.05), Vector3(0, 0, 0), Vector3(0, 0.05, 0), Vector3(0, 0, 0), Vector3(0, -0.05, -0.05), Vector3(0, 0, 0), Vector3(0, -0.05, 0.05), Vector3(0, 0, 0), Vector3(0, 0.05, 0.05), Vector3(0, 0, 0), Vector3(0, 0.05, 0), Vector3(0, 0, 0), Vector3(0, -0.05, -0.05), Vector3(0, 0, 0), Vector3(0, -0.05, 0.05), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Inside:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Inside/back wall2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.7, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.491364, 0, -0.0024013566), Vector3(-0.491364, -1.1519146, -0.0024013566)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Inside/left wall2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.7, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.49395868), Vector3(0, -1.1519146, 0.49395868)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Inside/right wall2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.7, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.4935507), Vector3(0, -1.1519146, -0.4935507)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Inside/ceiling:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.7, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.49098828, -0.001734145), Vector3(0, -0.66092634, -0.001734145)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Inside/floor:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.7, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.4994357, -0.001734145), Vector3(0, -1.6513504, -0.001734145)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Inside/back wall2:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.7),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Inside/left wall2:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.7),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Inside/right wall2:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.7),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Inside/ceiling:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.7),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5707964, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Inside/floor:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1.7),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5707964, 0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Inside/back wall2:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(2, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Inside/left wall2:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(2, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Inside/right wall2:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(2, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Inside/ceiling:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(2, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Inside/floor:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(2, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("CanvasLayer/LabelMensaje2:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 3.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("CanvasLayer/ColorRectFade:self_modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(2.3, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.62352943)]
+}
+tracks/19/type = "audio"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("elevator_fall")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"clips": [{
+"end_offset": 22.619995,
+"start_offset": 0.0,
+"stream": ExtResource("9_jcs1d")
+}],
+"times": PackedFloat32Array(0.0333333)
+}
+tracks/19/use_blend = true
+tracks/20/type = "audio"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("elevator_fall2")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"clips": [{
+"end_offset": 12.590002,
+"start_offset": 10.72,
+"stream": ExtResource("9_jcs1d")
+}],
+"times": PackedFloat32Array(1.7666667)
+}
+tracks/20/use_blend = true
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("CanvasLayer/ColorRectFade:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(2.32),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_jcs1d"]
+resource_name = "zombie_ambush"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8666667, 2.2, 2.5, 2.8666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.93779606, 0, 0), Vector3(0.5244772, 0, 0), Vector3(0.43545112, -0.20580643, 0), Vector3(0.19407462, -0.13169596, 0), Vector3(0.938, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DoorLeft:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.4942627, 0, 0.25256345), Vector3(0.4942627, 0, 0.75343555)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DoorRight:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0009999999, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.4942627, 0, -0.24815767), Vector3(0.4942627, 0, -0.7515478)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CharacterBody3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.93333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CharacterBody3D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_ready"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/LabelMensaje:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.8666666),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Elige un objeto para defenderte del zombie"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/LabelMensaje:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.8666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PuzzleObjects/Fire_Extinguisher3D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0021505088, -0.18752488, 0.27831784), Vector3(0.0021505088, -0.39118907, 0.24145158)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PuzzleObjects/Fire_Extinguisher3D:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.95),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1.5707964)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PuzzleObjects/Pen3D:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.25666213, -0.22082843, -0.07856323), Vector3(0.25666213, -0.4807514, -0.07856323)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PuzzleObjects/Pen3D:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.4011428, 0, 0), Vector3(-1.686438, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PuzzleObjects/Plastic_Tube3D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.08743028, 0, -0.2821011), Vector3(-0.01663451, -0.45914575, -0.2821011)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("PuzzleObjects/Plastic_Tube3D:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.5707964, 1.0345664, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Camera3D:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 1.8666667, 2.2, 2.5, 2.8666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(-0.25467166, 1.919309, -0.023425559), Vector3(-0.82048726, 1.5661571, 0.040965233), Vector3(-0.8204875, 0.8780714, 0.040965304), Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_evsia"]
+_data = {
+&"RESET": SubResource("Animation_wy5ea"),
+&"elevator_fall": SubResource("Animation_egbrn"),
+&"zombie_ambush": SubResource("Animation_jcs1d")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_8w0r3"]
+font = ExtResource("9_egbrn")
+font_size = 40
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 0.7294118)
+
 [node name="ElevatorEvent" type="Node3D" unique_id=1986692095]
 transform = Transform3D(3.922, 0, 0, 0, 3.4786956, 0, 0, 0, 3.017, 0, 0, 0)
 script = ExtResource("1_qh7lh")
@@ -56,63 +916,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, -0.4935507)
 size = Vector3(1, 1, 0.020507813)
 material = SubResource("StandardMaterial3D_8w0r3")
 
+[node name="back wall2" type="CSGBox3D" parent="Inside" unique_id=452706229]
+transform = Transform3D(-4.371138e-08, 0, 0.9999998, 0, 1, 0, -0.9999998, 0, -4.371138e-08, -0.491364, 0, -0.0024013566)
+size = Vector3(0.9688721, 1, 0.020019531)
+material = SubResource("StandardMaterial3D_8w0r3")
+
+[node name="left wall2" type="CSGBox3D" parent="Inside" unique_id=1407447552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0, 0.49395868)
+size = Vector3(1, 1, 0.019042969)
+material = SubResource("StandardMaterial3D_8w0r3")
+
+[node name="right wall2" type="CSGBox3D" parent="Inside" unique_id=1190846222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0, -0.4935507)
+size = Vector3(1, 1, 0.020507813)
+material = SubResource("StandardMaterial3D_8w0r3")
+
 [node name="ceiling" type="CSGBox3D" parent="Inside" unique_id=1988600057]
-transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, -0.9999998, 0, 0.9999999, -4.371138e-08, 0, 0.49098828, -0.001734145)
+transform = Transform3D(1, 0, 0, 0, -4.371138e-08, -0.99999976, 0, 0.9999998, -4.3711378e-08, 0, 0.49098828, -0.001734145)
 size = Vector3(1, 0.98291016, 0.021484375)
 material = SubResource("StandardMaterial3D_8w0r3")
 
 [node name="floor" type="CSGBox3D" parent="Inside" unique_id=1853249032]
-transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, -0.9999998, 0, 0.9999999, -4.371138e-08, 0, -0.4994357, -0.001734145)
+transform = Transform3D(1, 0, 0, 0, -4.371138e-08, -0.99999976, 0, 0.9999998, -4.3711378e-08, 0, -0.4994357, -0.001734145)
 use_collision = true
 size = Vector3(1, 0.98291016, 0.021484375)
 material = SubResource("StandardMaterial3D_8w0r3")
 
 [node name="DoorLeft" type="CSGBox3D" parent="." unique_id=57832252]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0.4942627, 0, 0.25256345)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, 0.4942627, 0, 0.25256345)
 size = Vector3(0.011474609, 1, 0.49487305)
 material = SubResource("StandardMaterial3D_h4t55")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="DoorLeft" unique_id=1854466841]
 
 [node name="DoorRight" type="CSGBox3D" parent="." unique_id=970314524]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0.4942627, 0, -0.24815767)
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999998, 0.4942627, 0, -0.24815767)
 size = Vector3(0.011474609, 1, 0.4958496)
 material = SubResource("StandardMaterial3D_w7mgy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="DoorRight" unique_id=789309636]
-
-[node name="SelectionUI" type="CanvasLayer" parent="." unique_id=1341297966]
-visible = false
-
-[node name="Control" type="Control" parent="SelectionUI" unique_id=125428650]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="fire_extinguisher" type="TextureButton" parent="SelectionUI/Control" unique_id=1518339430]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture_normal = ExtResource("3_ex8sg")
-
-[node name="plastic_tube" type="TextureButton" parent="SelectionUI/Control" unique_id=1594451120]
-layout_mode = 0
-offset_left = 362.99997
-offset_top = 36.999996
-offset_right = 828.0
-offset_bottom = 387.0
-scale = Vector2(0.8, 0.8)
-texture_normal = ExtResource("4_jg32y")
-
-[node name="pen" type="TextureButton" parent="SelectionUI/Control" unique_id=916303009]
-layout_mode = 0
-offset_left = 482.0
-offset_top = 44.0
-offset_right = 842.0
-offset_bottom = 404.0
-scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("5_ui470")
 
 [node name="Elevator_switch" type="Area3D" parent="." unique_id=458127024]
 transform = Transform3D(11.788162, 0, 0, 0, 12.951622, 0, 0, 0, 0.7298345, 0.56325793, 0, -0.48525456)
@@ -128,14 +970,69 @@ transform = Transform3D(0.034288384, 0, 0, 0, 0.015059884, 0, 0, 0, 0.064757645,
 shape = SubResource("BoxShape3D_ui470")
 
 [node name="InteractivePuzzle" parent="." unique_id=2056521526 instance=ExtResource("7_ui470")]
+offset = Vector2(0, 30)
+transform = Transform2D(1, 0, 0, 1, 0, 30)
+
+[node name="CharacterBody3D" parent="." unique_id=373837389 instance=ExtResource("5_mpcr2")]
+transform = Transform3D(0.3999999, 0, 0, 0, 0.3999999, 0, 0, 0, 0.39999995, -0.072486795, -0.431967, 0.04996517)
 
 [node name="PuzzleObjects" type="Node3D" parent="." unique_id=1671605835]
 
 [node name="Fire_Extinguisher3D" parent="PuzzleObjects" unique_id=1986192298 instance=ExtResource("8_mpcr2")]
-transform = Transform3D(0.19999997, 0, 0, 0, 0.19999997, 0, 0, 0, 0.19999997, -0.18422009, -0.16319112, 0.15039188)
+transform = Transform3D(-8.742269e-09, -0.19999985, 0, 0.19999981, -8.742271e-09, 0, 0, 0, 0.19999997, 0.0021505088, -0.18752488, 0.27831784)
 
 [node name="Pen3D" parent="PuzzleObjects" unique_id=1888261788 instance=ExtResource("9_wy5ea")]
-transform = Transform3D(0.39999998, 0, 0, 0, 0.39999998, 0, 0, 0, 0.39999998, 0.19888684, 0, 0)
+transform = Transform3D(0.39999965, 0, 0, 0, -0.046153616, 0.3973283, 0, -0.3973283, -0.046153616, 0.25666213, -0.4807514, -0.07856323)
 
 [node name="Plastic_Tube3D" parent="PuzzleObjects" unique_id=1667504072 instance=ExtResource("10_jcs1d")]
-transform = Transform3D(0.45, 0, 0, 0, 0.44999993, 0, 0, 0, 0.44999993, -0.09311777, 0, -0.10682523)
+transform = Transform3D(0.45000002, 0, 0, 0, 0.44999975, 0, 0, 0, 0.44999978, 0.08743028, 0, -0.2821011)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1338631495]
+transform = Transform3D(-1.346398e-08, 0, 0.28651616, 0, 0.28379744, 0, -0.30801997, 0, -1.2524019e-08, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1124943394]
+libraries/ = SubResource("AnimationLibrary_evsia")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1469839513]
+
+[node name="ColorRectFade" type="ColorRect" parent="CanvasLayer" unique_id=1181564271]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LabelMensaje" type="Label" parent="CanvasLayer" unique_id=559475046]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -106.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Elige un objeto para defenderte del zombie"
+label_settings = SubResource("LabelSettings_8w0r3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelMensaje2" type="Label" parent="CanvasLayer" unique_id=1574824443]
+visible = false
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Nivel uno superado"
+label_settings = SubResource("LabelSettings_8w0r3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="elevator_fall" type="AudioStreamPlayer" parent="." unique_id=588398394]
+
+[node name="elevator_fall2" type="AudioStreamPlayer" parent="." unique_id=1376201498]

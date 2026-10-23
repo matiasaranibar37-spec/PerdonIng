@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dutxx2elxuvm7"]
+
+[ext_resource type="Texture2D" uid="uid://crovpi18lah2" path="res://assets/blood/coat_blood.webp" id="1_b0uab"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_coat"]
+size = Vector3(0.46, 1.34, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7hkg"]
+albedo_color = Color(0.8156863, 0.70980394, 0.63529414, 1)
+albedo_texture = ExtResource("1_b0uab")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8w0r3"]
+albedo_color = Color(0.31764707, 0.24313726, 0.18431373, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cg11b"]
+albedo_color = Color(0.8156863, 0.70980394, 0.63529414, 1)
+albedo_texture = ExtResource("1_b0uab")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5s8t"]
+albedo_color = Color(0.316812, 0.24132827, 0.18379101, 1)
+albedo_texture = ExtResource("1_b0uab")
+
+[node name="Coat" type="Area3D" unique_id=55238601]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1720446319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.032299805, 0)
+shape = SubResource("BoxShape3D_coat")
+
+[node name="Node3D" type="CSGCombiner3D" parent="." unique_id=2087871030]
+
+[node name="head" type="CSGCylinder3D" parent="Node3D" unique_id=1309470591]
+transform = Transform3D(0.24751991, 0, 0, 0, -1.427596e-09, -0.34345582, 0, 0.03265959, -1.5012931e-08, 0, 0.44572997, 0.015039757)
+sides = 20
+material = SubResource("StandardMaterial3D_f7hkg")
+
+[node name="head2" type="CSGCylinder3D" parent="Node3D" unique_id=42450092]
+transform = Transform3D(0.2243176, 0, 0, 0, -2.5792726e-09, -0.29377508, 0, 0.059006877, -1.2841317e-08, 0, 0.45456716, 0.05609882)
+operation = 2
+height = 0.4071045
+sides = 20
+material = SubResource("StandardMaterial3D_8w0r3")
+
+[node name="body" type="CSGCylinder3D" parent="Node3D" unique_id=1465517309]
+transform = Transform3D(0.43006897, 0, 0, 0, 0.4164604, 0, 0, 0, 0.14221737, 0, -0.13282472, 0)
+material = SubResource("StandardMaterial3D_cg11b")
+
+[node name="body2" type="CSGCylinder3D" parent="Node3D" unique_id=931833577]
+transform = Transform3D(0.31953642, 0, 0, 0, 0.4164604, 0, 0, 0, 0.10436925, 0, -0.13460402, 0.030182183)
+operation = 2
+height = 1.9914551
+material = SubResource("StandardMaterial3D_p5s8t")

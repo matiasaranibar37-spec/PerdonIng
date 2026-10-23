@@ -4,7 +4,7 @@ extends CanvasLayer
 signal codigo_correcto
 
 # Código secreto configurado a 3 dígitos (puedes cambiarlo si deseas)
-const CODIGO_SECRETO: String = "382"
+const CODIGO_SECRETO: String = "111"
 
 var codigo_actual: String = ""
 var procesando_validacion: bool = false

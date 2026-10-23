@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://oo4m8y2f3lq4"]
+
+[ext_resource type="Texture2D" uid="uid://3vwybdw7bk32" path="res://assets/wallTexture.png" id="1_fi7bm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8w0r3"]
+albedo_texture = ExtResource("1_fi7bm")
+
+[node name="rubble" type="RigidBody3D" unique_id=1989985741]
+freeze = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1373598371]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=641535440]
+transform = Transform3D(0.95134944, 0.10602062, -0.042726092, 0.062714145, 0.4498411, 0.115412064, 0.3016641, -0.4278735, 0.1107506, -0.037222892, 0, 0.081670046)
+material = SubResource("StandardMaterial3D_8w0r3")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1555316633]
+transform = Transform3D(1, 0, 0, 0, 0.39661655, -0.12861174, 0, 0.48925275, 0.10426012, -0.9315628, 0.19918442, -0.534677)
+material = SubResource("StandardMaterial3D_8w0r3")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1689852914]
+transform = Transform3D(0.66024864, -0.3155067, 0.092644855, 0.3821589, 0.545095, 0.053623825, -0.6465494, 0, 0.1263035, 0.968752, 0.3538908, -0.28602785)
+material = SubResource("StandardMaterial3D_8w0r3")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1757239835]
+transform = Transform3D(0.59272, 0.024769332, -0.13318692, 0.38215894, 0.545095, 0.05362382, 0.7089693, -0.3145329, 0.08244326, 0.46816778, 0.3538908, -0.55705804)
+material = SubResource("StandardMaterial3D_8w0r3")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1058445505]
+transform = Transform3D(0.60797876, 0.29680714, 0.736388, 0, 0.9274954, -0.37383452, -0.7939533, 0.22728345, 0.5638975, 0.84017515, -0.4110098, -1.6946622)
+height = 0.16210938
+sides = 5
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1686452100]
+transform = Transform3D(1, 0, 0, 0, 0.9274954, -0.37383452, 0, 0.37383452, 0.9274954, -1.8239, -0.4110098, -1.6946622)
+height = 0.16210938
+sides = 5
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1560138439]
+transform = Transform3D(0.60797876, 0.29680714, 0.736388, 0, 0.9274954, -0.37383452, -0.7939533, 0.22728345, 0.5638975, -1.4330127, -0.3448739, -1.6946622)
+height = 0.16210938
+sides = 3
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=2077255515]
+transform = Transform3D(1, 0, 0, 0, 0.9274954, -0.37383452, 0, 0.37383452, 0.9274954, 0.34806585, -0.060903072, -1.6946622)
+height = 0.16210938
+sides = 5
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=753518393]
+transform = Transform3D(0.60797876, 0.29680714, 0.736388, 0, 0.9274954, -0.37383452, -0.7939533, 0.22728345, 0.5638975, 0.7389531, 0.005232811, -1.6946622)
+height = 0.16210938
+sides = 3
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=925135601]
+transform = Transform3D(1, 0, 0, 0, 0.9274954, -0.37383452, 0, 0.37383452, 0.9274954, -1.0299423, 0.47134352, -1.381056)
+height = 0.16210938
+sides = 5
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1518084087]
+transform = Transform3D(0.60797876, 0.29680714, 0.736388, 0, 0.9274954, -0.37383452, -0.7939533, 0.22728345, 0.5638975, -0.639055, 0.5374794, -1.381056)
+height = 0.16210938
+sides = 3
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=706063107]
+transform = Transform3D(1, 0, 0, 0, 0.9274954, -0.37383452, 0, 0.37383452, 0.9274954, -0.17545885, 0.47134352, -1.381056)
+height = 0.16210938
+sides = 5
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1282575665]
+transform = Transform3D(0.60797876, 0.29680714, 0.736388, 0, 0.9274954, -0.37383452, -0.7939533, 0.22728345, 0.5638975, 0.21542841, 0.5374794, -1.381056)
+height = 0.16210938
+sides = 3
