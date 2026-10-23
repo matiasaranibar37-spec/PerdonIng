@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://scripts/game_manager.gd"
 SaveManager="*uid://dkch0fw8kxlte"
+MenuMusic="*res://scripts/menu_music.gd"
 
 [display]
 
