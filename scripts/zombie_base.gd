@@ -1,14 +1,12 @@
 extends CharacterBody3D
 
-## Se emite cuando el zombie muere (la usa el evento del ascensor)
-signal died
-
 @export var run_speed: float = 3.5
 @export var health: int = 5
-@export var score_value: int = 100
+@export var score_value: int = 100              # Puntos normales por muerte al cuerpo
+@export var headshot_score_value: int = 200     # Puntos aumentados por tiro a la cabeza
 @export var attack_distance: float = 2.0
 @export var attack_damage: int = 10
-@export var attack_cooldown: float = 0.1
+@export var attack_cooldown: float = 1.5
 
 @export_group("Vision y Deteccion")
 @export var detection_distance: float = 15.0
@@ -24,7 +22,7 @@ signal died
 @onready var animation_player: AnimationPlayer = get_node_or_null("zombie_model/AnimationPlayer")
 @onready var ray_cast: RayCast3D = get_node_or_null("RayCast3D")
 @onready var audio_player: AudioStreamPlayer3D = get_node_or_null("AudioStreamPlayer3D")
-@onready var run_audio_player: AudioStreamPlayer3D = get_node_or_null("RunAudioPlayer") # Nodo dedicado para el sonido de correr
+@onready var run_audio_player: AudioStreamPlayer3D = get_node_or_null("RunAudioPlayer")
 
 var target_node: Node3D = null
 var is_dead: bool = false
@@ -32,6 +30,7 @@ var is_attacking: bool = false
 var can_attack: bool = true
 var is_player_detected: bool = false
 var ultimo_jugador_que_disparo: String = "1"
+var is_headshot: bool = false # Rastrea si murió por un tiro a la cabeza
 
 func _ready() -> void:
 	if animation_player == null:
@@ -49,10 +48,9 @@ func _ready() -> void:
 	target_node = get_viewport().get_camera_3d()
 	play_animation("idle")
 	
-	# Sonido de grito inicial (solo una vez al iniciar)
-	if sound_screech and audio_player:
-		audio_player.stream = sound_screech
-		audio_player.play()
+	#if sound_screech and audio_player:
+		#audio_player.stream = sound_screech
+		#audio_player.play()
 
 func _physics_process(_delta: float) -> void:
 	if is_dead:
@@ -65,7 +63,6 @@ func _physics_process(_delta: float) -> void:
 	var target_position = target_node.global_transform.origin
 	var distance = global_transform.origin.distance_to(target_position)
 
-	# 1. COMPROBAR SI DETECTA AL JUGADOR
 	if not is_player_detected:
 		if distance <= detection_distance:
 			var to_player = (target_position - global_transform.origin)
@@ -74,7 +71,7 @@ func _physics_process(_delta: float) -> void:
 			
 			var zombie_forward = -global_transform.basis.z
 			zombie_forward.y = 0.0
-			zombie_forward.normalized()
+			zombie_forward = zombie_forward.normalized()
 			
 			var dot_prod = zombie_forward.dot(to_player)
 			var angle_limit = cos(deg_to_rad(detection_angle_degrees / 2.0))
@@ -89,14 +86,12 @@ func _physics_process(_delta: float) -> void:
 				else:
 					is_player_detected = true
 
-	# 2. SI NO HA SIDO DETECTADO: ESTÁTICO EN IDLE
 	if not is_player_detected:
 		velocity = Vector3.ZERO
 		stop_running_sound()
 		play_animation("idle")
 		return
 
-	# 3. SI YA FUE DETECTADO: CORRER O ATACAR
 	if distance > attack_distance:
 		is_attacking = false
 		var direction = (target_position - global_transform.origin).normalized()
@@ -129,12 +124,24 @@ func stop_running_sound() -> void:
 func to_target_local(global_pos: Vector3) -> Vector3:
 	return ray_cast.to_local(global_pos)
 
-# MÉTODOS DE COMPATIBILIDAD Y DAÑO
+# --- MÉTODOS DE DISPAROS Y DAÑO ---
 
 func recibir_disparo(jugador_id: String) -> void:
 	if jugador_id != "":
 		ultimo_jugador_que_disparo = jugador_id
 	recibir_dano(1)
+
+# NUEVA FUNCIÓN: Se ejecuta exclusivamente cuando le dan en la cabeza
+func recibir_disparo_cabeza(jugador_id: String) -> void:
+	if jugador_id != "":
+		ultimo_jugador_que_disparo = jugador_id
+	
+	is_headshot = true
+	print("¡TIRO A LA CABEZA! (HEADSHOT)")
+	
+	# Opcional: Un tiro a la cabeza los mata instantáneamente o les hace el doble de daño
+	# Aquí hacemos que le quite toda la vida de golpe para que muera al instante de un headshot:
+	recibir_dano(health) 
 
 func recibir_dano(cantidad: int) -> void:
 	take_damage(cantidad)
@@ -164,12 +171,10 @@ func trigger_attack() -> void:
 	stop_running_sound()
 	play_animation("attack")
 	
-	# Sonido de ataque
 	if sound_attack and audio_player:
 		audio_player.stream = sound_attack
 		audio_player.play()
 	
-	# Espera a que termine la animación completa antes de descontar vida
 	if animation_player and animation_player.has_animation("attack"):
 		await animation_player.animation_finished
 	else:
@@ -181,10 +186,10 @@ func trigger_attack() -> void:
 	if get_node_or_null("/root/GameManager"):
 		var gm = GameManager
 		var nueva_salud_p1 = max(0, gm.p1_health - attack_damage)
+		var nueva_salud_p2 = max(0, gm.p2_health - attack_damage)
+		
 		gm.update_player_health(1, nueva_salud_p1)
-		if gm.player_count >= 2:
-			var nueva_salud_p2 = max(0, gm.p2_health - attack_damage)
-			gm.update_player_health(2, nueva_salud_p2)
+		gm.update_player_health(2, nueva_salud_p2)
 
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
@@ -197,14 +202,17 @@ func die() -> void:
 	velocity = Vector3.ZERO
 	stop_running_sound()
 	
-	# Desactivar la colisión del zombie para que los jugadores o disparos lo atraviesen y no estorbe
 	var collision_shape = get_node_or_null("CollisionShape3D")
 	if collision_shape:
 		collision_shape.disabled = true
 		
-	# Selección aleatoria entre los dos sonidos de muerte
+	# Desactivar también el Area3D de la cabeza para que no siga recibiendo disparos una vez muerto
+	var head_area = get_node_or_null("HeadArea")
+	if head_area:
+		head_area.monitoring = false
+	
 	if audio_player:
-		var elegir_dying_2 = randf() < 0.5 # 50% de probabilidad
+		var elegir_dying_2 = randf() < 0.5
 		if elegir_dying_2 and sound_dying_2:
 			audio_player.stream = sound_dying_2
 			audio_player.play()
@@ -212,18 +220,17 @@ func die() -> void:
 			audio_player.stream = sound_dying_1
 			audio_player.play()
 	
-	# Sumar puntos / kills
+	# AQUí SE APLICA EL CAMBIO DE PUNTUACIÓN SEGÚN EL HEADSHOT
 	if get_node_or_null("/root/GameManager"):
-		GameManager.add_kill(ultimo_jugador_que_disparo, score_value)
-	
-	died.emit()
+		var puntos_finales = headshot_score_value if is_headshot else score_value
+		GameManager.add_kill(ultimo_jugador_que_disparo, puntos_finales)
+		if is_headshot:
+			print("¡Kill por HeadSHOT! Puntos otorgados: ", puntos_finales)
 		
-	# Reproducir animación de muerte y esperar a que termine
 	play_animation("death")
 	if animation_player and animation_player.has_animation("death"):
 		await animation_player.animation_finished
 		
-	# para que el cuerpo se quede permanentemente tirado en el suelo sin gastar recursos de código.
 	set_physics_process(false)
 
 func play_animation(anim_name: String) -> void:
