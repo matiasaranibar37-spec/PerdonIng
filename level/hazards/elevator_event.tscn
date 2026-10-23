@@ -985,6 +985,7 @@ offset_top = 44.0
 offset_right = 842.0
 offset_bottom = 404.0
 scale = Vector2(0.3, 0.3)
+
 [node name="Elevator_switch" type="Area3D" parent="." unique_id=458127024]
 transform = Transform3D(11.788162, 0, 0, 0, 12.951622, 0, 0, 0, 0.7298345, 0.56325793, 0, -0.48525456)
 script = ExtResource("6_jg32y")
@@ -1057,7 +1058,7 @@ offset_top = -15.0
 offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Nivel uno superado"
+text = "Level 1 completed..."
 label_settings = SubResource("LabelSettings_8w0r3")
 horizontal_alignment = 1
 vertical_alignment = 1

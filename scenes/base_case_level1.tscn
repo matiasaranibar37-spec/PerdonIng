@@ -1072,29 +1072,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.661598, 0, -1.0600901)
 
 [node name="CharacterBody3D" parent="zombies" unique_id=373837389 instance=ExtResource("17_10752")]
 transform = Transform3D(-0.033143863, 0, 0.99945056, 0, 1, 0, -0.99945056, 0, -0.033143863, 15.138143, 0.05093503, 15.903154)
+script = null
 
 [node name="CharacterBody3D3" parent="zombies" unique_id=1990034515 instance=ExtResource("17_10752")]
 transform = Transform3D(-0.033034045, 0, 0.9994545, 0, 1, 0, -0.9994545, 0, -0.033034045, 12.814897, 0.08318806, 16.571754)
+script = null
 
 [node name="CharacterBody3D2" parent="zombies" unique_id=1269768418 instance=ExtResource("17_10752")]
 transform = Transform3D(-0.9985134, 0, -0.05450744, 0, 1, 0, 0.05450744, 0, -0.9985134, 7.4117017, 0, -9.977269)
+script = null
 
 [node name="CharacterBody3D4" parent="zombies" unique_id=786076133 instance=ExtResource("17_10752")]
 transform = Transform3D(0.010864321, 0, 0.99994093, 0, 1, 0, -0.99994093, 0, 0.010864321, 19.810461, 0, 6.041381)
+script = null
 
 [node name="CharacterBody3D5" parent="zombies" unique_id=1851601518 instance=ExtResource("17_10752")]
 transform = Transform3D(-0.9870061, 0, 0.1606814, 0, 1, 0, -0.1606814, 0, -0.9870061, 8.343983, 0, -11.534631)
+script = null
 
 [node name="CharacterBody3D6" parent="zombies" unique_id=609985671 instance=ExtResource("17_10752")]
 transform = Transform3D(-0.010800093, 0, -0.9999419, 0, 1, 0, 0.9999419, 0, -0.010800093, 4.436498, 0, -14.838788)
+script = null
 
 [node name="CharacterBody3D7" parent="zombies" unique_id=1958442820 instance=ExtResource("17_10752")]
 transform = Transform3D(-0.95244783, 0, 0.30470178, 0, 1, 0, -0.30470178, 0, -0.95244783, 9.197393, 0, -9.191953)
-sound_screech = null
-sound_attack = null
-sound_dying_1 = null
-sound_dying_2 = null
-sound_running = null
+script = null
 
 [node name="CharacterBody3D8" parent="zombies" unique_id=506290278 instance=ExtResource("17_10752")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3025913, 0.21440458, -2.4551935)

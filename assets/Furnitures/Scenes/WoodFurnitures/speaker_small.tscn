@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cv1jn2xmc17xm"]
+
+[ext_resource type="PackedScene" uid="uid://gga4cam0b0e" path="res://assets/Furnitures_2/Models/GLTF format/speakerSmall.glb" id="1_4uwvb"]
+
+[node name="speakerSmall" unique_id=472195948 instance=ExtResource("1_4uwvb")]
