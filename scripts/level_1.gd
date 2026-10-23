@@ -26,6 +26,18 @@ func _ready() -> void:
 		if puzle_ui.has_signal("codigo_correcto"):
 			if not puzle_ui.codigo_correcto.is_connected(_on_codigo_correcto):
 				puzle_ui.codigo_correcto.connect(_on_codigo_correcto)
+	# Configurar los elementos del segundo jugador según el modo elegido.
+	var jugador_2: Node = get_node_or_null("PlayerP2")
+	var punteros: Node = get_node_or_null("PointerManager")
+	var hud_node: Node = get_node_or_null("HUD")
+	var modo_dos_jugadores := not get_node_or_null("/root/GameManager") or GameManager.player_count >= 2
+	if jugador_2:
+		jugador_2.visible = modo_dos_jugadores
+	if punteros and punteros.has_node("Control/PointerP2"):
+		punteros.get_node("Control/PointerP2").visible = modo_dos_jugadores
+	if hud_node and hud_node.has_node("Control/P2Container"):
+		hud_node.get_node("Control/P2Container").visible = modo_dos_jugadores
+
 	# Regenerar la salud de los jugadores al iniciar el nivel
 	if get_node_or_null("/root/GameManager"):
 		GameManager.reset_health_for_new_level()

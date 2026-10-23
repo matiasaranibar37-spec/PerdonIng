@@ -956,6 +956,35 @@ material = SubResource("StandardMaterial3D_w7mgy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="DoorRight" unique_id=789309636]
 
+[node name="SelectionUI" type="CanvasLayer" parent="." unique_id=1341297966]
+visible = false
+
+[node name="Control" type="Control" parent="SelectionUI" unique_id=125428650]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="fire_extinguisher" type="TextureButton" parent="SelectionUI/Control" unique_id=1518339430]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="plastic_tube" type="TextureButton" parent="SelectionUI/Control" unique_id=1594451120]
+layout_mode = 0
+offset_left = 362.99997
+offset_top = 36.999996
+offset_right = 828.0
+offset_bottom = 387.0
+scale = Vector2(0.8, 0.8)
+
+[node name="pen" type="TextureButton" parent="SelectionUI/Control" unique_id=916303009]
+layout_mode = 0
+offset_left = 482.0
+offset_top = 44.0
+offset_right = 842.0
+offset_bottom = 404.0
+scale = Vector2(0.3, 0.3)
 [node name="Elevator_switch" type="Area3D" parent="." unique_id=458127024]
 transform = Transform3D(11.788162, 0, 0, 0, 12.951622, 0, 0, 0, 0.7298345, 0.56325793, 0, -0.48525456)
 script = ExtResource("6_jg32y")

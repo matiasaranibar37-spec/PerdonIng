@@ -14,6 +14,8 @@ var p2_kills: int = 0
 var p1_health: int = 100
 var p2_health: int = 100
 var is_game_over: bool = false
+# Cantidad de jugadores seleccionada en el menú: 1 o 2.
+var player_count: int = 1
 
 # Posición del puntero de P1 (la leen los scripts de los objetos del ascensor)
 var p1_pointer_position: Vector2 = Vector2.ZERO

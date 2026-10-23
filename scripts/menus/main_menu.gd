@@ -7,10 +7,11 @@ extends Control
 @onready var exit_button: Button = get_node_or_null("VBoxContainer/ExitButton")
 
 @onready var load_menu_panel: CanvasLayer = get_node_or_null("LoadMenu")
+var mode_dialog: ConfirmationDialog
 
 # Rutas corregidas hacia tus archivos .tscn
 @export_file("*.tscn") var character_select_scene: String = "res://scenes/ui/character_select.tscn"
-@export_file("*.tscn") var first_level_path: String = "res://scenes/levels/level_1.tscn"
+@export_file("*.tscn") var first_level_path: String = "res://level/level_1.tscn"
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -38,15 +39,38 @@ func _ready() -> void:
 		
 	if load_menu_panel:
 		load_menu_panel.hide()
+	_create_mode_dialog()
+
+func _create_mode_dialog() -> void:
+	mode_dialog = ConfirmationDialog.new()
+	mode_dialog.title = "Seleccionar modo de juego"
+	mode_dialog.dialog_text = "Elige cómo quieres jugar."
+	mode_dialog.ok_button_text = "1 jugador"
+	mode_dialog.cancel_button_text = "2 jugadores"
+	mode_dialog.confirmed.connect(_start_selected_mode.bind(1))
+	mode_dialog.canceled.connect(_start_selected_mode.bind(2))
+	add_child(mode_dialog)
 
 func _on_new_game_pressed() -> void:
-	print("Iniciando nueva partida...")
-	SaveManager.pending_data.clear()
+	if mode_dialog:
+		mode_dialog.popup_centered(Vector2i(360, 160))
+
+func _on_mode_cancelled() -> void:
+	if mode_dialog:
+		mode_dialog.hide()
+
+func _start_selected_mode(player_count: int) -> void:
+	print("Iniciando partida para %s jugador(es)..." % player_count)
+	if get_node_or_null("/root/SaveManager"):
+		SaveManager.pending_data.clear()
 	if get_node_or_null("/root/GameManager"):
+		GameManager.player_count = clampi(player_count, 1, 2)
 		GameManager.reset_game()
-	
+	get_tree().paused = false
 	if ResourceLoader.exists(first_level_path):
-		get_tree().change_scene_to_file(first_level_path)
+		var error := get_tree().change_scene_to_file(first_level_path)
+		if error != OK:
+			push_error("No se pudo cargar el nivel inicial. Código: %s" % error)
 	else:
 		push_error("No existe el nivel inicial en la ruta: " + first_level_path)
 
@@ -58,7 +82,7 @@ func _on_start_game_pressed() -> void:
 	else:
 		# Si el Menú Principal es una escena separada, despausamos antes de cargar
 		get_tree().paused = false
-		get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
+		get_tree().change_scene_to_file("res://level/level_1.tscn")
 
 func _on_load_game_pressed() -> void:
 	print("Abriendo menú de carga...")

@@ -13,8 +13,8 @@ extends Node3D
 @onready var door_left: Node3D = get_node_or_null("DoorLeft")
 @onready var door_right: Node3D = get_node_or_null("DoorRight")
 @onready var zombie_emboscada: Node3D = _buscar_zombie()
-@onready var puzzle_ui: CanvasLayer = get_node_or_null("InteractivePuzzle") # Teclado numérico
-@onready var puzzle_objects: Node3D = get_node_or_null("PuzzleObjects")      # Objetos a elegir
+@onready var puzzle_ui: CanvasLayer = get_node_or_null("InteractivePuzzle")  # Teclado numérico
+@onready var puzzle_objects: Node3D = get_node_or_null("PuzzleObjects")      # Objetos 3D interactivos a elegir
 @onready var anim_player: AnimationPlayer = get_node_or_null("AnimationPlayer")
 @onready var camara_cinematica: Camera3D = get_node_or_null("Camera3D")
 

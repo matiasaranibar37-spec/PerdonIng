@@ -23,6 +23,11 @@ func _ready() -> void:
 	# Inicializamos los punteros al centro
 	_center_pointer(pointer_p1)
 	_center_pointer(pointer_p2)
+	var two_players := not get_node_or_null("/root/GameManager") or GameManager.player_count >= 2
+	if pointer_p2:
+		pointer_p2.visible = two_players
+	if player_p2:
+		player_p2.set_process_input(two_players)
 	
 	if camera:
 		camera_pitch = camera.rotation.x
@@ -64,6 +69,8 @@ func _process(delta: float) -> void:
 			else:
 				gamepad_shooting[2] = false
 
+	if get_node_or_null("/root/GameManager") and GameManager.player_count < 2:
+		return
 	# Mover miras con gamepads (Mando 0 para P1, Mando 1 para P2)
 	_update_gamepad_pointer(pointer_p1, 0, 1, size)
 	_update_gamepad_pointer(pointer_p2, 1, 2, size)
@@ -85,7 +92,9 @@ func _input(event: InputEvent) -> void:
 	# Soporte para Pantallas Táctiles (Dispositivos Móviles)
 	if event is InputEventScreenTouch:
 		if event.pressed:
-			var player_id := 1 if event.position.x < get_viewport().get_visible_rect().size.x * 0.5 else 2
+			var player_id := 1
+			if get_node_or_null("/root/GameManager") and GameManager.player_count >= 2:
+				player_id = 1 if event.position.x < get_viewport().get_visible_rect().size.x * 0.5 else 2
 			active_touch_for_player[player_id] = event.index
 			_set_pointer(player_id, event.position)
 			_shoot(player_id)
@@ -122,6 +131,8 @@ func _set_pointer(player_id: int, position: Vector2) -> void:
 		pointer.position = position - pointer.size * 0.5
 
 func _shoot(player_id: int) -> void:
+	if player_id == 2 and get_node_or_null("/root/GameManager") and GameManager.player_count < 2:
+		return
 	if player_id == 1 and player_p1 and pointer_p1:
 		var centro_mira := pointer_p1.position + (pointer_p1.size * 0.5)
 		player_p1.shoot(centro_mira)
