@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://8mcq0cgh8ie6" path="res://scripts/elevator_event.gd" id="1_qh7lh"]
 [ext_resource type="Texture2D" uid="uid://bmhymxxghjmj5" path="res://assets/elevator_metal wall.png" id="2_bvfrw"]
-[ext_resource type="Texture2D" uid="uid://fncv5ntx5q5k" path="res://assets/fire_extinguisher.png" id="3_ex8sg"]
-[ext_resource type="Texture2D" uid="uid://dein8msxwvnrj" path="res://assets/plastic_tube.webp" id="4_jg32y"]
-[ext_resource type="Texture2D" uid="uid://c5v2kl60ii3ti" path="res://assets/pen.png" id="5_ui470"]
 [ext_resource type="Script" uid="uid://bjywdtskuv0ie" path="res://scripts/elevator_switch.gd" id="6_jg32y"]
 [ext_resource type="PackedScene" uid="uid://d14gfhnxysggc" path="res://level/hazards/interactive_puzzle.tscn" id="7_ui470"]
 [ext_resource type="PackedScene" uid="uid://cwhb3p8cd63w7" path="res://assets/Figures3D/fire_extinguisher_3d.tscn" id="8_mpcr2"]
@@ -94,7 +91,6 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture_normal = ExtResource("3_ex8sg")
 
 [node name="plastic_tube" type="TextureButton" parent="SelectionUI/Control" unique_id=1594451120]
 layout_mode = 0
@@ -103,7 +99,6 @@ offset_top = 36.999996
 offset_right = 828.0
 offset_bottom = 387.0
 scale = Vector2(0.8, 0.8)
-texture_normal = ExtResource("4_jg32y")
 
 [node name="pen" type="TextureButton" parent="SelectionUI/Control" unique_id=916303009]
 layout_mode = 0
@@ -112,7 +107,6 @@ offset_top = 44.0
 offset_right = 842.0
 offset_bottom = 404.0
 scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("5_ui470")
 
 [node name="Elevator_switch" type="Area3D" parent="." unique_id=458127024]
 transform = Transform3D(11.788162, 0, 0, 0, 12.951622, 0, 0, 0, 0.7298345, 0.56325793, 0, -0.48525456)
@@ -132,10 +126,10 @@ shape = SubResource("BoxShape3D_ui470")
 [node name="PuzzleObjects" type="Node3D" parent="." unique_id=1671605835]
 
 [node name="Fire_Extinguisher3D" parent="PuzzleObjects" unique_id=1986192298 instance=ExtResource("8_mpcr2")]
-transform = Transform3D(0.19999997, 0, 0, 0, 0.19999997, 0, 0, 0, 0.19999997, -0.18422009, -0.16319112, 0.15039188)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18422009, -0.16319112, 0.15039188)
 
 [node name="Pen3D" parent="PuzzleObjects" unique_id=1888261788 instance=ExtResource("9_wy5ea")]
-transform = Transform3D(0.39999998, 0, 0, 0, 0.39999998, 0, 0, 0, 0.39999998, 0.19888684, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19888684, 0, 0)
 
 [node name="Plastic_Tube3D" parent="PuzzleObjects" unique_id=1667504072 instance=ExtResource("10_jcs1d")]
-transform = Transform3D(0.45, 0, 0, 0, 0.44999993, 0, 0, 0, 0.44999993, -0.09311777, 0, -0.10682523)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09311777, 0, -0.10682523)

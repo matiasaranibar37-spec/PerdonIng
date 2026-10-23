@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://ck4vlb8bj1n3a"]
-
-[ext_resource type="PackedScene" uid="uid://wn60ly4gllq5" path="res://assets/Furnitures_2/Models/GLTF format/wallDoorwayWide.glb" id="1_d4ef3"]
-
-[node name="wallDoorwayWide" unique_id=2077786163 instance=ExtResource("1_d4ef3")]

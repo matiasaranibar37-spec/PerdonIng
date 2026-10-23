@@ -11,7 +11,6 @@ class_name MobilePlayer
 
 @onready var camera: Camera3D = get_node_or_null(camera_path) as Camera3D
 @onready var raycast: RayCast3D = get_node_or_null("RayCast3D") as RayCast3D
-var _can_shoot := true
 
 func _ready() -> void:
 	if raycast:

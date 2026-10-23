@@ -10,6 +10,9 @@ extends CanvasLayer
 @onready var kills_label_p2: Label = get_node_or_null("Control/P2Container/HBoxContainer2/KillsP2Label")
 
 func _ready() -> void:
+	var p2_container: Control = get_node_or_null("Control/P2Container")
+	if p2_container and get_node_or_null("/root/GameManager"):
+		p2_container.visible = GameManager.player_count >= 2
 	# Búsqueda alternativa si los Labels están como hijos directos de P1Container/P2Container
 	if kills_label_p1 == null:
 		kills_label_p1 = get_node_or_null("Control/P1Container/KillsP1Label")

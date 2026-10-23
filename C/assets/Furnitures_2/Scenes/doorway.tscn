@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://biq1ib1bjwu2"]
-
-[ext_resource type="PackedScene" uid="uid://b8hxfsnkkqufj" path="res://assets/Furnitures_2/Models/GLTF format/doorway.glb" id="1_jd723"]
-
-[node name="doorway" unique_id=302223291 instance=ExtResource("1_jd723")]

@@ -178,10 +178,10 @@ func trigger_attack() -> void:
 	if get_node_or_null("/root/GameManager"):
 		var gm = GameManager
 		var nueva_salud_p1 = max(0, gm.p1_health - attack_damage)
-		var nueva_salud_p2 = max(0, gm.p2_health - attack_damage)
-		
 		gm.update_player_health(1, nueva_salud_p1)
-		gm.update_player_health(2, nueva_salud_p2)
+		if gm.player_count >= 2:
+			var nueva_salud_p2 = max(0, gm.p2_health - attack_damage)
+			gm.update_player_health(2, nueva_salud_p2)
 
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true

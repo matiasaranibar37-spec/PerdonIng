@@ -3,7 +3,7 @@ extends Node3D
 # Referencias a los nodos de la escena
 @onready var door_left: CSGBox3D = $DoorLeft
 @onready var door_right: CSGBox3D = $DoorRight
-@onready var zombie_emboscada: Node3D = $ZombieEmboscada
+@onready var zombie_emboscada: Node3D = get_node_or_null("ZombieEmboscada") as Node3D
 @onready var puzzle_ui: CanvasLayer = get_node_or_null("InteractivePuzzle") # Referencia al teclado
 @onready var puzzle_objects: Node3D = get_node_or_null("PuzzleObjects") # Referencia a los objetos 3D interactivos
 

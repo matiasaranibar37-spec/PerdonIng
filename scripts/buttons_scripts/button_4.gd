@@ -3,7 +3,7 @@ extends Button
 
 @export var numero_digito: String = "1" # Asigna "1", "2", "3", etc., en el Inspector
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if not is_visible_in_tree():
 		return
 		

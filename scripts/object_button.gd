@@ -3,7 +3,7 @@
 ## Exportamos el tipo de objeto para asignarlo individualmente en el Inspector
 #@export var tipo_objeto: ElevatorEvent.Objeto
 #
-#func _input(event: InputEvent) -> void:
+#func _input(_event: InputEvent) -> void:
 	## Si la UI no está visible, no procesamos clics
 	#if not is_visible_in_tree():
 		#return

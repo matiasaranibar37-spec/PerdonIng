@@ -36,7 +36,7 @@ func recibir_dano(_cantidad: int = 1) -> void:
 	_al_recibir_disparo()
 
 # Detección por coordenadas de mira en pantalla
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if not is_visible_in_tree():
 		return
 
