@@ -10,12 +10,18 @@
 [ext_resource type="Script" uid="uid://dtiycl7s81t0f" path="res://scripts/player.gd" id="7_player"]
 [ext_resource type="Script" uid="uid://bybsk1l1cxy8r" path="res://scripts/pointer_manager.gd" id="8_pointer"]
 [ext_resource type="Texture2D" uid="uid://cylmul0emy6n8" path="res://assets/pointer_p1.svg" id="9_p1"]
+[ext_resource type="PackedScene" uid="uid://bdujschlundal" path="res://level/enemies/Zombie_Librarian.tscn" id="10_56pii"]
 [ext_resource type="Texture2D" uid="uid://bwypwmkrhajde" path="res://assets/pointer_p2.svg" id="10_p2"]
 [ext_resource type="PackedScene" uid="uid://l6ef5fb6a5sn" path="res://assets/Furnitures/Scenes/WoodFurnitures/table_rectangle.tscn" id="10_skxlf"]
 [ext_resource type="PackedScene" uid="uid://cmds781w8g6r0" path="res://assets/Furnitures/Scenes/WoodFurnitures/chair.tscn" id="11_hdc4k"]
+[ext_resource type="AudioStream" uid="uid://c6y5m1ry65ngd" path="res://assets/zombie_sounds/zombie_screech.wav" id="11_l0khy"]
+[ext_resource type="AudioStream" uid="uid://vp7auhwqaq6s" path="res://assets/zombie_sounds/zombie_attack.wav" id="12_1sh3p"]
 [ext_resource type="Texture2D" uid="uid://c8c0dy2oqirji" path="res://assets/board.webp" id="12_aive4"]
 [ext_resource type="PackedScene" uid="uid://biq1ib1bjwu2" path="res://assets/Furnitures_2/Scenes/doorway.tscn" id="13_6jaql"]
+[ext_resource type="AudioStream" uid="uid://cpgouwbnyl05n" path="res://assets/zombie_sounds/zombie_dying.wav" id="13_ppk33"]
+[ext_resource type="AudioStream" uid="uid://b63vxdqgvch1i" path="res://assets/zombie_sounds/zombie_dying2.wav" id="14_umon3"]
 [ext_resource type="Texture2D" uid="uid://k4tymee4ae28" path="res://assets/blood/blood6.png" id="15_5tdg5"]
+[ext_resource type="AudioStream" uid="uid://cl1xtbr8xc4jy" path="res://assets/zombie_sounds/zombie_running.wav" id="15_rpfn0"]
 [ext_resource type="Texture2D" uid="uid://sgq26votcobv" path="res://assets/blood/bloodied hand.webp" id="16_q08ld"]
 [ext_resource type="Texture2D" uid="uid://b7u1yfatuixf7" path="res://assets/blood/blood2.png" id="17_vseoc"]
 [ext_resource type="Texture2D" uid="uid://bmrt3d6oa65s" path="res://assets/blood/blood3.webp" id="18_svqf6"]
@@ -570,6 +576,14 @@ script = null
 [node name="CharacterBody3D13" parent="zombies" unique_id=383178628 instance=ExtResource("23_lag3f")]
 transform = Transform3D(0.3209546, 0, -0.94709456, 0, 1, 0, 0.94709456, 0, 0.3209546, 16.347286, 0.32842743, 7.6193285)
 script = null
+
+[node name="ZombieLibrarian" parent="zombies" unique_id=1981032698 instance=ExtResource("10_56pii")]
+transform = Transform3D(0.9715818, 0, 0.23670392, 0, 1, 0, -0.23670392, 0, 0.9715818, 9.437115, 0.35796428, 15.164502)
+sound_screech = ExtResource("11_l0khy")
+sound_attack = ExtResource("12_1sh3p")
+sound_dying_1 = ExtResource("13_ppk33")
+sound_dying_2 = ExtResource("14_umon3")
+sound_running = ExtResource("15_rpfn0")
 
 [node name="PointerManager" type="CanvasLayer" parent="." unique_id=100000003 groups=["pointer_manager"]]
 layer = 2
