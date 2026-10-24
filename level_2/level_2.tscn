@@ -65,125 +65,125 @@ ambient_light_color = Color(0.05882353, 0.08627451, 0.11764706, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_c7y74"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -13.868189, -6.9498596, 5.013296, 0, 0, 0, 0, 0, 0, -13.941572, -6.947237, 2.566618, 0, 0, 0, 0, 0, 0, -13.133394, -6.947237, 1.3550348, 0, 0, 0, 0, 0, 0, -11.21713, -6.947237, 1.3323355, 0, 0, 0, 0, 0, 0, -9.469307, -6.947237, 1.2572117, 0, 0, 0, 0, 0, 0, -6.639597, -6.947237, 1.0158939, 0, 0, 0, 0, 0, 0, -4.5524225, -6.947237, 0.5484371, 0, 0, 0, 0, 0, 0, -4.5524225, -6.947237, 0.5484371, 0, 0, 0, 0, 0, 0, -2.7821374, -6.947237, 0.02435875, 0, 0, 0, 0, 0, 0, -1.8507466, -6.947237, -0.72499275, 0, 0, 0, 0, 0, 0, -1.8868594, -6.947237, -1.650383, 0, 0, 0, 0, 0, 0, -1.8592405, -6.947238, -2.437233, 0, 0, 0, 0, 0, 0, -1.694499, -6.947237, -3.412675, 0, 0, 0, 0, 0, 0, -1.4570818, -6.947237, -4.3795023, 0, 0, 0, 0, 0, 0, -1.5785589, -6.947238, -5.4814034, 0, 0, 0, 0, 0, 0, -2.132145, -6.947238, -6.5218716, 0, 0, 0, 0, 0, 0, -2.717853, -6.947237, -6.8945065, 0, 0, 0, 0, 0, 0, -2.717853, -6.947237, -6.8945065, 0, 0, 0, 0, 0, 0, -2.717853, -6.947237, -6.8945065, 0, 0, 0, 0, 0, 0, -2.717853, -6.947237, -6.8945065, 0, 0, 0, 0, 0, 0, -3.27804, -6.947237, -7.038924, 0, 0, 0, 0, 0, 0, -3.9158118, -6.947237, -7.605709, 0, 0, 0, 0, 0, 0, -4.47735, -6.947237, -7.866404, 0, 0, 0, 0, 0, 0, -5.221764, -6.947237, -7.8774376, 0, 0, 0, 0, 0, 0, -6.047571, -6.947237, -8.058783, 0, 0, 0, 0, 0, 0, -6.111294, -6.947237, -8.602291, 0, 0, 0, 0, 0, 0, -5.7831697, -6.947237, -9.061096, 0, 0, 0, 0, 0, 0, -5.1986985, -6.947237, -9.300442, 0, 0, 0, 0, 0, 0, -4.34002, -6.947237, -10.021801, 0, 0, 0, 0, 0, 0, -4.0680885, -6.947237, -10.21966, 0, 0, 0, 0, 0, 0, -3.345951, -6.947237, -10.755593, 0, 0, 0, 0, 0, 0, -2.9293337, -6.947237, -11.445309, 0, 0, 0, 0, 0, 0, -2.6413765, -6.947237, -12.244602, 0, 0, 0, 0, 0, 0, -2.4964714, -6.947237, -13.290184, 0, 0, 0, 0, 0, 0, -2.2823763, -6.947237, -14.358775, 0, 0, 0, 0, 0, 0, -2.1266236, -6.947237, -15.636038, 0, 0, 0, 0, 0, 0, -2.0746608, -6.947237, -17.980232, 0, 0, 0, 0, 0, 0, -2.0746608, -6.947237, -17.980232, 0, 0, 0, 0, 0, 0, -2.1151128, -6.947237, -19.50724, 0, 0, 0, 0, 0, 0, -2.0350285, -6.947237, -20.886362, 0, 0, 0, 0, 0, 0, -1.8151588, -6.947237, -22.000185, 0, 0, 0, 0, 0, 0, -1.8402195, -6.947237, -22.72741, 0, 0, 0, 0, 0, 0, -1.8999357, -6.947237, -23.190392),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -14.758762, -2.234928, -28.61343, 0, 0, 0, 0, 0, 0, -14.351114, -2.234928, -28.633034, 0, 0, 0, 0, 0, 0, -13.286582, -2.2349277, -28.60979, 0, 0, 0, 0, 0, 0, -12.83161, -2.2349277, -28.530874, 0, 0, 0, 0, 0, 0, -10.826214, -2.234928, -28.261189, 0, 0, 0, 0, 0, 0, -7.445673, -2.234928, -28.149256, 0, 0, 0, 0, 0, 0, -1.9435773, -2.2349277, -28.169281, 0, 0, 0, 0, 0, 0, -1.9435773, -2.2349277, -28.169281, 0, 0, 0, 0, 0, 0, -0.105475426, -2.234928, -28.601425, 0, 0, 0, 0, 0, 0, 1.81598, -2.2349277, -27.764755, 0, 0, 0, 0, 0, 0, 2.50002, -2.2349277, -27.157146, 0, 0, 0, 0, 0, 0, 2.711196, -2.2349277, -26.297703, 0, 0, 0, 0, 0, 0, 2.5851974, -2.234928, -25.588154, 0, 0, 0, 0, 0, 0, 2.0975618, -2.2349277, -24.97395, 0, 0, 0, 0, 0, 0, 1.8609495, -2.2349277, -24.940275, 0, 0, 0, 0, 0, 0, 1.4540186, -2.2349277, -24.909792, 0, 0, 0, 0, 0, 0, 1.4540186, -2.2349277, -24.909792, 0, 0, 0, 0, 0, 0, 1.4540186, -2.2349277, -24.909792, 0, 0, 0, 0, 0, 0, 1.4540186, -2.2349277, -24.909792, 0, 0, 0, 0, 0, 0, 1.4540186, -2.2349277, -24.909792, 0, 0, 0, 0, 0, 0, -0.13330984, -2.234928, -24.756012, 0, 0, 0, 0, 0, 0, -0.13330984, -2.234928, -24.756012, 0, 0, 0, 0, 0, 0, -0.13330984, -2.234928, -24.756012, 0, 0, 0, 0, 0, 0, -1.7281313, -2.234928, -24.51889, 0, 0, 0, 0, 0, 0, -3.5046022, -2.2349277, -24.5746, 0, 0, 0, 0, 0, 0, -4.163927, -2.234928, -24.54289, 0, 0, 0, 0, 0, 0, -4.2745547, -2.2349277, -24.402103, 0, 0, 0, 0, 0, 0, -4.358041, -2.234928, -24.257826, 0, 0, 0, 0, 0, 0, -4.358041, -2.234928, -24.257826, 0, 0, 0, 0, 0, 0, -4.4762883, -2.234928, -24.098103, 0, 0, 0, 0, 0, 0, -4.72824, -2.234928, -23.844387, 0, 0, 0, 0, 0, 0, -5.0210795, -2.234928, -23.435486, 0, 0, 0, 0, 0, 0, -5.2986746, -2.2349277, -23.193, 0, 0, 0, 0, 0, 0, -5.9044666, -2.2349277, -22.307423, 0, 0, 0, 0, 0, 0, -6.2549443, -2.2349277, -21.495512, 0, 0, 0, 0, 0, 0, -6.425628, -2.2349277, -19.80154, 0, 0, 0, 0, 0, 0, -6.4611793, -2.234928, -17.342411, 0, 0, 0, 0, 0, 0, -6.7816067, -2.2349277, -0.32377338, 0, 0, 0, 0, 0, 0, -6.6565943, -2.234928, 0.55445194, 0, 0, 0, 0, 0, 0, -6.4555254, -2.234928, 1.2703457, 0, 0, 0, 0, 0, 0, -6.0211825, -2.234928, 1.6700945, 0, 0, 0, 0, 0, 0, -5.564184, -2.234928, 1.998415, 0, 0, 0, 0, 0, 0, -4.83251, -2.234928, 2.1799126, 0, 0, 0, 0, 0, 0, -3.8023803, -2.2349277, 2.4730606, 0, 0, 0, 0, 0, 0, -3.8023803, -2.2349277, 2.4730606, 0, 0, 0, 0, 0, 0, -2.3653655, -2.234928, 2.4690933, 0, 0, 0, 0, 0, 0, -0.51623535, -2.2349277, 2.7398882, 0, 0, 0, 0, 0, 0, 2.0483522, -2.2349277, 2.7821093, 0, 0, 0, 0, 0, 0, 2.980898, -2.2349277, 3.1963444, 0, 0, 0, 0, 0, 0, 3.2642984, -2.234928, 3.6794872, 0, 0, 0, 0, 0, 0, 3.528945, -2.1999998, 4.357338, 0, 0, 0, 0, 0, 0, 3.2120104, -2.2, 5.197382, 0, 0, 0, 0, 0, 0, 2.2164545, -2.2, 5.9352455, 0, 0, 0, 0, 0, 0, 1.6709852, -2.1999998, 6.108841, 0, 0, 0, 0, 0, 0, -4.6087832, -4.4103613, 6.509773, 0, 0, 0, 0, 0, 0, -13.344599, -6.9498596, 6.319069, 0, 0, 0, 0, 0, 0, -13.831236, -6.9498596, 6.3088493, 0, 0, 0, 0, 0, 0, -15.213763, -6.9498596, 5.713215, 0, 0, 0, 0, 0, 0, -13.95962, -6.9192004, 5.697491),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 43
+point_count = 59
 
 [sub_resource type="Animation" id="Animation_2m50i"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CameraRail/RailFollow/Camera3D:position")
+tracks/0/path = NodePath("Rubbles/rubble:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.046256065, -0.35180485, 3.0261912)]
+"values": [Vector3(-10.711051, 5.522993, 19.976006)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CameraRail/RailFollow/Camera3D:rotation")
+tracks/1/path = NodePath("Rubbles/rubble:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(4.1909622e-09, -1.8626027e-09, 0)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Rubbles/rubble:position")
+tracks/2/path = NodePath("Rubbles/rubble2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-10.711051, 5.522993, 19.976006)]
+"values": [Vector3(-12.540057, 4.748909, 19.976006)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Rubbles/rubble:rotation")
+tracks/3/path = NodePath("Rubbles/rubble3:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(-11.048728, 5.167256, 18.252335)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Rubbles/rubble2:position")
+tracks/4/path = NodePath("Rubbles/rubble2:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-12.540057, 4.748909, 19.976006)]
+"values": [Vector3(0, -0.90868807, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Rubbles/rubble3:position")
+tracks/5/path = NodePath("Rubbles/rubble3:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-11.048728, 5.167256, 18.252335)]
+"values": [Vector3(-0.1085393, -2.9902735, -0.016516604)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Rubbles/rubble2:rotation")
+tracks/6/path = NodePath("TextAnimation/LabelMensaje:text")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.90868807, 0)]
+"update": 1,
+"values": ["Make some noise to distract the zombies"]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Rubbles/rubble3:rotation")
+tracks/7/path = NodePath("TextAnimation/LabelMensaje:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.1085393, -2.9902735, -0.016516604)]
+"update": 1,
+"values": [true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("TextAnimation/LabelMensaje:text")
+tracks/8/path = NodePath("TextAnimation/LabelMensaje3:text")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Make some noise to distract the zombies"]
+"values": ["use the coat to avoid being discovered"]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("TextAnimation/LabelMensaje:visible")
+tracks/9/path = NodePath("TextAnimation/LabelMensaje3:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -195,26 +195,26 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("TextAnimation/LabelMensaje3:text")
+tracks/10/path = NodePath("CinematicRail/RailFollow/Camera3D:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["use the coat to avoid being discovered"]
+"update": 0,
+"values": [Vector3(0, 0.7303272, 0)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("TextAnimation/LabelMensaje3:visible")
+tracks/11/path = NodePath("CinematicRail/RailFollow/Camera3D:rotation")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_5j5u4"]
@@ -223,46 +223,22 @@ length = 8.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CameraRail/RailFollow/Camera3D:position")
+tracks/0/path = NodePath("TextAnimation/LabelMensaje:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.7, 2.3, 3.0333333, 3.7333333, 4.0666666, 7.0333333, 7.4, 8.035),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(5.8902016, -4.5435357, -9.569888), Vector3(4.4045134, -4.5435357, -9.569887), Vector3(4.5623174, -4.2127666, -9.569887), Vector3(4.5623174, -4.2127666, -9.569887), Vector3(6.2046576, -4.1709766, -10.907516), Vector3(6.50632, -4.1709766, -9.02519), Vector3(6.50632, -4.1709766, -9.02519), Vector3(6.50632, -4.1709766, -9.02519), Vector3(6.50632, -4.1709766, -9.02519), Vector3(6.50632, -4.1709766, -9.02519)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CameraRail/RailFollow/Camera3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 1.7, 2.3, 3.0333333, 3.7333333, 4.0666666, 7.025, 7.391667, 8.035),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0), Vector3(0.44514552, 1.5707964, 0), Vector3(0.44514552, 1.5707964, 0), Vector3(0, 1.0511483, 0), Vector3(0, 1.8826581, 0), Vector3(0, 1.8826581, 0), Vector3(0, -3.064994, 0), Vector3(0, -3.064994, 0), Vector3(0, 1.5707964, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TextAnimation/LabelMensaje:text")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(8.075),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["Make some noise to distract the zombies"]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("TextAnimation/LabelMensaje:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextAnimation/LabelMensaje:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 8.075),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -275,122 +251,134 @@ length = 25.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CameraRail/RailFollow/Camera3D:position")
+tracks/0/path = NodePath("Rubbles/rubble:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.4666667, 4, 6, 6.5, 11.5, 12.533334, 13.466666, 14.333333, 19.166666, 20, 20.933332, 21.8, 24.3, 24.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 16.5, 18),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.046256065, -0.35180485, 3.0261912), Vector3(0.1846962, -0.35180485, -12.083534), Vector3(2.9151812, -0.35180485, -15.219522), Vector3(3.6840467, -0.35180485, -7.9256506), Vector3(6.7216845, -0.35180485, -5.9349856), Vector3(28.222918, -0.35180485, -5.606345), Vector3(30.535282, -0.35180485, -6.085411), Vector3(30.65271, -0.35180485, -13.766981), Vector3(34.681168, -0.35180485, -13.705408), Vector3(34.852684, -3.9776537, 1.0084248), Vector3(34.838173, -3.9776542, 1.9583187), Vector3(34.833973, -3.9776547, 2.2335048), Vector3(34.947456, -3.977657, 3.513863), Vector3(34.48617, -3.977658, 3.5068173), Vector3(35.59279, -3.9776595, 1.40657)]
+"values": [Vector3(-10.711051, 5.522993, 19.976006), Vector3(-10.711051, 5.4170995, 19.976006), Vector3(-10.711051, -3.916744, 19.976006)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CameraRail/RailFollow/Camera3D:rotation")
+tracks/1/path = NodePath("Rubbles/rubble:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.4666667, 4, 6, 6.5, 11.5, 12.533334, 13.466666, 14.325, 19.166666, 19.983332, 20.925, 21.78333, 24.3, 24.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 16.5, 18),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(4.1909622e-09, -1.8626027e-09, 0), Vector3(4.190962e-09, -0.21957052, 0), Vector3(4.1909636e-09, 2.913547, 5.8371045e-17), Vector3(4.1909667e-09, -2.0143943, -3.4275023e-17), Vector3(4.190967e-09, -1.5605367, -2.1492008e-16), Vector3(4.1909676e-09, -1.0127784, -2.1331921e-16), Vector3(4.190969e-09, -0.563704, -3.331639e-16), Vector3(4.19097e-09, -1.2013776, -5.1963613e-16), Vector3(4.190971e-09, -3.0320702, -5.196362e-16), Vector3(4.190971e-09, -3.0320702, -5.196364e-16), Vector3(4.1909725e-09, -2.7497196, -4.9868514e-16), Vector3(4.1909467e-09, 2.7798724, -6.7862496e-16), Vector3(4.19095e-09, 1.9884912, -7.3428217e-16), Vector3(-0.92687297, 2.5228925, -0.768147), Vector3(-0.23082727, 2.0881343, -0.04267078)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Rubbles/rubble:position")
+tracks/2/path = NodePath("Rubbles/rubble2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 16.5, 18),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-10.711051, 5.522993, 19.976006), Vector3(-10.711051, 5.4170995, 19.976006), Vector3(-10.711051, -3.916744, 19.976006)]
+"values": [Vector3(-12.540057, 4.748909, 19.976006), Vector3(-12.540057, 4.748909, 19.976006), Vector3(-12.540057, -3.7170098, 19.441576)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Rubbles/rubble:rotation")
+tracks/3/path = NodePath("Rubbles/rubble3:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 16.5, 18),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(-11.048728, 5.167256, 18.252335), Vector3(-11.048728, 5.167256, 18.252335), Vector3(-11.048728, -3.298663, 17.717905)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Rubbles/rubble2:position")
+tracks/4/path = NodePath("Rubbles/rubble2:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 16.5, 18),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-12.540057, 4.748909, 19.976006), Vector3(-12.540057, 4.748909, 19.976006), Vector3(-12.540057, -3.7170098, 19.441576)]
+"values": [Vector3(0, -0.90868807, 0), Vector3(0, -0.90868807, 0), Vector3(0, -0.908688, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Rubbles/rubble3:position")
+tracks/5/path = NodePath("Rubbles/rubble3:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 16.5, 18),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-11.048728, 5.167256, 18.252335), Vector3(-11.048728, 5.167256, 18.252335), Vector3(-11.048728, -3.298663, 17.717905)]
+"values": [Vector3(-0.1085393, -2.9902735, -0.016516604), Vector3(-0.1085393, -2.9902735, -0.016516604), Vector3(-0.10853929, -2.9902735, -0.016516602)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Rubbles/rubble2:rotation")
+tracks/6/path = NodePath("TextAnimation/LabelMensaje3:text")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 16.5, 18),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -0.90868807, 0), Vector3(0, -0.90868807, 0), Vector3(0, -0.908688, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Rubbles/rubble3:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 16.5, 18),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.1085393, -2.9902735, -0.016516604), Vector3(-0.1085393, -2.9902735, -0.016516604), Vector3(-0.10853929, -2.9902735, -0.016516602)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("TextAnimation/LabelMensaje3:text")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
 "times": PackedFloat32Array(23.271704),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["use the coat to avoid being discovered"]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("TextAnimation/LabelMensaje3:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TextAnimation/LabelMensaje3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0, 23.271704),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CinematicRail/RailFollow/Camera3D:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 17.584435, 18.05361, 18.166666, 18.266666, 18.381964, 18.5, 18.833334, 19.333334, 19.977383, 21.333334, 21.547382, 22.533333, 24.927382),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.22449373, 0, 0), Vector3(0, 0, 0), Vector3(0, 0.574849, 0), Vector3(0, -0.09354721, 0), Vector3(0, 0.574849, 0), Vector3(0, 0.4910186, 0), Vector3(0, -0.09354721, 0), Vector3(0, -1.0684433, 0), Vector3(0.14712995, -0.78286356, 0), Vector3(0.14712995, -0.78286356, 0), Vector3(-0.7484668, 1.9703028, 0.061628398), Vector3(-0.7484668, 1.9703028, 0.061628398), Vector3(0, 2.0699606, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CinematicRail/RailFollow/Camera3D:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 17.584435, 18.05361),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.7303272, 0), Vector3(0, 0.7303272, 0), Vector3(1.1641532e-10, 1.2009432, 0.058239214)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CinematicRail/RailFollow:progress")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 12.5, 17.566668, 19.4, 19.966667, 21.333334, 24.933332),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 66.8, 83.0, 83.14, 84.6, 84.6, 85.85]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_enmhl"]
@@ -1699,23 +1687,22 @@ environment = SubResource("Environment_xchqo")
 transform = Transform3D(0.34961808, -0.089523815, 0.9326054, -0.93689233, -0.03340741, 0.34801832, -1.7319836e-10, -0.9954243, -0.09555402, 1.0219908, 11.270904, -1.0206184)
 light_energy = 0.0
 
-[node name="CameraRail" type="Path3D" parent="." unique_id=891286489]
+[node name="CinematicRail" type="Path3D" parent="." unique_id=891286489]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.366, 2.3, 12.917)
 curve = SubResource("Curve3D_c7y74")
 
-[node name="RailFollow" type="PathFollow3D" parent="CameraRail" unique_id=847713185]
-transform = Transform3D(0.99952775, 0, 0.029979372, 0, 1.0000021, 0, -0.02997888, 0, 0.9995442, -13.868189, -6.9498596, 5.013296)
+[node name="RailFollow" type="PathFollow3D" parent="CinematicRail" unique_id=847713185]
+transform = Transform3D(0.012534744, 0, -0.99979, 0, 1.0000021, 0, 0.99979, 0, 0.012534744, -13.960145, -6.9192123, 5.697498)
+progress = 85.85
 rotation_mode = 1
 loop = false
 tilt_enabled = false
 script = ExtResource("5_5j5u4")
 speed = 0.2
 
-[node name="Camera3D" type="Camera3D" parent="CameraRail/RailFollow" unique_id=572881068]
-transform = Transform3D(1.0000101, -7.806089e-18, -1.8626343e-09, 0, 0.999999, -4.1910333e-09, 1.8626216e-09, 4.190958e-09, 1.0000169, -0.046256065, -0.35180485, 3.0261912)
-fov = 53.437496
+[node name="Camera3D" type="Camera3D" parent="CinematicRail/RailFollow" unique_id=1430291292]
+transform = Transform3D(0.99999964, 0, 0, 0, 0.9999998, 0, 0, 0, 0.99999946, 0, 0.7303272, 0)
 script = ExtResource("6_s4lcv")
-fixed_pitch_angle = -10.0
 
 [node name="LibraryComputer" parent="." unique_id=1255366645 instance=ExtResource("24_coo47")]
 
@@ -1733,7 +1720,6 @@ offset_bottom = 649.0
 
 [node name="PlayerP1" type="Node3D" parent="." unique_id=1921395567]
 script = ExtResource("21_bti32")
-camera_path = NodePath("../CameraRail/RailFollow/Camera3D")
 
 [node name="RayCast3D" type="RayCast3D" parent="PlayerP1" unique_id=651957615]
 collide_with_areas = true
@@ -1741,7 +1727,6 @@ collide_with_areas = true
 [node name="PlayerP2" type="Node3D" parent="." unique_id=1180432518]
 script = ExtResource("21_bti32")
 player_id = 2
-camera_path = NodePath("../CameraRail/RailFollow/Camera3D")
 
 [node name="RayCast3D" type="RayCast3D" parent="PlayerP2" unique_id=1894654566]
 collide_with_areas = true
