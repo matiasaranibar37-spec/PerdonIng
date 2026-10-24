@@ -9,9 +9,6 @@ albedo_color = Color(0.1893278, 0.18932778, 0.1893278, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7mgy"]
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8w0r3"]
-size = Vector3(0.9299011, 0.7744751, 1)
-
 [node name="computer" type="StaticBody3D" unique_id=249321596]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1488474429]
@@ -47,7 +44,3 @@ radius = 0.010253906
 height = 0.007385254
 sides = 15
 material = SubResource("StandardMaterial3D_w7mgy")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=856816]
-transform = Transform3D(0.2608777, 0, 0, 0, 0.22260232, 0, 0, 0, 0.11290374, -0.009143617, -0.027913602, 0)
-shape = SubResource("BoxShape3D_8w0r3")

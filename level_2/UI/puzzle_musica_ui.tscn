@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://dod5b2q3plpb1"]
+
+[ext_resource type="Script" uid="uid://bqk0l10sha8ip" path="res://scripts/puzzle_musica_ui.gd" id="1_0fhru"]
+[ext_resource type="FontFile" uid="uid://dulld01mu5362" path="res://assets/Font/NightsideDemoRegular.ttf" id="2_x7u3k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x7u3k"]
+font = ExtResource("2_x7u3k")
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_gc7xp"]
+font_size = 24
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bahgo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8q6n7"]
+
+[node name="PuzzleMusicaUI" type="CanvasLayer" unique_id=1988723743]
+script = ExtResource("1_0fhru")
+
+[node name="Control" type="Control" parent="." unique_id=1429654200]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1211816342]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09411765, 0.09803922, 0.101960786, 0.9254902)
+
+[node name="windowPanel" type="PanelContainer" parent="Control" unique_id=723790664]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/windowPanel" unique_id=1112038811]
+layout_mode = 2
+
+[node name="LabelTittle" type="Label" parent="Control/windowPanel/VBoxContainer" unique_id=68775536]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "LIBRARY AUDIO SYSTEM"
+label_settings = SubResource("LabelSettings_x7u3k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelInstruction" type="Label" parent="Control/windowPanel/VBoxContainer" unique_id=290322641]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 1
+text = "WARNING: 
+Are you sure you want 
+to activate the speakers?"
+label_settings = SubResource("LabelSettings_gc7xp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicActivation" type="Button" parent="Control/windowPanel/VBoxContainer" unique_id=2141836992]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bahgo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8q6n7")
+text = "ACTIVATE"
