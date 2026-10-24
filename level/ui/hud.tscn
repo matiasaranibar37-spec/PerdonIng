@@ -51,6 +51,15 @@ font_size = 30
 shadow_size = 15
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8w0r3"]
+bg_color = Color(0.6512274, 9.746477e-07, 0.04262939, 0.8862745)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+shadow_size = 5
+
 [node name="HUD" type="CanvasLayer" unique_id=926142427]
 script = ExtResource("1_kjcda")
 
@@ -187,3 +196,21 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "SCORE: 0"
 label_settings = SubResource("LabelSettings_h30r8")
+
+[node name="BossHealthBar" type="ProgressBar" parent="." unique_id=344243017]
+visible = false
+anchors_preset = -1
+anchor_left = 0.289
+anchor_top = 0.127
+anchor_right = 0.707
+anchor_bottom = 0.16800001
+offset_left = 0.07199097
+offset_top = -0.29600525
+offset_right = 0.53601074
+offset_bottom = 0.13599396
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/fill = SubResource("StyleBoxFlat_8w0r3")
+value = 100.0
