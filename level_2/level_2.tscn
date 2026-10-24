@@ -490,16 +490,22 @@ use_collision = true
 size = Vector3(1, 1, 0.20127869)
 material = SubResource("StandardMaterial3D_1gboq")
 
+[node name="floor22" type="CSGBox3D" parent="Base_cse_level2/floor" unique_id=1434369388]
+transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 0, -4.747237, -11.967314)
+use_collision = true
+size = Vector3(1, 1, 0.102321625)
+material = SubResource("StandardMaterial3D_1gboq")
+
+[node name="floor23" type="CSGBox3D" parent="Base_cse_level2/floor" unique_id=1697290692]
+transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 0, -10.101419, -15.499496)
+use_collision = true
+size = Vector3(1, 1, 0.102321625)
+material = SubResource("StandardMaterial3D_1gboq")
+
 [node name="floor21" type="CSGBox3D" parent="Base_cse_level2/floor" unique_id=864849708]
 transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 9.843772, -4.747237, -15.453902)
 use_collision = true
 size = Vector3(0.15649414, 1, 0.098171234)
-material = SubResource("StandardMaterial3D_1gboq")
-
-[node name="floor22" type="CSGBox3D" parent="Base_cse_level2/floor" unique_id=1434369388]
-transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 0, -4.747237, -11.9804125)
-use_collision = true
-size = Vector3(1, 1, 0.10308075)
 material = SubResource("StandardMaterial3D_1gboq")
 
 [node name="floor15" type="CSGBox3D" parent="Base_cse_level2/floor" unique_id=2031071663]
@@ -520,6 +526,12 @@ material = SubResource("StandardMaterial3D_goaww")
 transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, -11.490686, -2.9267192, -0.05150893)
 use_collision = true
 size = Vector3(30.836937, 1, 1)
+material = SubResource("StandardMaterial3D_5ly52")
+
+[node name="wall48" type="CSGBox3D" parent="Base_cse_level2/walls" unique_id=232301429]
+transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, -11.490686, -5.8906393, -0.13085972)
+use_collision = true
+size = Vector3(30.979015, 0.73583984, 1)
 material = SubResource("StandardMaterial3D_5ly52")
 
 [node name="wall30" type="CSGBox3D" parent="Base_cse_level2/walls" unique_id=2037796918]
@@ -546,6 +558,42 @@ use_collision = true
 size = Vector3(17.570992, 0.54333496, 0.4116211)
 material = SubResource("StandardMaterial3D_goaww")
 
+[node name="wall42" type="CSGBox3D" parent="Base_cse_level2/walls" unique_id=1889119832]
+transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, 0.013299942, -5.6332965, -17.247372)
+use_collision = true
+size = Vector3(20.92136, 0.54333496, 1.071167)
+material = SubResource("StandardMaterial3D_goaww")
+
+[node name="wall43" type="CSGBox3D" parent="Base_cse_level2/walls" unique_id=1515642878]
+transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, 0.013299942, -5.618967, -13.523462)
+use_collision = true
+size = Vector3(20.92136, 0.55145264, 1.071167)
+material = SubResource("StandardMaterial3D_goaww")
+
+[node name="wall44" type="CSGBox3D" parent="Base_cse_level2/walls" unique_id=366472917]
+transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, 0.013299942, -7.5260305, -17.247372)
+use_collision = true
+size = Vector3(20.92136, 0.54333496, 1.071167)
+material = SubResource("StandardMaterial3D_goaww")
+
+[node name="wall45" type="CSGBox3D" parent="Base_cse_level2/walls" unique_id=60456630]
+transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, 0.013299942, -7.5117006, -13.523462)
+use_collision = true
+size = Vector3(20.92136, 0.55145264, 1.071167)
+material = SubResource("StandardMaterial3D_goaww")
+
+[node name="wall46" type="CSGBox3D" parent="Base_cse_level2/walls" unique_id=1787566026]
+transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, 0.013299942, -9.405288, -17.247372)
+use_collision = true
+size = Vector3(20.92136, 0.54333496, 1.071167)
+material = SubResource("StandardMaterial3D_goaww")
+
+[node name="wall47" type="CSGBox3D" parent="Base_cse_level2/walls" unique_id=741106525]
+transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, 0.013299942, -9.390958, -13.523462)
+use_collision = true
+size = Vector3(20.92136, 0.55145264, 1.071167)
+material = SubResource("StandardMaterial3D_goaww")
+
 [node name="wall35" type="CSGBox3D" parent="Base_cse_level2/walls" unique_id=1488830768]
 transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, 2.5083404, -2.8886178, 17.051157)
 use_collision = true
@@ -559,7 +607,7 @@ size = Vector3(2.6784134, 1, 1)
 material = SubResource("StandardMaterial3D_goaww")
 
 [node name="wall40" type="CSGBox3D" parent="Base_cse_level2/walls" unique_id=938292575]
-transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, -12.397556, -3.2446992, 19.164305)
+transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, -12.011061, -3.2446992, 19.164305)
 use_collision = true
 size = Vector3(4.9017572, 4.498474, 1)
 material = SubResource("StandardMaterial3D_goaww")
@@ -578,18 +626,6 @@ material = SubResource("StandardMaterial3D_goaww")
 
 [node name="wall37" type="CSGBox3D" parent="Base_cse_level2/walls" unique_id=616274174]
 transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, -0.12309736, -8.568006, 21.157911)
-use_collision = true
-size = Vector3(20.67714, 1, 1)
-material = SubResource("StandardMaterial3D_goaww")
-
-[node name="wall38" type="CSGBox3D" parent="Base_cse_level2/walls" unique_id=1884825467]
-transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, -0.12309736, -12.054325, 21.157911)
-use_collision = true
-size = Vector3(20.67714, 1, 1)
-material = SubResource("StandardMaterial3D_goaww")
-
-[node name="wall39" type="CSGBox3D" parent="Base_cse_level2/walls" unique_id=144937877]
-transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, -0.12309736, -15.52694, 21.157911)
 use_collision = true
 size = Vector3(20.67714, 1, 1)
 material = SubResource("StandardMaterial3D_goaww")
@@ -684,8 +720,29 @@ light_energy = 0.4
 light_size = 50.0
 omni_range = 5.5
 
+[node name="light15" type="OmniLight3D" parent="Base_cse_level2/spotlights" unique_id=1887756048]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.019253, -6.3404093, -14.021496)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.4
+light_size = 50.0
+omni_range = 5.5
+
 [node name="light13" type="OmniLight3D" parent="Base_cse_level2/spotlights" unique_id=771568158]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10.583521, -8.421583, -16.919933)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.4
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light16" type="OmniLight3D" parent="Base_cse_level2/spotlights" unique_id=1505183668]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -11.0236635, -6.3611593, -15.337698)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.4
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light14" type="OmniLight3D" parent="Base_cse_level2/spotlights" unique_id=649993792]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10.583521, -8.421583, -13.757274)
 light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
 light_energy = 0.4
 light_size = 50.0
@@ -974,7 +1031,14 @@ light_size = 50.0
 omni_range = 5.5
 
 [node name="light65" type="OmniLight3D" parent="Base_cse_level2/spotlights/library_lights" unique_id=2059989438]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.197115, -1.166748, -14.535499)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.876571, -1.166748, -15.398752)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.4
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light67" type="OmniLight3D" parent="Base_cse_level2/spotlights/library_lights" unique_id=658914685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.876571, -4.4179587, -15.398752)
 light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
 light_energy = 0.4
 light_size = 50.0
@@ -1180,7 +1244,7 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.7830796, -4.6330204,
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -9.765494, -4.6330204, -12.726745)
 
 [node name="Shelf_Book_19" parent="Base_cse_level2/Decoration/bookshelves" unique_id=1475473892 instance=ExtResource("28_n1d7p")]
-transform = Transform3D(1.2286516, 0, 0.8604739, 0, 1.5, 0, -0.8604739, 0, 1.2286516, -6.775581, -4.6330204, -12.726745)
+transform = Transform3D(1.2286516, 0, 0.8604739, 0, 1.5, 0, -0.8604739, 0, 1.2286516, -6.872638, -4.6330204, -12.375971)
 
 [node name="Shelf_Book_20" parent="Base_cse_level2/Decoration/bookshelves" unique_id=2107530223 instance=ExtResource("28_n1d7p")]
 transform = Transform3D(1.4484476, 0.32149726, 0.22054273, -0.3178341, 1.4651414, -0.048393883, -0.22578987, -3.7252903e-09, 1.482909, -4.306334, -4.2663527, -12.726745)
@@ -1514,11 +1578,6 @@ transform = Transform3D(0.5596789, 0, 0, 0, -2.8359983e-08, -1, 0, 0.6488008, -4
 modulate = Color(0.29660225, 0.29660237, 0.29660228, 1)
 texture = ExtResource("17_coo47")
 
-[node name="Sprite3D15" type="Sprite3D" parent="Base_cse_level2/Decoration/blood_floor" unique_id=192178910]
-transform = Transform3D(0.84739083, 0, 0, 0, -2.8359983e-08, -1, 0, 0.6488008, -4.371139e-08, 2.8507576, 0.11827898, -15.72472)
-modulate = Color(0.29660225, 0.29660237, 0.29660228, 1)
-texture = ExtResource("17_coo47")
-
 [node name="Sprite3D16" type="Sprite3D" parent="Base_cse_level2/Decoration/blood_floor" unique_id=705071104]
 transform = Transform3D(0.84739083, 0, 0, 0, -2.8359983e-08, -1, 0, 0.6488008, -4.371139e-08, 10.413358, 0.11827898, -16.713234)
 modulate = Color(0.29660225, 0.29660237, 0.29660228, 1)
@@ -1526,21 +1585,6 @@ texture = ExtResource("20_l27sa")
 
 [node name="Sprite3D17" type="Sprite3D" parent="Base_cse_level2/Decoration/blood_floor" unique_id=35633311]
 transform = Transform3D(0.84739083, 0, 0, 0, -5.184272e-08, -0.99999994, 0, 1.1860232, -4.3711385e-08, 9.754415, 0.11827898, -13.996834)
-modulate = Color(0.29660225, 0.29660237, 0.29660228, 1)
-texture = ExtResource("18_t02ur")
-
-[node name="Sprite3D18" type="Sprite3D" parent="Base_cse_level2/Decoration/blood_floor" unique_id=1436711109]
-transform = Transform3D(-3.704063e-08, 1.1860232, -4.3711385e-08, 0, -5.1842722e-08, -0.99999994, -0.84739083, -5.1842722e-08, 1.9106853e-15, -6.9290857, 0.11827898, -15.545586)
-modulate = Color(0.29660225, 0.29660237, 0.29660228, 1)
-texture = ExtResource("18_t02ur")
-
-[node name="Sprite3D23" type="Sprite3D" parent="Base_cse_level2/Decoration/blood_floor" unique_id=741944784]
-transform = Transform3D(-3.704063e-08, 0.8263836, -4.3711385e-08, 0, -3.6122373e-08, -0.99999994, -0.84739083, -3.6122373e-08, 1.9106853e-15, -7.9203615, 0.2005896, -15.545586)
-modulate = Color(0.29660225, 0.29660237, 0.29660228, 1)
-texture = ExtResource("18_t02ur")
-
-[node name="Sprite3D19" type="Sprite3D" parent="Base_cse_level2/Decoration/blood_floor" unique_id=159567502]
-transform = Transform3D(-3.704063e-08, 1.1860232, -4.3711385e-08, 0, -5.1842722e-08, -0.99999994, -0.84739083, -5.1842722e-08, 1.9106853e-15, -4.3707275, 0.11827898, -15.545586)
 modulate = Color(0.29660225, 0.29660237, 0.29660228, 1)
 texture = ExtResource("18_t02ur")
 
@@ -1666,7 +1710,7 @@ script = ExtResource("5_5j5u4")
 speed = 0.2
 
 [node name="Camera3D" type="Camera3D" parent="CameraRail/RailFollow" unique_id=572881068]
-transform = Transform3D(1.0000101, -7.806091e-18, -1.8626343e-09, 0, 0.9999991, -4.1910333e-09, 1.8626216e-09, 4.1909587e-09, 1.0000169, -0.046256065, -0.35180485, 3.0261912)
+transform = Transform3D(1.0000101, -7.80609e-18, -1.8626343e-09, 0, 0.99999905, -4.1910333e-09, 1.8626216e-09, 4.1909582e-09, 1.0000169, -0.046256065, -0.35180485, 3.0261912)
 fov = 53.437496
 script = ExtResource("6_s4lcv")
 fixed_pitch_angle = -10.0

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://crca5rounj6m"]
+
+[ext_resource type="PackedScene" uid="uid://baepf8knnkioy" path="res://assets/Furnitures_2/Models/GLTF format/toaster.glb" id="1_k138v"]
+
+[node name="toaster" unique_id=1743295893 instance=ExtResource("1_k138v")]

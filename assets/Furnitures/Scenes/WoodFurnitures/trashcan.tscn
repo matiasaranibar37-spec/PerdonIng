@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bcdgcrdkc1r1x"]
+
+[ext_resource type="PackedScene" uid="uid://bvofvy4odag5r" path="res://assets/Furnitures_2/Models/GLTF format/trashcan.glb" id="1_180mq"]
+
+[node name="trashcan" unique_id=255831775 instance=ExtResource("1_180mq")]

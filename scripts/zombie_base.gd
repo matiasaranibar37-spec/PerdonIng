@@ -48,9 +48,9 @@ func _ready() -> void:
 	target_node = get_viewport().get_camera_3d()
 	play_animation("idle")
 	
-	#if sound_screech and audio_player:
-		#audio_player.stream = sound_screech
-		#audio_player.play()
+	if sound_screech and audio_player:
+		audio_player.stream = sound_screech
+		audio_player.play()
 
 func _physics_process(_delta: float) -> void:
 	if is_dead:

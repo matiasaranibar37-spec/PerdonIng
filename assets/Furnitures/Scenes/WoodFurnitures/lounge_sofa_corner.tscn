@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://sfogjlepgmxu"]
+
+[ext_resource type="PackedScene" uid="uid://cdf23gf0vi7gf" path="res://assets/Furnitures_2/Models/GLTF format/loungeSofaCorner.glb" id="1_r4asw"]
+
+[node name="loungeSofaCorner" unique_id=166421203 instance=ExtResource("1_r4asw")]

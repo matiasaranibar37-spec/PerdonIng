@@ -42,7 +42,7 @@ volume_db = -14.953
 [node name="zombie_model" parent="." unique_id=1008913003 instance=ExtResource("2_hv4vd")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="zombie_model/Armature" parent_id_path=PackedInt32Array(1008913003, 2077564236) index="0" unique_id=213364422]
+[node name="Skeleton3D" parent="zombie_model/Armature" parent_id_path=PackedInt32Array(1008913003, 1988830218) index="0" unique_id=703702831]
 bones/0/position = Vector3(-16.168169, -108.27257, -17.176277)
 bones/0/rotation = Quaternion(-0.9206947, -0.3099695, 0.2100626, -0.11006348)
 bones/1/rotation = Quaternion(-0.3596805, 0.07152774, 0.92868257, 0.05533829)

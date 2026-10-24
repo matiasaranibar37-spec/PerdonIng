@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b5bubnynbps6q"]
+
+[ext_resource type="PackedScene" uid="uid://beqibi5a2d83l" path="res://assets/Furnitures_2/Models/GLTF format/kitchenBar.glb" id="1_s1hgb"]
+
+[node name="kitchenBar" unique_id=686212693 instance=ExtResource("1_s1hgb")]

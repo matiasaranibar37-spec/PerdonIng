@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://k0kh8y3x5hbe"]
+
+[ext_resource type="PackedScene" uid="uid://dqak7p5551rsw" path="res://assets/Furnitures_2/Models/GLTF format/loungeSofaOttoman.glb" id="1_smdtd"]
+
+[node name="loungeSofaOttoman" unique_id=1042295829 instance=ExtResource("1_smdtd")]

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cvtc1tbgtb6ru"]
+
+[ext_resource type="PackedScene" uid="uid://bh6wkvttvjhvm" path="res://assets/Furnitures_2/Models/GLTF format/televisionModern.glb" id="1_8it7s"]
+
+[node name="televisionModern" unique_id=1498243665 instance=ExtResource("1_8it7s")]
