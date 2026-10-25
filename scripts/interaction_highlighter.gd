@@ -6,6 +6,7 @@ extends Node
 ##  1. Estar en el grupo "interactuable" (Nodo > pestaña Nodo > Grupos).
 ##  2. Tener un colisionable (Area3D / StaticBody3D con CollisionShape3D) en la capa 1,
 ##     igual que lo que el jugador golpea al disparar.
+##  3. (Opcional) un método puede_interactuar() -> bool; si devuelve false, no brilla.
 
 const GRUPO: String = "interactuable"
 
@@ -82,6 +83,11 @@ func _interactuable_apuntado(cam: Camera3D, pantalla: Vector2) -> Node:
 	var nodo: Node = resultado["collider"] as Node
 	while nodo != null and not nodo.is_in_group(GRUPO):
 		nodo = nodo.get_parent()
+	if nodo == null:
+		return null
+	# Si el objeto dice que ahora no se puede usar, no brilla
+	if nodo.has_method("puede_interactuar") and not nodo.call("puede_interactuar"):
+		return null
 	return nodo
 
 
@@ -93,7 +99,8 @@ func _poner_brillo(raiz: Node) -> void:
 	_resaltados[raiz] = geometrias
 
 
-func _quitar_brillo(raiz: Node) -> void:
+# Sin tipo en el parámetro: la llave u otros objetos pueden haberse liberado ya
+func _quitar_brillo(raiz: Variant) -> void:
 	var geometrias: Array = _resaltados.get(raiz, [])
 	for g in geometrias:
 		if is_instance_valid(g):

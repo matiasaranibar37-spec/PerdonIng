@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+## Se emite cuando la bibliotecaria muere (el nivel 2 suelta la llave)
+signal died
+
 @export var walk_speed: float = 1.5
 @export var run_speed: float = 3.2
 @export var health: int = 8                 # Más vida que un zombie normal (que tiene 2)
@@ -12,6 +15,12 @@ extends CharacterBody3D
 @export_group("Vision y Deteccion")
 @export var detection_distance: float = 15.0
 @export var detection_angle_degrees: float = 110.0
+
+@export_group("Patrullaje")
+## Radio máximo (m) alrededor de su punto de partida. Así no se aleja ni se mete entre los estantes.
+@export var patrol_radius: float = 3.0
+## Si tarda más de esto en llegar a su punto (atascada contra un estante), elige otro.
+@export var patrol_stuck_time: float = 5.0
 
 @export_group("Sonidos (Audio Streams)")
 @export var sound_screech: AudioStream
@@ -31,11 +40,15 @@ var is_attacking: bool = false
 var can_attack: bool = true
 var is_player_detected: bool = false
 var ultimo_jugador_que_disparo: String = "1"
+# Si es false, no detecta al jugador por sí sola (camuflaje)
+var detection_enabled: bool = true
 var is_headshot: bool = false
 
 # Variables para el patrullaje de la bibliotecaria
 var patrol_target: Vector3 = Vector3.ZERO
 var is_pausing: bool = false
+var home_position: Vector3 = Vector3.ZERO   # Punto de partida: patrulla siempre alrededor de él
+var patrol_timer: float = 0.0               # Segundos caminando hacia el punto actual
 
 func _ready() -> void:
 	if animation_player == null:
@@ -51,6 +64,7 @@ func _ready() -> void:
 		run_audio_player = get_node_or_null("RunAudioPlayer")
 		
 	target_node = get_viewport().get_camera_3d()
+	home_position = global_transform.origin
 	get_new_patrol_target()
 	play_animation("idleB")
 	
@@ -71,7 +85,7 @@ func _physics_process(delta: float) -> void:
 	var distance = global_transform.origin.distance_to(target_position)
 
 	# 1. COMPROBAR SI DETECTA AL JUGADOR (Distancia + Ángulo + Raycast sin paredes)
-	if not is_player_detected:
+	if not is_player_detected and detection_enabled:
 		if distance <= detection_distance:
 			var to_player = (target_position - global_transform.origin)
 			to_player.y = 0.0
@@ -140,6 +154,12 @@ func handle_patrol(delta: float) -> void:
 			is_pausing = false
 	else:
 		# Se mueve hacia el punto de patrullaje usando walkB
+		# Si lleva mucho rato sin llegar (choca con un estante), cambia de punto
+		patrol_timer += delta
+		if patrol_timer > patrol_stuck_time:
+			get_new_patrol_target()
+			return
+		
 		var direction = (patrol_target - global_transform.origin).normalized()
 		direction.y = 0.0
 		
@@ -151,8 +171,9 @@ func handle_patrol(delta: float) -> void:
 		play_animation("walkB") # Animación de caminar/patrullar de la bibliotecaria
 
 func get_new_patrol_target() -> void:
-	var random_offset = Vector3(randf_range(-6.0, 6.0), 0, randf_range(-6.0, 6.0))
-	patrol_target = global_transform.origin + random_offset
+	var random_offset = Vector3(randf_range(-patrol_radius, patrol_radius), 0, randf_range(-patrol_radius, patrol_radius))
+	patrol_target = home_position + random_offset
+	patrol_timer = 0.0
 
 func play_running_sound() -> void:
 	if sound_running and run_audio_player:
@@ -191,6 +212,8 @@ func take_damage(amount: int) -> void:
 		return
 		
 	is_player_detected = true
+	# Avisa al nivel (si hay música activada, el nivel ignora el aviso)
+	get_tree().call_group("nivel_alerta", "zombie_disparado", self)
 	health -= amount
 	print("Bibliotecaria dañada. Vida restante: ", health)
 	
@@ -242,6 +265,7 @@ func die() -> void:
 	if is_dead:
 		return
 	is_dead = true
+	died.emit()
 	velocity = Vector3.ZERO
 	stop_running_sound()
 	
@@ -277,3 +301,8 @@ func play_animation(anim_name: String) -> void:
 	if animation_player and animation_player.has_animation(anim_name):
 		if animation_player.current_animation != anim_name:
 			animation_player.play(anim_name)
+
+# Lo llama el nivel 2 cuando la cámara llega frente a ella: empieza la pelea
+func activar_combate() -> void:
+	detection_enabled = true
+	is_player_detected = true

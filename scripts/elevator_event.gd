@@ -59,6 +59,11 @@ func _ready() -> void:
 	# Los objetos 3D y el interruptor encuentran este nodo por el grupo
 	add_to_group("elevator_event")
 
+	# El interruptor del teclado brilla al apuntarlo (hasta que empieza la secuencia)
+	var interruptor: Node = get_node_or_null("Elevator_switch")
+	if interruptor:
+		interruptor.add_to_group("interactuable")
+
 	# --- El zombie empieza "dormido": invisible, quieto, sin colisión y sin sonido ---
 	if zombie_emboscada:
 		zombie_emboscada.hide()
@@ -108,6 +113,9 @@ func abrir_puertas() -> void:
 	if secuencia_iniciada:
 		return
 	secuencia_iniciada = true
+	var interruptor_usado: Node = get_node_or_null("Elevator_switch")
+	if interruptor_usado:
+		interruptor_usado.remove_from_group("interactuable")
 	print("Código correcto: empieza la cinemática del ascensor.")
 
 	if puzzle_ui:
@@ -135,6 +143,7 @@ func abrir_puertas() -> void:
 
 func _iniciar_fase_eleccion() -> void:
 	combate_activo = true
+	_marcar_objetos_interactuables(true)
 
 	if label_mensaje:
 		label_mensaje.text = mensaje_elegir_objeto
@@ -159,6 +168,7 @@ func seleccionar_objeto(objeto_elegido_tipo: Objeto) -> void:
 		return
 
 	combate_activo = false
+	_marcar_objetos_interactuables(false)
 	objeto_elegido = objeto_elegido_tipo
 
 	if label_mensaje:
@@ -273,3 +283,14 @@ func _usar_camara_cinematica(activar: bool) -> void:
 		camara_cinematica.make_current()
 	elif is_instance_valid(camara_juego):
 		camara_juego.make_current()
+
+
+# Los 3 objetos (extintor, tubo, plumón) brillan al apuntarlos solo mientras se puede elegir uno
+func _marcar_objetos_interactuables(activo: bool) -> void:
+	if puzzle_objects == null:
+		return
+	for objeto in puzzle_objects.get_children():
+		if activo:
+			objeto.add_to_group("interactuable")
+		else:
+			objeto.remove_from_group("interactuable")

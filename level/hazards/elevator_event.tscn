@@ -662,7 +662,7 @@ tracks/18/keys = {
 "times": PackedFloat32Array(2.3, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.62352943)]
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 0.62352943)]
 }
 tracks/19/type = "audio"
 tracks/19/imported = false

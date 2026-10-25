@@ -1,6 +1,10 @@
 extends CanvasLayer
 class_name MobilePointerManager
 
+## Se emite en cada disparo con la posición (en pantalla) del centro de la mira.
+## Las ventanas 2D (como PuzzleMusicaUI) la usan para saber si se disparó a un botón.
+signal disparo(player_id: int, posicion: Vector2)
+
 @onready var pointer_p1: Control = $Control/PointerP1
 @onready var pointer_p2: Control = $Control/PointerP2
 @onready var player_p1: MobilePlayer = get_parent().get_node_or_null("PlayerP1")
@@ -133,9 +137,21 @@ func _set_pointer(player_id: int, position: Vector2) -> void:
 func _shoot(player_id: int) -> void:
 	if player_id == 2 and get_node_or_null("/root/GameManager") and GameManager.player_count < 2:
 		return
-	if player_id == 1 and player_p1 and pointer_p1:
-		var centro_mira := pointer_p1.position + (pointer_p1.size * 0.5)
-		player_p1.shoot(centro_mira)
-	elif player_id == 2 and player_p2 and pointer_p2:
-		var centro_mira := pointer_p2.position + (pointer_p2.size * 0.5)
-		player_p2.shoot(centro_mira)
+	var pointer: Control = pointer_p1 if player_id == 1 else pointer_p2
+	var player: MobilePlayer = player_p1 if player_id == 1 else player_p2
+	if pointer == null or player == null:
+		return
+	var centro_mira := pointer.position + (pointer.size * 0.5)
+	disparo.emit(player_id, centro_mira)
+
+	# Prioridad de disparo: si hay una ventana 2D abierta (grupo "ui_bloquea_disparo"),
+	# el disparo es para esa ventana y no llega al mundo 3D.
+	if _hay_ventana_que_bloquea():
+		return
+	player.shoot(centro_mira)
+
+func _hay_ventana_que_bloquea() -> bool:
+	for ventana in get_tree().get_nodes_in_group("ui_bloquea_disparo"):
+		if "visible" in ventana and ventana.visible:
+			return true
+	return false

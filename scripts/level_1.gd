@@ -50,6 +50,11 @@ func _ready() -> void:
 				interruptor.activado.connect(_on_interruptor_activado)
 
 	# 3. Si el jugador eligió "Load Game", restauramos aquí la partida guardada
+	# Brillo leve al apuntar a los objetos interactuables (interruptor, objetos del ascensor)
+	var brillo: Node = load("res://scripts/interaction_highlighter.gd").new()
+	brillo.name = "InteractionHighlighter"
+	add_child(brillo)
+
 	SaveManager.apply_save_data(self)
 
 func _process(delta: float) -> void:

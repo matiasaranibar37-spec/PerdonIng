@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+## Se emite cuando el zombie muere (la usan el ascensor y el nivel 2)
+signal died
+
 @export var run_speed: float = 3.5
 @export var health: int = 5
 @export var score_value: int = 100              # Puntos normales por muerte al cuerpo
@@ -11,6 +14,19 @@ extends CharacterBody3D
 @export_group("Vision y Deteccion")
 @export var detection_distance: float = 15.0
 @export var detection_angle_degrees: float = 110.0
+
+@export_group("Patrullaje")
+## Si es true, mientras no haya detectado al jugador camina de un lado a otro en vez de quedarse quieto.
+## (Desactivado por defecto: el nivel 2 lo activa desde level_2.gd)
+@export var patrullar: bool = false
+@export var walk_speed: float = 0.8
+## Radio (m) alrededor de su punto de partida dentro del cual patrulla
+@export var radio_patrulla: float = 3.0
+## Pausa en idle (segundos, mínimo y máximo) al llegar a cada punto
+@export var pausa_patrulla_min: float = 1.0
+@export var pausa_patrulla_max: float = 3.0
+## Si tarda más de esto en llegar a un punto (atascado contra un estante), elige otro
+@export var tiempo_max_atasco: float = 4.0
 
 @export_group("Sonidos (Audio Streams)")
 @export var sound_screech: AudioStream
@@ -30,7 +46,15 @@ var is_attacking: bool = false
 var can_attack: bool = true
 var is_player_detected: bool = false
 var ultimo_jugador_que_disparo: String = "1"
+# Si es false, el zombie no detecta al jugador por sí solo (camuflaje); solo ataca si le disparan o hay alerta
+var detection_enabled: bool = true
 var is_headshot: bool = false # Rastrea si murió por un tiro a la cabeza
+
+# Patrullaje
+var _home_position: Vector3 = Vector3.ZERO
+var _patrulla_destino: Vector3 = Vector3.ZERO
+var _patrulla_pausa_hasta: float = 0.0
+var _patrulla_timer: float = 0.0
 
 func _ready() -> void:
 	if animation_player == null:
@@ -48,11 +72,17 @@ func _ready() -> void:
 	target_node = get_viewport().get_camera_3d()
 	play_animation("idle")
 	
+	# Patrullaje: punto de partida y primer destino. La pausa inicial es aleatoria para que
+	# no todos arranquen a la vez.
+	_home_position = global_position
+	_elegir_destino_patrulla()
+	_patrulla_pausa_hasta = Time.get_ticks_msec() / 1000.0 + randf_range(0.0, pausa_patrulla_max)
+	
 	if sound_screech and audio_player:
 		audio_player.stream = sound_screech
 		audio_player.play()
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
 
@@ -63,7 +93,7 @@ func _physics_process(_delta: float) -> void:
 	var target_position = target_node.global_transform.origin
 	var distance = global_transform.origin.distance_to(target_position)
 
-	if not is_player_detected:
+	if not is_player_detected and detection_enabled:
 		if distance <= detection_distance:
 			var to_player = (target_position - global_transform.origin)
 			to_player.y = 0.0
@@ -87,9 +117,12 @@ func _physics_process(_delta: float) -> void:
 					is_player_detected = true
 
 	if not is_player_detected:
-		velocity = Vector3.ZERO
 		stop_running_sound()
-		play_animation("idle")
+		if patrullar:
+			_patrullar(delta)
+		else:
+			velocity = Vector3.ZERO
+			play_animation("idle")
 		return
 
 	if distance > attack_distance:
@@ -109,6 +142,40 @@ func _physics_process(_delta: float) -> void:
 		stop_running_sound()
 		if can_attack:
 			trigger_attack()
+
+# --- PATRULLAJE ---
+
+func _patrullar(delta: float) -> void:
+	var ahora: float = Time.get_ticks_msec() / 1000.0
+	
+	# Pausa en idle entre un punto y otro
+	if ahora < _patrulla_pausa_hasta:
+		velocity = Vector3.ZERO
+		play_animation("idle")
+		return
+	
+	var hacia: Vector3 = _patrulla_destino - global_position
+	hacia.y = 0.0
+	_patrulla_timer += delta
+	
+	# Llegó, se atascó o chocó con algo: elige otro punto y descansa un rato
+	if hacia.length() < 0.5 or _patrulla_timer > tiempo_max_atasco or is_on_wall():
+		_elegir_destino_patrulla()
+		_patrulla_pausa_hasta = ahora + randf_range(pausa_patrulla_min, pausa_patrulla_max)
+		velocity = Vector3.ZERO
+		play_animation("idle")
+		return
+	
+	var direccion: Vector3 = hacia.normalized()
+	look_at(global_position + direccion, Vector3.UP)
+	velocity = direccion * walk_speed
+	move_and_slide()
+	play_animation("walk")
+
+func _elegir_destino_patrulla() -> void:
+	var offset := Vector3(randf_range(-radio_patrulla, radio_patrulla), 0.0, randf_range(-radio_patrulla, radio_patrulla))
+	_patrulla_destino = _home_position + offset
+	_patrulla_timer = 0.0
 
 func play_running_sound() -> void:
 	if sound_running and run_audio_player:
@@ -151,6 +218,8 @@ func take_damage(amount: int) -> void:
 		return
 		
 	is_player_detected = true
+	# Avisa al nivel: un disparo a un zombie alerta a todos los demás
+	get_tree().call_group("nivel_alerta", "zombie_disparado", self)
 	health -= amount
 	
 	if health <= 0:
@@ -199,6 +268,7 @@ func die() -> void:
 	if is_dead:
 		return
 	is_dead = true
+	died.emit()
 	velocity = Vector3.ZERO
 	stop_running_sound()
 	

@@ -10,6 +10,10 @@ var bob_amp_tilt: float = 0.1    # inclinacion
 
 var time_passed: float = 0.0
 
+# Altura base de la cámara sobre el riel (el balanceo se suma a este valor).
+# En el nivel 1 es 0; level_2.gd la sube para que la cámara no vaya a ras de suelo.
+@export var altura_camara: float = 0.0
+
 # level_1.gd lo pone en false cuando un zombie está atacando de cerca
 var moving: bool = true
 
@@ -28,7 +32,7 @@ func _process(delta):
 	
 	var tilt_z = cos(time_passed) * bob_amp_tilt
 	
-	camera.transform.origin.y = move_y
+	camera.transform.origin.y = altura_camara + move_y
 	camera.transform.origin.x = move_x
 
 	camera.rotation.z = tilt_z

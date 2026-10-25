@@ -1,30 +1,48 @@
 extends CanvasLayer
+## Ventana "LIBRARY AUDIO SYSTEM": el jugador dispara al botón ACTIVATE (con el puntero de P1 o P2)
+## y se emite "musica_encendida".
 
 signal musica_encendida
 
-@onready var btn_activar: Button = $Control/VentanaPanel/VBoxContainer/BtnActivarMusica
+@onready var btn_activar: Button = get_node_or_null("Control/windowPanel/VBoxContainer/MusicActivation")
+
+var _activada: bool = false
+
 
 func _ready() -> void:
-	hide() # Nace oculto hasta que le disparan a la computadora 3D
-	
-	if btn_activar:
-		btn_activar.pressed.connect(_on_btn_activar_pressed)
-
-# Conectado al botón en pantalla
-func _on_btn_activar_pressed() -> void:
-	print("¡Música de distracción encendida desde la UI!")
-	musica_encendida.emit()
+	# Mientras esta ventana está visible, los disparos NO llegan al mundo 3D (ver pointer_manager.gd)
+	add_to_group("ui_bloquea_disparo")
 	hide()
 
-# Soporte para clics con los punteros arcade de P1 y P2 (vía PointerManager)
-func _input(event: InputEvent) -> void:
-	if not visible or btn_activar == null:
-		return
-		
-	var pos_p1 = GameManager.p1_pointer_position if "p1_pointer_position" in GameManager else Vector2.ZERO
-	var pos_p2 = GameManager.p2_pointer_position if "p2_pointer_position" in GameManager else Vector2.ZERO
+	if btn_activar:
+		btn_activar.pressed.connect(_activar)
+	else:
+		push_warning("PuzzleMusicaUI: no se encontró el botón Control/windowPanel/VBoxContainer/MusicActivation")
 
-	if event.is_action_pressed("p1_fire") and btn_activar.get_global_rect().has_point(pos_p1):
-		_on_btn_activar_pressed()
-	elif event.is_action_pressed("p2_fire") and btn_activar.get_global_rect().has_point(pos_p2):
-		_on_btn_activar_pressed()
+	# Los punteros (P1 con mouse/táctil, P2 con teclado o mando) avisan dónde dispararon
+	_conectar_punteros.call_deferred()
+
+
+func _conectar_punteros() -> void:
+	var pm: Node = get_tree().get_first_node_in_group("pointer_manager")
+	if pm and pm.has_signal("disparo") and not pm.is_connected("disparo", _on_disparo):
+		pm.connect("disparo", _on_disparo)
+
+
+func mostrar() -> void:
+	_activada = false
+	show()
+
+
+func _on_disparo(_jugador_id: int, posicion: Vector2) -> void:
+	if visible and btn_activar and btn_activar.get_global_rect().has_point(posicion):
+		_activar()
+
+
+func _activar() -> void:
+	if _activada or not visible:
+		return
+	_activada = true
+	print("Música de distracción activada desde la ventana de audio.")
+	hide()
+	musica_encendida.emit()
