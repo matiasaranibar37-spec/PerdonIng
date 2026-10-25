@@ -26,7 +26,7 @@ func refresh_slots() -> void:
 
 	if saves.is_empty():
 		var no_save_label := Label.new()
-		no_save_label.text = "No hay partidas guardadas."
+		no_save_label.text = "There are no saved games."
 		no_save_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		slots_container.add_child(no_save_label)
 		return

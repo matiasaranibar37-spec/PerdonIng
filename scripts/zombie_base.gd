@@ -86,6 +86,12 @@ func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
 
+	# NUEVO: Si está en agonía, se queda estático realizando la animación
+	if en_agonia:
+		velocity = Vector3.ZERO
+		return
+		
+	# ... (resto de tu código de _physics_process habitual)
 	if target_node == null:
 		target_node = get_viewport().get_camera_3d()
 		return
@@ -217,6 +223,10 @@ func take_damage(amount: int) -> void:
 	if is_dead:
 		return
 		
+	en_agonia = false # Cancela el bucle de agonía al ser atacado
+	is_player_detected = true
+	# ... (resto del código de take_damage)
+		
 	is_player_detected = true
 	# Avisa al nivel: un disparo a un zombie alerta a todos los demás
 	get_tree().call_group("nivel_alerta", "zombie_disparado", self)
@@ -302,7 +312,31 @@ func die() -> void:
 		await animation_player.animation_finished
 		
 	set_physics_process(false)
+# --- Añade esto en las variables del zombie ---
+var en_agonia: bool = false
 
+# --- Modifica o reemplaza esta función ---
+func reproducir_agonia() -> void:
+	if is_dead or en_agonia:
+		return
+	
+	en_agonia = true
+	is_player_detected = false # Ignora al jugador
+	stop_running_sound()
+	
+	# Inicia el bucle de agonía cada 2 segundos
+	_bucle_agonia()
+
+func _bucle_agonia() -> void:
+	# Mientras el zombie siga vivo y permanezca en agonía, repite la animación
+	while en_agonia and not is_dead:
+		if animation_player and animation_player.has_animation("agony"):
+			animation_player.stop() # Reinicia la animación si estaba reproduciéndose
+			animation_player.play("agony")
+		
+		# Espera 2 segundos antes de volver a reproducirla
+		await get_tree().create_timer(5.0).timeout
+		
 func play_animation(anim_name: String) -> void:
 	if animation_player and animation_player.has_animation(anim_name):
 		if animation_player.current_animation != anim_name:

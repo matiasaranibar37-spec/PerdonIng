@@ -1332,7 +1332,7 @@ environment = SubResource("Environment_8w0r3")
 
 [node name="MoonLight" type="DirectionalLight3D" parent="sky" unique_id=434053048]
 transform = Transform3D(0.89749455, 0.08956571, 0.431835, -0.4410255, 0.18226779, 0.87879175, 0, -0.9791611, 0.20308511, 0, 11.247618, 0)
-light_color = Color(0.52193034, 0.49823374, 0.41516614, 1)
+light_color = Color(0.56492084, 0.49233466, 0.24854791, 1)
 light_energy = 0.05
 shadow_enabled = true
 sky_mode = 1

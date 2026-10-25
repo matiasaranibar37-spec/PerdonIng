@@ -43,10 +43,10 @@ func _ready() -> void:
 
 func _create_mode_dialog() -> void:
 	mode_dialog = ConfirmationDialog.new()
-	mode_dialog.title = "Seleccionar modo de juego"
-	mode_dialog.dialog_text = "Elige cómo quieres jugar."
-	mode_dialog.ok_button_text = "1 jugador"
-	mode_dialog.cancel_button_text = "2 jugadores"
+	mode_dialog.title = "Select Game Mode"
+	mode_dialog.dialog_text = "Choose how you want to play."
+	mode_dialog.ok_button_text = "1 player"
+	mode_dialog.cancel_button_text = "2 players"
 	mode_dialog.confirmed.connect(_start_selected_mode.bind(1))
 	mode_dialog.canceled.connect(_start_selected_mode.bind(2))
 	add_child(mode_dialog)

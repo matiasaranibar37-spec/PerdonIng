@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://utbp3hkqngb6" path="res://assets/Furnitures_2/Scenes/computer.tscn" id="29_echyv"]
 [ext_resource type="AudioStream" uid="uid://btet2b3kr70vl" path="res://assets/sounds/music_speakers.mp3" id="36_blm5u"]
 [ext_resource type="PackedScene" uid="uid://dod5b2q3plpb1" path="res://level_2/UI/puzzle_musica_ui.tscn" id="36_t02ur"]
+[ext_resource type="Script" uid="uid://baega4w3vmalp" path="res://scripts/music_speakers.gd" id="37_l27sa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1gboq"]
 albedo_color = Color(0.4509804, 0.47058824, 0.49019608, 1)
@@ -1952,7 +1953,7 @@ sound_dying_2 = null
 sound_running = null
 
 [node name="CharacterBody3D9" parent="zombies" unique_id=791026047 instance=ExtResource("22_60eof")]
-transform = Transform3D(-0.54522574, 0, -0.83828926, 0, 1, 0, 0.83828926, 0, -0.54522574, 12.239482, -4.6516714, 2.2973852)
+transform = Transform3D(-0.54522574, 0, -0.83828926, 0, 1, 0, 0.83828926, 0, -0.54522574, 10.10095, -4.6516714, 2.2973852)
 attack_cooldown = 1.5
 sound_screech = null
 sound_attack = null
@@ -1961,7 +1962,7 @@ sound_dying_2 = null
 sound_running = null
 
 [node name="CharacterBody3D10" parent="zombies" unique_id=1271434330 instance=ExtResource("22_60eof")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.384792, -4.576124, 2.3790112)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.384792, -4.576124, 0.95704424)
 attack_cooldown = 1.5
 sound_screech = null
 sound_attack = null
@@ -2069,7 +2070,8 @@ sound_dying_2 = null
 sound_running = null
 
 [node name="ZombieLibrarian" parent="zombies" unique_id=1981032698 instance=ExtResource("28_2es18")]
-transform = Transform3D(-5.6824803e-08, 0, -1.3, 0, 1.3, 0, 1.3, 0, -5.6824803e-08, 2.6285074, -4.7893257, 5.434663)
+transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.2453668e-08, 2.6285074, -4.7893257, 5.434663)
+attack_damage = 15
 
 [node name="PointerManager" type="CanvasLayer" parent="." unique_id=34471643 groups=["pointer_manager"]]
 layer = 2
@@ -2204,6 +2206,7 @@ autoplay = true
 [node name="music_speakers" type="AudioStreamPlayer" parent="." unique_id=1946250269]
 stream = ExtResource("36_blm5u")
 autoplay = true
+script = ExtResource("37_l27sa")
 
 [node name="Pasos" type="AudioStreamPlayer" parent="." unique_id=878407994]
 stream = SubResource("AudioStreamMP3_5j5u4")
