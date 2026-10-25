@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://dtiycl7s81t0f" path="res://scripts/player.gd" id="24_v0efy"]
 [ext_resource type="Texture2D" uid="uid://bj4hchjq3u1ho" path="res://assets/Sky/sky_stars2.png" id="25_oqeuv"]
 [ext_resource type="Texture2D" uid="uid://cmc55ywyw77pl" path="res://assets/Sky/moon_texture.jpg" id="26_mjnom"]
+[ext_resource type="PackedScene" uid="uid://q0j63cywds3l" path="res://scenes/Final_Boss.tscn" id="27_vb5p2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6p2dc"]
 albedo_color = Color(1, 1, 0.972549, 1)
@@ -1341,3 +1342,8 @@ transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -39.416164, 43.738373, 53.
 cast_shadow = 0
 mesh = SubResource("SphereMesh_8w0r3")
 surface_material_override/0 = SubResource("StandardMaterial3D_h4t55")
+
+[node name="Zombies" type="Node3D" parent="." unique_id=1398288929]
+
+[node name="FinalBoss" parent="Zombies" unique_id=25704447 instance=ExtResource("27_vb5p2")]
+transform = Transform3D(0.3548533, 0, 0.934922, 0, 1, 0, -0.934922, 0, 0.3548533, -29.930624, -10.148673, 0)
