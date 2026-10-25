@@ -1004,7 +1004,7 @@ offset = Vector2(0, 30)
 transform = Transform2D(1, 0, 0, 1, 0, 30)
 
 [node name="CharacterBody3D" parent="." unique_id=373837389 instance=ExtResource("5_mpcr2")]
-transform = Transform3D(0.3999999, 0, 0, 0, 0.3999999, 0, 0, 0, 0.39999995, -0.072486795, -0.431967, 0.04996517)
+transform = Transform3D(0.38968036, 0, 0, 0, 0.30005372, 0, 0, 0, 0.39999995, -0.072486795, -0.431967, 0.04996517)
 
 [node name="PuzzleObjects" type="Node3D" parent="." unique_id=1671605835]
 
