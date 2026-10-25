@@ -58,7 +58,7 @@ func validar_codigo() -> void:
 	
 	if codigo_actual == CODIGO_SECRETO:
 		if display_label:
-			display_label.text = "¡ACCESO CONCEDIDO!"
+			display_label.text = "ACCESS GRANTED!"
 		
 		await get_tree().create_timer(0.6).timeout
 		hide()

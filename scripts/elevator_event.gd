@@ -25,8 +25,8 @@ extends Node3D
 @onready var color_rect_fade: ColorRect = get_node_or_null("CanvasLayer/ColorRectFade")
 
 # Textos (sin signos ni tildes especiales porque la fuente 28 Days Later no los tiene)
-@export var mensaje_elegir_objeto: String = "Elige un objeto para defenderte del zombie"
-@export var mensaje_nivel_superado: String = "Nivel uno superado"
+@export var mensaje_elegir_objeto: String = "Choose an object to defend yourself against the zombie"
+@export var mensaje_nivel_superado: String = "Level One Completed"
 
 # Tiempos editables desde el Inspector
 @export var espera_tras_muerte_zombie: float = 1.5  # Deja ver la animación de muerte del zombie

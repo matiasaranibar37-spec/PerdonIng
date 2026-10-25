@@ -1,8 +1,8 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://1ig632u17ws1"]
 
-[ext_resource type="Script" path="res://scripts/character_select.gd" id="1_select"]
+[ext_resource type="Script" uid="uid://cupn8rb11n46r" path="res://scripts/character_select.gd" id="1_select"]
 
-[node name="CharacterSelect" type="Control"]
+[node name="CharacterSelect" type="Control" unique_id=2069242888]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
