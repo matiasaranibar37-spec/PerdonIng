@@ -59,6 +59,8 @@ var _boss_ui: CanvasLayer = null
 
 
 func _ready() -> void:
+	if get_node_or_null("/root/GameManager"):
+		GameManager.reset_health_for_new_level() # Solo resetea la vida, el tiempo SIGUE corriendo
 	if theme_final_boss:
 		theme_final_boss.stop()
 		theme_final_boss.volume_db = volumen_musica_jefe_db
@@ -365,9 +367,14 @@ func _on_boss_defeated() -> void:
 		await tween.finished
 	_mostrar_mensaje("YOU WON!, You escaped from the university", 3.0)
 	await get_tree().create_timer(3.0).timeout
-	if next_scene_path != "" and ResourceLoader.exists(next_scene_path):
-		get_tree().change_scene_to_file(next_scene_path)
-
+	
+	# --- CAMBIO CLAVE: Llama a GameManager para activar la pantalla de fin con VICTORIA ---
+	if get_node_or_null("/root/GameManager"):
+		GameManager.trigger_victory()
+	else:
+		# Fallback por si acaso GameManager no estuviera disponible
+		if next_scene_path != "" and ResourceLoader.exists(next_scene_path):
+			get_tree().change_scene_to_file(next_scene_path)
 
 # =========================================================
 # UI

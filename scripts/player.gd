@@ -11,8 +11,16 @@ class_name MobilePlayer
 
 @onready var camera: Camera3D = get_node_or_null(camera_path) as Camera3D
 @onready var raycast: RayCast3D = get_node_or_null("RayCast3D") as RayCast3D
+var shot_audio: AudioStreamPlayer
+var shot_sound: AudioStream = preload("res://assets/sounds/disparo.wav")
 
 func _ready() -> void:
+	# Sonido local de disparo, compartido por los controles de este jugador.
+	shot_audio = AudioStreamPlayer.new()
+	shot_audio.name = "ShotAudio"
+	shot_audio.stream = shot_sound
+	shot_audio.volume_db = -3.0
+	add_child(shot_audio)
 	if raycast:
 		raycast.enabled = true
 		raycast.collision_mask = 1
@@ -20,6 +28,9 @@ func _ready() -> void:
 		raycast.collide_with_bodies = true
 
 func shoot(screen_position: Vector2) -> void:
+	if shot_audio != null:
+		shot_audio.stop()
+		shot_audio.play()
 	if camera == null or raycast == null:
 		push_warning("Jugador %s: falta Camera3D o RayCast3D." % player_id)
 		return

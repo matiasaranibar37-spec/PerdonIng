@@ -30,6 +30,10 @@ border_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
 border_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4e15o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydnqi"]
+
 [node name="MainMenu" type="Control" unique_id=1061429864]
 layout_mode = 3
 anchors_preset = 15
@@ -123,6 +127,17 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxEmpty_o6xl0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
 text = "SELECT CHARACTER"
+
+[node name="BestScoresButton" type="Button" parent="VBoxContainer" unique_id=739299320]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4e15o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ydnqi")
+text = "BEST SCORES"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=736518681]
 layout_mode = 2

@@ -1928,10 +1928,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.661598, 0, -1.0600901)
 
 [node name="CharacterBody3D" parent="zombies" unique_id=373837389 instance=ExtResource("22_60eof")]
 transform = Transform3D(-0.033143863, 0, 0.99945056, 0, 1, 0, -0.99945056, 0, -0.033143863, 11.428042, -4.537677, 13.979307)
+health = 10
+attack_damage = 100
 attack_cooldown = 1.5
 
 [node name="CharacterBody3D3" parent="zombies" unique_id=327417844 instance=ExtResource("22_60eof")]
-transform = Transform3D(-0.033034045, 0, 0.9994545, 0, 1, 0, -0.9994545, 0, -0.033034045, 12.787661, -4.6394978, 15.747715)
+transform = Transform3D(-0.033034045, 0, 0.9994545, 0, 1, 0, -0.9994545, 0, -0.033034045, 12.787661, -4.669709, 15.747715)
+health = 10
+attack_damage = 100
 attack_cooldown = 1.5
 
 [node name="CharacterBody3D2" parent="zombies" unique_id=559907943 instance=ExtResource("22_60eof")]
@@ -1943,15 +1947,18 @@ transform = Transform3D(0.010864321, 0, 0.99994093, 0, 1, 0, -0.99994093, 0, 0.0
 attack_cooldown = 1.5
 
 [node name="CharacterBody3D5" parent="zombies" unique_id=1593662513 instance=ExtResource("22_60eof")]
-transform = Transform3D(-0.9870061, 0, 0.1606814, 0, 1, 0, -0.1606814, 0, -0.9870061, 7.4119563, -4.5886116, -5.80954)
+transform = Transform3D(-0.9870061, 0, 0.1606814, 0, 1, 0, -0.1606814, 0, -0.9870061, 7.4119563, -4.6740513, -5.80954)
+attack_damage = 100
 attack_cooldown = 1.5
 
 [node name="CharacterBody3D6" parent="zombies" unique_id=1097176676 instance=ExtResource("22_60eof")]
 transform = Transform3D(-0.010800093, 0, -0.9999419, 0, 1, 0, 0.9999419, 0, -0.010800093, 4.379101, -4.5886116, -9.524595)
+attack_damage = 100
 attack_cooldown = 1.5
 
 [node name="CharacterBody3D7" parent="zombies" unique_id=1660531129 instance=ExtResource("22_60eof")]
-transform = Transform3D(-0.95244783, 0, 0.30470178, 0, 1, 0, -0.30470178, 0, -0.95244783, 9.197393, -4.5886116, -9.191953)
+transform = Transform3D(-0.95244783, 0, 0.30470178, 0, 1, 0, -0.30470178, 0, -0.95244783, 9.197393, -4.6612167, -9.191953)
+attack_damage = 100
 attack_cooldown = 1.5
 sound_screech = null
 sound_attack = null
@@ -1970,6 +1977,7 @@ sound_running = null
 
 [node name="CharacterBody3D9" parent="zombies" unique_id=791026047 instance=ExtResource("22_60eof")]
 transform = Transform3D(-0.54522574, 0, -0.83828926, 0, 1, 0, 0.83828926, 0, -0.54522574, 10.10095, -4.6516714, 2.2973852)
+attack_damage = 100
 attack_cooldown = 1.5
 sound_screech = null
 sound_attack = null
@@ -1997,6 +2005,7 @@ sound_running = null
 
 [node name="CharacterBody3D11" parent="zombies" unique_id=717564929 instance=ExtResource("22_60eof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.604635, -4.5967855, 3.7784762)
+attack_damage = 100
 attack_cooldown = 1.5
 sound_screech = null
 sound_attack = null
@@ -2006,6 +2015,7 @@ sound_running = null
 
 [node name="CharacterBody3D16" parent="zombies" unique_id=1520472904 instance=ExtResource("22_60eof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.963764, -4.5967855, 2.820703)
+attack_damage = 100
 attack_cooldown = 1.5
 sound_screech = null
 sound_attack = null
@@ -2015,6 +2025,8 @@ sound_running = null
 
 [node name="CharacterBody3D13" parent="zombies" unique_id=1131534894 instance=ExtResource("22_60eof")]
 transform = Transform3D(0.3209546, 0, -0.94709456, 0, 1, 0, 0.94709456, 0, 0.3209546, 16.347286, -4.5279226, 7.6193285)
+health = 15
+attack_damage = 100
 attack_cooldown = 1.5
 sound_screech = null
 sound_attack = null
@@ -2024,6 +2036,8 @@ sound_running = null
 
 [node name="CharacterBody3D14" parent="zombies" unique_id=1509522396 instance=ExtResource("22_60eof")]
 transform = Transform3D(0.3209546, 0, -0.94709456, 0, 1, 0, 0.94709456, 0, 0.3209546, 17.384493, -4.5279226, 10.679987)
+health = 15
+attack_damage = 100
 attack_cooldown = 1.5
 sound_screech = null
 sound_attack = null
@@ -2033,6 +2047,7 @@ sound_running = null
 
 [node name="CharacterBody3D15" parent="zombies" unique_id=1047402812 instance=ExtResource("22_60eof")]
 transform = Transform3D(0.3209546, 0, -0.94709456, 0, 1, 0, 0.94709456, 0, 0.3209546, 9.502018, -4.5279226, 9.68998)
+attack_damage = 100
 attack_cooldown = 1.5
 sound_screech = null
 sound_attack = null
@@ -2050,7 +2065,7 @@ sound_dying_2 = null
 sound_running = null
 
 [node name="CharacterBody3D18" parent="zombies" unique_id=1369800447 instance=ExtResource("22_60eof")]
-transform = Transform3D(-0.053788483, 0, -0.9985523, 0, 1, 0, 0.9985523, 0, -0.053788483, 13.578163, -4.5279226, -0.55198693)
+transform = Transform3D(-0.053788483, 0, -0.9985523, 0, 1, 0, 0.9985523, 0, -0.053788483, 13.578163, -4.651095, -0.55198693)
 attack_cooldown = 1.5
 sound_screech = null
 sound_attack = null
@@ -2059,7 +2074,8 @@ sound_dying_2 = null
 sound_running = null
 
 [node name="CharacterBody3D20" parent="zombies" unique_id=312884553 instance=ExtResource("22_60eof")]
-transform = Transform3D(-0.053788483, 0, -0.9985523, 0, 1, 0, 0.9985523, 0, -0.053788483, 18.762293, -4.5279226, -6.0983453)
+transform = Transform3D(-0.053788483, 0, -0.9985523, 0, 1, 0, 0.9985523, 0, -0.053788483, 18.762293, -4.6633387, -6.0983453)
+attack_damage = 100
 attack_cooldown = 1.5
 sound_screech = null
 sound_attack = null

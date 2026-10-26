@@ -11,9 +11,17 @@ signal game_over_triggered(dead_player_id: int)
 var score: int = 0
 var p1_kills: int = 0
 var p2_kills: int = 0
+var p1_score: int = 0
+var p2_score: int = 0
 var p1_health: int = 100
 var p2_health: int = 100
 var is_game_over: bool = false
+
+# Cronómetro y control de ranking (del segundo script)
+var run_time: float = 0.0
+var run_active: bool = false
+var result_saved: bool = false
+
 # Cantidad de jugadores seleccionada en el menú: 1 o 2.
 var player_count: int = 1
 
@@ -21,14 +29,42 @@ var player_count: int = 1
 var p1_pointer_position: Vector2 = Vector2.ZERO
 
 const GAME_OVER_SCENE: String = "res://scenes/game_over.tscn"
+const RESULT_WIN: String = "VICTORIA"
+const RESULT_LOSS: String = "DERROTA"
 
 # Selección de personajes desde el menú inicial
 var p1_character: Dictionary = {"id": "default", "name": "Jugador 1", "health": 100}
 var p2_character: Dictionary = {"id": "default", "name": "Jugador 2", "health": 100}
 
 
+func _process(delta: float) -> void:
+	# _process no se ejecuta con el árbol en pausa, así que la pausa no suma tiempo
+	if run_active and not is_game_over:
+		run_time += delta
+
+
+## Lo llaman los niveles en su _ready(). Es idempotente: no reinicia el tiempo.
+func begin_run() -> void:
+	if is_game_over:
+		return
+	run_active = true
+
+
+func get_run_seconds() -> int:
+	return int(run_time)
+
+
 func add_score(amount: int = 1) -> void:
 	score += amount
+	score_updated.emit(score)
+
+
+func add_player_score(player_id: int, amount: int) -> void:
+	score += amount
+	if player_id == 2:
+		p2_score += amount
+	else:
+		p1_score += amount
 	score_updated.emit(score)
 
 
@@ -39,15 +75,18 @@ func add_kill(player_id: String, points: int = 100) -> void:
 	
 	if id_clean == "2" or id_clean == "P2" or id_clean == "PLAYER2":
 		p2_kills += 1
+		p2_score += points
 	else:
 		# Asigna a P1 para los valores "1", "P1", "PLAYER1" o por defecto
 		p1_kills += 1
+		p1_score += points
 
 	print("Zombie eliminado. Kills P1: ", p1_kills, " | Kills P2: ", p2_kills)
 
 	# Emitir señales para actualizar el HUD
 	score_updated.emit(score)
 	kills_updated.emit(p1_kills, p2_kills)
+
 
 func update_player_health(player_id: int, new_health: int) -> void:
 	if player_id == 1:
@@ -66,14 +105,31 @@ func trigger_game_over(dead_player_id: int) -> void:
 	if is_game_over:
 		return
 	is_game_over = true
+	run_active = false
 	game_over_triggered.emit(dead_player_id)
+	_show_end_screen(RESULT_LOSS, dead_player_id)
 
+
+## Final por victoria: lo llama el último nivel al completarse.
+func trigger_victory() -> void:
+	if is_game_over:
+		return
+	is_game_over = true
+	run_active = false
+	_show_end_screen(RESULT_WIN, 0)
+
+
+# Muestra la pantalla de fin (Game Over o Victoria) y detiene el juego de fondo
+func _show_end_screen(result: String, dead_player_id: int) -> void:
+	if not get_tree().get_nodes_in_group("end_screen").is_empty():
+		return
 	var scene: PackedScene = load(GAME_OVER_SCENE)
 	if scene == null:
-		push_error("No se encontró la escena de Game Over: " + GAME_OVER_SCENE)
+		push_error("No se encontró la escena de fin de partida: " + GAME_OVER_SCENE)
 		return
 	var screen: Node = scene.instantiate()
 	screen.set("dead_player_id", dead_player_id)
+	screen.set("result", result)
 	get_tree().root.add_child.call_deferred(screen)
 	get_tree().paused = true
 
@@ -86,9 +142,14 @@ func reset_health_for_new_level() -> void:
 
 func reset_game() -> void:
 	is_game_over = false
+	run_time = 0.0
+	run_active = false
+	result_saved = false
 	score = 0
 	p1_kills = 0
 	p2_kills = 0
+	p1_score = 0
+	p2_score = 0
 	reset_health_for_new_level()
 	score_updated.emit(score)
 	kills_updated.emit(p1_kills, p2_kills)

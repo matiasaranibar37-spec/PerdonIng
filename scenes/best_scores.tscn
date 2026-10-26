@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cddgfo7ophh2j"]
+
+[ext_resource type="Script" uid="uid://buif7waosbwu4" path="res://scripts/menus/best_scores.gd" id="1_sfl8k"]
+[ext_resource type="Texture2D" uid="uid://ddtqa23ruw3nu" path="res://assets/menus/background_maim_menu.png" id="2_bg"]
+[ext_resource type="FontFile" uid="uid://dv3ob2gnwbxwf" path="res://assets/Font/horrendo.ttf" id="3_title"]
+[ext_resource type="FontFile" uid="uid://bpkwn2uh0rm8j" path="res://assets/Font/28 Days Later.ttf" id="4_text"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 32.0
+content_margin_top = 20.0
+content_margin_right = 32.0
+content_margin_bottom = 20.0
+bg_color = Color(0.03, 0.02, 0.02, 0.88)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85, 0.08, 0.05, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+bg_color = Color(1, 0.3428768, 0.2803858, 1)
+
+[node name="BestScores" type="CanvasLayer" unique_id=405165]
+layer = 10
+script = ExtResource("1_sfl8k")
+
+[node name="Background" type="TextureRect" parent="." unique_id=860746635]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+
+[node name="Center" type="CenterContainer" parent="." unique_id=544923552]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center" unique_id=1727424208]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Center/Panel" unique_id=319692345]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TitleLabel" type="Label" parent="Center/Panel/VBoxContainer" unique_id=742565684]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.08, 0.05, 1)
+theme_override_fonts/font = ExtResource("3_title")
+theme_override_font_sizes/font_size = 64
+text = "BEST SCORES"
+horizontal_alignment = 1
+
+[node name="Table" type="GridContainer" parent="Center/Panel/VBoxContainer" unique_id=1305124604]
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 10
+columns = 5
+
+[node name="BackButton" type="Button" parent="Center/Panel/VBoxContainer" unique_id=1837371958]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_text")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hover")
+text = "BACK TO MENU"

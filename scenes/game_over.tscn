@@ -1,82 +1,123 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bauib4dc8vljs"]
 
-[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_gameover"]
-[ext_resource type="FontFile" path="res://assets/Font/horrendo.ttf" id="2_title"]
-[ext_resource type="FontFile" path="res://assets/Font/28 Days Later.ttf" id="3_text"]
+[ext_resource type="Script" uid="uid://cifk4kgks8m4j" path="res://scripts/game_over.gd" id="1_gameover"]
+[ext_resource type="FontFile" uid="uid://dv3ob2gnwbxwf" path="res://assets/Font/horrendo.ttf" id="2_title"]
+[ext_resource type="FontFile" uid="uid://bpkwn2uh0rm8j" path="res://assets/Font/28 Days Later.ttf" id="3_text"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 36.0
+content_margin_top = 24.0
+content_margin_right = 36.0
+content_margin_bottom = 24.0
+bg_color = Color(0.03, 0.02, 0.02, 0.92)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85, 0.08, 0.05, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
 bg_color = Color(1, 0.3428768, 0.2803858, 1)
 
-[node name="GameOver" type="CanvasLayer"]
-layer = 200
+[node name="GameOver" type="CanvasLayer" unique_id=2120165811 groups=["end_screen"]]
 process_mode = 3
+layer = 200
 script = ExtResource("1_gameover")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Dim" type="ColorRect" parent="." unique_id=526813973]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.82)
+color = Color(0, 0, 0, 0.55)
 
-[node name="Center" type="CenterContainer" parent="."]
+[node name="Center" type="CenterContainer" parent="." unique_id=817664168]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Center"]
+[node name="Panel" type="PanelContainer" parent="Center" unique_id=573705820]
 layout_mode = 2
-theme_override_constants/separation = 18
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
-[node name="TitleLabel" type="Label" parent="Center/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Center/Panel" unique_id=251960097]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="Center/Panel/VBoxContainer" unique_id=144735497]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85, 0.08, 0.05, 1)
 theme_override_fonts/font = ExtResource("2_title")
-theme_override_font_sizes/font_size = 110
+theme_override_font_sizes/font_size = 72
 text = "GAME OVER"
 horizontal_alignment = 1
 
-[node name="SubtitleLabel" type="Label" parent="Center/VBoxContainer"]
+[node name="SubtitleLabel" type="Label" parent="Center/Panel/VBoxContainer" unique_id=656066182]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_text")
-theme_override_font_sizes/font_size = 34
-text = "Jugador 1 ha muerto"
+theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 
-[node name="P1Label" type="Label" parent="Center/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_text")
-theme_override_font_sizes/font_size = 32
-text = "Jugador 1  -  KILLS: 0"
-horizontal_alignment = 1
-
-[node name="P2Label" type="Label" parent="Center/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_text")
-theme_override_font_sizes/font_size = 32
-text = "Jugador 2  -  KILLS: 0"
-horizontal_alignment = 1
-
-[node name="ScoreLabel" type="Label" parent="Center/VBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="Center/Panel/VBoxContainer" unique_id=1479420804]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
 theme_override_fonts/font = ExtResource("3_text")
-theme_override_font_sizes/font_size = 40
-text = "PUNTOS TOTALES: 0"
+theme_override_font_sizes/font_size = 34
+text = "SCORE 0"
 horizontal_alignment = 1
 
-[node name="ReturnButton" type="Button" parent="Center/VBoxContainer"]
+[node name="StatsLabel" type="Label" parent="Center/Panel/VBoxContainer" unique_id=402256259]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_text")
+theme_override_font_sizes/font_size = 26
+text = "KILLS 0   TIME 00:00"
+horizontal_alignment = 1
+
+[node name="PromptLabel" type="Label" parent="Center/Panel/VBoxContainer" unique_id=961042733]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_text")
+theme_override_font_sizes/font_size = 32
+text = "ENTER YOUR INITIALS"
+horizontal_alignment = 1
+
+[node name="Slots" type="HBoxContainer" parent="Center/Panel/VBoxContainer" unique_id=622924743]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="HintLabel" type="Label" parent="Center/Panel/VBoxContainer" unique_id=353106547]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_fonts/font = ExtResource("3_text")
+theme_override_font_sizes/font_size = 22
+text = "PRESS ENTER TO SAVE"
+horizontal_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="Center/Panel/VBoxContainer" unique_id=1462909806]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 1, 0.5, 1)
+theme_override_fonts/font = ExtResource("3_text")
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="Center/Panel/VBoxContainer" unique_id=876230460]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_text")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hover")

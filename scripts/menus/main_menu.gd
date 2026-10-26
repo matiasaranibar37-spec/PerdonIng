@@ -4,10 +4,13 @@ extends Control
 @onready var new_game_button: Button = get_node_or_null("VBoxContainer/NewGameButton")
 @onready var load_game_button: Button = get_node_or_null("VBoxContainer/LoadGameButton")
 @onready var select_character_button: Button = get_node_or_null("VBoxContainer/SelectCharacterButton")
+@onready var best_scores_button: Button = get_node_or_null("VBoxContainer/BestScoresButton")
 @onready var exit_button: Button = get_node_or_null("VBoxContainer/ExitButton")
 
 @onready var load_menu_panel: CanvasLayer = get_node_or_null("LoadMenu")
 var mode_dialog: ConfirmationDialog
+const BEST_SCORES_SCENE: PackedScene = preload("res://scenes/best_scores.tscn")
+var best_scores_screen: Node
 
 # Rutas corregidas hacia tus archivos .tscn
 @export_file("*.tscn") var character_select_scene: String = "res://scenes/ui/character_select.tscn"
@@ -32,6 +35,10 @@ func _ready() -> void:
 	else:
 		push_error("No se encontró el nodo SelectCharacterButton")
 		
+	if best_scores_button:
+		best_scores_button.pressed.connect(_on_best_scores_pressed)
+	else:
+		push_error("No se encontró el nodo BestScoresButton")
 	if exit_button:
 		exit_button.pressed.connect(_on_exit_pressed)
 	else:
@@ -99,7 +106,13 @@ func _on_select_character_pressed() -> void:
 		get_tree().change_scene_to_file(character_select_scene)
 	else:
 		push_error("No se encontró la escena de selección de personajes en: " + character_select_scene)
-
+func _on_best_scores_pressed() -> void:
+	# Evita abrir dos pantallas de ranking a la vez
+	if is_instance_valid(best_scores_screen):
+		return
+	best_scores_screen = BEST_SCORES_SCENE.instantiate()
+	add_child(best_scores_screen)
+	
 func _on_exit_pressed() -> void:
 	print("Saliendo del juego...")
 	get_tree().quit()

@@ -41,6 +41,8 @@ func _ready() -> void:
 	# Regenerar la salud de los jugadores al iniciar el nivel
 	if get_node_or_null("/root/GameManager"):
 		GameManager.reset_health_for_new_level()
+		GameManager.reset_game()  # Pone el cronómetro a 0 y arranca limpio
+		GameManager.begin_run()   # Enciende el cronómetro
 
 	# 2. Conectar interactuables o cilindros del grupo "switches" (si aún los usas)
 	var interruptores = get_tree().get_nodes_in_group("switches")
