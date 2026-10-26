@@ -19,7 +19,7 @@ viewport_path = NodePath("HealthBarViewport")
 [node name="FinalBoss" type="CharacterBody3D" unique_id=25704447]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0915252)
 script = ExtResource("1_cwhyj")
-max_health = 100
+max_health = 200
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1467470716]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18438005, 1.0546265, 0.42795455)

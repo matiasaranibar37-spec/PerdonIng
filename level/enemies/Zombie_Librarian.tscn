@@ -14,6 +14,7 @@ height = 0.18945313
 [node name="ZombieLibrarian" type="CharacterBody3D" unique_id=1981032698 groups=["zombies"]]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_glbym")
+health = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1753912021]
 transform = Transform3D(1, 6.033042e-08, 8.0351015e-10, -5.6629535e-08, 0.93389434, 0.35754916, 2.0820679e-08, -0.35754916, 0.93389434, -0.07082867, 1.2290092, -0.12782274)
@@ -26,7 +27,7 @@ shape = SubResource("CapsuleShape3D_8w0r3")
 [node name="ZombieLibrarian" parent="." unique_id=1439701067 instance=ExtResource("2_bf8tc")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="ZombieLibrarian/Armature" parent_id_path=PackedInt32Array(1439701067, 705143986) index="0" unique_id=1973261693]
+[node name="Skeleton3D" parent="ZombieLibrarian/Armature" parent_id_path=PackedInt32Array(1439701067, 985906815) index="0" unique_id=1537542976]
 bones/0/position = Vector3(11.485891, -3.6723866, -97.55603)
 bones/0/rotation = Quaternion(-0.6030183, -0.12374524, 0.13456371, 0.7764978)
 bones/1/position = Vector3(10.121309, -5.3167396, 0.1630468)
