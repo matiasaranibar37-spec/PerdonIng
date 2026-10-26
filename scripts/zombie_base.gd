@@ -138,13 +138,23 @@ func _physics_process(delta: float) -> void:
 
 	if distance > attack_distance:
 		is_attacking = false
-		var direction = (target_position - global_transform.origin).normalized()
+		
+		# Calculamos la dirección hacia la cámara
+		var direction = (target_position - global_position)
 		direction.y = 0.0
 		
-		if direction.length() > 0.0:
-			look_at(global_transform.origin + direction, Vector3.UP)
+		# Hacemos que la trayectoria se desvíe ligeramente hacia el centro de la cámara 
+		# para evitar que se queden en los extremos laterales de la pantalla.
+		var cam_forward = -target_node.global_transform.basis.z
+		cam_forward.y = 0.0
 		
-		velocity = direction * run_speed
+		# Mezclamos la dirección directa con el frente de la cámara (efecto imán hacia el centro)
+		var adjusted_direction = (direction.normalized() + (cam_forward * 0.2)).normalized()
+		
+		if adjusted_direction.length() > 0.0:
+			look_at(global_position + adjusted_direction, Vector3.UP)
+		
+		velocity = adjusted_direction * run_speed
 		move_and_slide()
 		play_running_sound()
 		play_animation("run")

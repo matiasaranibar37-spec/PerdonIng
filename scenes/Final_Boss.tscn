@@ -17,6 +17,7 @@ bg_color = Color(0.7706781, 0.08323931, 3.85046e-07, 1)
 viewport_path = NodePath("HealthBarViewport")
 
 [node name="FinalBoss" type="CharacterBody3D" unique_id=25704447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0915252)
 script = ExtResource("1_cwhyj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1467470716]
@@ -24,9 +25,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18438005, 1.0546265, 0.4279
 shape = SubResource("CapsuleShape3D_8w0r3")
 
 [node name="Zombie_Boss" parent="." unique_id=1205544575 instance=ExtResource("1_32b03")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.084876776, -0.26195347, -0.7092705)
+transform = Transform3D(0.9935317, 0, 0.1135553, 0, 1, 0, -0.1135553, 0, 0.9935317, -0.2261008, -0.28307784, -0.69196033)
 
-[node name="Skeleton3D" parent="Zombie_Boss/Armature" parent_id_path=PackedInt32Array(1205544575, 1834685570) index="0" unique_id=1997797170]
+[node name="Skeleton3D" parent="Zombie_Boss/Armature" parent_id_path=PackedInt32Array(1205544575, 1405034177) index="0" unique_id=1523813266]
 bones/0/position = Vector3(0.8811474, -1.5339851, -103.17389)
 bones/0/rotation = Quaternion(-0.62238574, -0.12858965, 0.10367804, 0.7650827)
 bones/1/position = Vector3(8.419881, -5.196187, 0.5970623)
@@ -144,7 +145,7 @@ bones/64/position = Vector3(0.33167136, 5.095082, 9.53673e-06)
 [node name="RunAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=40294805]
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=761450360]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12503552, 1.7651376, 0.64321375)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.12503552, 1.7651376, 0.64321375)
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=1583335276]
 

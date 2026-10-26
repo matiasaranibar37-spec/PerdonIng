@@ -544,16 +544,17 @@ transform = Transform3D(-0.09627119, 0, -0.9953551, 0, 1, 0, 0.9953551, 0, -0.09
 transform = Transform3D(-0.096271195, 0, -0.99535525, 0, 1, 0, 0.99535525, 0, -0.096271195, 7.9179277, 0.08318806, -14.163457)
 
 [node name="CharacterBody3D2" parent="zombies" unique_id=21376398 instance=ExtResource("23_lag3f")]
-transform = Transform3D(-0.9985134, 0, -0.05450744, 0, 1, 0, 0.05450744, 0, -0.9985134, 7.4117017, 0, -9.977269)
+transform = Transform3D(-0.9985134, 0, -0.05450744, 0, 1, 0, 0.05450744, 0, -0.9985134, 7.4117017, 0, -10.253156)
 
 [node name="CharacterBody3D4" parent="zombies" unique_id=1625384088 instance=ExtResource("23_lag3f")]
-transform = Transform3D(0.010864321, 0, 0.99994093, 0, 1, 0, -0.99994093, 0, 0.010864321, 19.810461, 0, 6.041381)
+transform = Transform3D(-0.6251352, 0, 0.78051645, 0, 1, 0, -0.78051645, 0, -0.6251352, 19.691765, 0.21054459, 6.1715417)
+run_speed = 2.5
 
 [node name="CharacterBody3D5" parent="zombies" unique_id=97599302 instance=ExtResource("23_lag3f")]
-transform = Transform3D(-0.9870061, 0, 0.1606814, 0, 1, 0, -0.1606814, 0, -0.9870061, 8.343983, 0, -11.534631)
+transform = Transform3D(-0.9870061, 0, 0.1606814, 0, 1, 0, -0.1606814, 0, -0.9870061, 9.003129, 0.022132397, -12.178471)
 
 [node name="CharacterBody3D6" parent="zombies" unique_id=1820654499 instance=ExtResource("23_lag3f")]
-transform = Transform3D(-0.010800093, 0, -0.9999419, 0, 1, 0, 0.9999419, 0, -0.010800093, 4.436498, 0, -14.838788)
+transform = Transform3D(-0.010800093, 0, -0.9999419, 0, 1, 0, 0.9999419, 0, -0.010800093, 4.436498, 0.1825813, -14.838788)
 
 [node name="CharacterBody3D7" parent="zombies" unique_id=146957413 instance=ExtResource("23_lag3f")]
 transform = Transform3D(-0.95244783, 0, 0.30470178, 0, 1, 0, -0.30470178, 0, -0.95244783, 9.197393, 0, -9.191953)
@@ -564,15 +565,15 @@ sound_dying_2 = null
 sound_running = null
 
 [node name="CharacterBody3D8" parent="zombies" unique_id=2076988439 instance=ExtResource("23_lag3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3025913, 0.21440458, -2.4551935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3025913, -0.17059863, -2.4551935)
 script = null
 
 [node name="CharacterBody3D9" parent="zombies" unique_id=717901367 instance=ExtResource("23_lag3f")]
-transform = Transform3D(-0.54522574, 0, -0.83828926, 0, 1, 0, 0.83828926, 0, -0.54522574, 12.239482, 0.23414838, 2.2973852)
+transform = Transform3D(-0.54522574, 0, -0.83828926, 0, 1, 0, 0.83828926, 0, -0.54522574, 12.239482, 0.07687485, 2.2973852)
 script = null
 
 [node name="CharacterBody3D10" parent="zombies" unique_id=1565851499 instance=ExtResource("23_lag3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.384792, 0.15351969, 2.3790112)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.384792, -0.0040106177, 2.3790112)
 script = null
 
 [node name="CharacterBody3D11" parent="zombies" unique_id=1810773014 instance=ExtResource("23_lag3f")]

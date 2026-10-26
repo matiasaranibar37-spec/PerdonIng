@@ -295,13 +295,17 @@ func _spawn_minion() -> void:
 
 
 # Aparecen por los costados del jefe, para que corran hacia la cámara
+# Aparecen únicamente por el lado derecho del jefe
 func _minion_spawn_position() -> Vector3:
 	var boss_pos: Vector3 = boss_ref.global_position
 	var hacia_jefe: Vector3 = boss_pos - camera_3d.global_position
 	hacia_jefe.y = 0.0
 	hacia_jefe = hacia_jefe.normalized() if hacia_jefe.length() > 0.001 else Vector3.FORWARD
 	var derecha: Vector3 = hacia_jefe.cross(Vector3.UP).normalized()
-	var lado: float = [-1.0, 1.0].pick_random()
+	
+	# Forzamos siempre el lado derecho (1.0 en lugar de [-1.0, 1.0].pick_random())
+	var lado: float = 1.0 
+	
 	var pos: Vector3 = boss_pos + derecha * lado * randf_range(4.0, 7.0) + hacia_jefe * randf_range(-1.0, 3.0)
 	pos.y = boss_pos.y + 0.05
 	return pos

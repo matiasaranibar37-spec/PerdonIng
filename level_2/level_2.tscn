@@ -1931,7 +1931,7 @@ transform = Transform3D(-0.033143863, 0, 0.99945056, 0, 1, 0, -0.99945056, 0, -0
 attack_cooldown = 1.5
 
 [node name="CharacterBody3D3" parent="zombies" unique_id=327417844 instance=ExtResource("22_60eof")]
-transform = Transform3D(-0.033034045, 0, 0.9994545, 0, 1, 0, -0.9994545, 0, -0.033034045, 12.787661, -4.5054235, 15.747715)
+transform = Transform3D(-0.033034045, 0, 0.9994545, 0, 1, 0, -0.9994545, 0, -0.033034045, 12.787661, -4.6394978, 15.747715)
 attack_cooldown = 1.5
 
 [node name="CharacterBody3D2" parent="zombies" unique_id=559907943 instance=ExtResource("22_60eof")]
@@ -2086,7 +2086,7 @@ sound_dying_2 = null
 sound_running = null
 
 [node name="ZombieLibrarian" parent="zombies" unique_id=1981032698 instance=ExtResource("28_2es18")]
-transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.2453668e-08, 2.6285074, -4.7893257, 5.434663)
+transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.2453668e-08, 2.6285076, -4.7893257, 5.389294)
 attack_damage = 15
 
 [node name="PointerManager" type="CanvasLayer" parent="." unique_id=34471643 groups=["pointer_manager"]]

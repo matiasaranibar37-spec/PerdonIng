@@ -1516,7 +1516,7 @@ collide_with_areas = true
 [node name="Zombies" type="Node3D" parent="." unique_id=1398288929]
 
 [node name="FinalBoss" parent="Zombies" unique_id=25704447 instance=ExtResource("27_vb5p2")]
-transform = Transform3D(-0.7881813, 0, 1.2762327, 0, 1.5, 0, -1.2762327, 0, -0.7881813, -26.003294, -10.148673, 0)
+transform = Transform3D(-0.5587563, 0, 1.3920462, 0, 1.4999999, 0, -1.3920462, 0, -0.5587563, -26.003294, -9.940498, 0)
 
 [node name="CharacterBody3D" parent="Zombies" unique_id=373837389 instance=ExtResource("29_cad1p")]
 

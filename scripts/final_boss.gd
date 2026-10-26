@@ -147,6 +147,7 @@ func _face_camera(cam_pos: Vector3) -> void:
 	var target := Vector3(cam_pos.x, global_position.y, cam_pos.z)
 	if target.distance_to(global_position) > 0.05:
 		look_at(target, Vector3.UP)
+		rotate_object_local(Vector3.UP, PI) # Invierte la rotación si quedó mirando al revés
 
 
 # --- DISTANCIA: si la cámara se aleja o se acerca demasiado, mueve el centro de la arena ---
