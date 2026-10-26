@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ca8txauwei62t"]
 
 [ext_resource type="Texture2D" uid="uid://bp48o314vbp5g" path="res://assets/wall_blood.png" id="1_baroc"]
+[ext_resource type="Script" uid="uid://36f3ggr312y1" path="res://scripts/level_3.gd" id="1_h834t"]
 [ext_resource type="Texture2D" uid="uid://3vwybdw7bk32" path="res://assets/wallTexture.png" id="2_vb5p2"]
 [ext_resource type="Texture2D" uid="uid://pel7qmj15p13" path="res://assets/floorTexture.png" id="3_j31uw"]
 [ext_resource type="PackedScene" uid="uid://duljhjluw361g" path="res://assets/Furnitures_2/Scenes/stairs_open.tscn" id="4_xh8bp"]
@@ -27,6 +28,50 @@
 [ext_resource type="Texture2D" uid="uid://bj4hchjq3u1ho" path="res://assets/Sky/sky_stars2.png" id="25_oqeuv"]
 [ext_resource type="Texture2D" uid="uid://cmc55ywyw77pl" path="res://assets/Sky/moon_texture.jpg" id="26_mjnom"]
 [ext_resource type="PackedScene" uid="uid://q0j63cywds3l" path="res://scenes/Final_Boss.tscn" id="27_vb5p2"]
+[ext_resource type="AudioStream" uid="uid://783qhpac3ftm" path="res://assets/sounds/screem-finalBoss.mp3" id="28_xh8bp"]
+[ext_resource type="PackedScene" uid="uid://dedjbv46ot8kp" path="res://level/enemies/zombie_base.tscn" id="29_cad1p"]
+[ext_resource type="FontFile" uid="uid://bpkwn2uh0rm8j" path="res://assets/Font/28 Days Later.ttf" id="29_tdcap"]
+[ext_resource type="Script" uid="uid://bybsk1l1cxy8r" path="res://scripts/pointer_manager.gd" id="32_23ppi"]
+[ext_resource type="Texture2D" uid="uid://cylmul0emy6n8" path="res://assets/pointer_p1.svg" id="33_lhbuk"]
+[ext_resource type="Texture2D" uid="uid://bwypwmkrhajde" path="res://assets/pointer_p2.svg" id="34_0ijad"]
+[ext_resource type="AudioStream" uid="uid://btcgtn3nl64c3" path="res://assets/sounds/final_boss_battle.mp3" id="35_lhbuk"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_8w0r3"]
+vertices = PackedVector3Array(-12.383183, -9.715151, -14.015039, -11.883183, -9.715151, -14.265039, -11.883183, -9.715151, -16.76504, -34.383183, -9.715151, -16.76504, -12.383183, -9.715151, -0.51503944, -11.633183, -9.715151, -0.76503944, -11.633183, -9.715151, -4.7650394, -12.383183, -9.715151, -5.0150394, -34.383183, -9.715151, 1.4849606, -12.383183, -9.715151, 1.4849606, 7.1168175, -9.715151, -3.0150394, 7.8668175, -9.715151, -3.2650394, 7.8668175, -9.715151, -4.7650394, 7.1168175, -9.715151, -5.0150394, -10.633183, -9.715151, -5.0150394, -10.633183, -9.715151, -0.51503944, -10.633183, -9.715151, 0.98496056, 7.1168175, -9.715151, 0.73496056, 7.1168175, -9.715151, -13.265039, -10.633183, -9.715151, -13.265039, 8.866817, -9.715151, -3.0150394, 8.866817, -9.715151, -5.0150394, 11.116817, -9.715151, 6.9849606, 11.116817, -9.715151, -13.265039, 8.866817, -9.715151, -13.265039, 8.866817, -9.715151, 6.4849606, -10.633183, -9.715151, 3.2349606, 7.1168175, -9.715151, 3.4849606, -34.383183, -9.715151, 2.7349606, -12.383183, -9.715151, 2.7349606, -11.633183, -9.715151, 20.73496, -11.633183, -9.715151, 17.23496, -12.383183, -9.715151, 16.98496, -34.383183, -9.715151, 20.73496, -12.383183, -9.715151, 9.234961, -11.633183, -9.715151, 8.984961, -11.633183, -9.715151, 4.9849606, -12.383183, -9.715151, 4.7349606, 7.1168175, -9.715151, 9.234961, 7.8668175, -9.715151, 8.984961, 7.8668175, -9.715151, 6.7349606, 7.1168175, -9.715151, 6.4849606, -10.633183, -9.715151, 4.7349606, -10.633183, -9.715151, 9.234961, -10.633183, -9.715151, 10.984961, 7.1168175, -9.715151, 10.984961, 8.866817, -9.715151, 9.234961, 8.866817, -9.715151, 16.98496, 7.6168175, -9.715151, 17.23496, 7.6168175, -9.715151, 20.73496, 11.116817, -9.715151, 20.73496, 7.1168175, -9.715151, 16.98496, -10.633183, -9.715151, 16.98496)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(7, 4, 8), PackedInt32Array(0, 7, 3), PackedInt32Array(3, 7, 8), PackedInt32Array(4, 9, 8), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(13, 10, 14), PackedInt32Array(17, 16, 15), PackedInt32Array(6, 14, 5), PackedInt32Array(5, 14, 15), PackedInt32Array(15, 14, 10), PackedInt32Array(15, 10, 17), PackedInt32Array(14, 19, 13), PackedInt32Array(13, 19, 18), PackedInt32Array(12, 21, 11), PackedInt32Array(11, 21, 20), PackedInt32Array(21, 23, 20), PackedInt32Array(20, 23, 22), PackedInt32Array(21, 24, 23), PackedInt32Array(22, 25, 20), PackedInt32Array(16, 17, 26), PackedInt32Array(26, 17, 27), PackedInt32Array(8, 9, 28), PackedInt32Array(28, 9, 29), PackedInt32Array(31, 30, 32), PackedInt32Array(32, 30, 33), PackedInt32Array(35, 34, 36), PackedInt32Array(36, 34, 37), PackedInt32Array(37, 34, 28), PackedInt32Array(32, 33, 34), PackedInt32Array(34, 33, 28), PackedInt32Array(28, 29, 37), PackedInt32Array(39, 38, 40), PackedInt32Array(40, 38, 41), PackedInt32Array(26, 27, 42), PackedInt32Array(42, 27, 41), PackedInt32Array(36, 42, 35), PackedInt32Array(35, 42, 43), PackedInt32Array(43, 42, 41), PackedInt32Array(43, 41, 38), PackedInt32Array(38, 45, 43), PackedInt32Array(43, 45, 44), PackedInt32Array(40, 25, 39), PackedInt32Array(39, 25, 46), PackedInt32Array(46, 25, 22), PackedInt32Array(48, 47, 49), PackedInt32Array(49, 47, 50), PackedInt32Array(46, 22, 47), PackedInt32Array(47, 22, 50), PackedInt32Array(48, 49, 51), PackedInt32Array(51, 49, 52), PackedInt32Array(52, 49, 31), PackedInt32Array(31, 49, 30), PackedInt32Array(52, 44, 51), PackedInt32Array(51, 44, 45)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_keufu"]
+albedo_color = Color(0.4509804, 0.47058824, 0.49019608, 1)
+albedo_texture = ExtResource("3_j31uw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jvy75"]
+albedo_color = Color(0.4509804, 0.47058824, 0.49019608, 1)
+albedo_texture = ExtResource("3_j31uw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b60u5"]
+albedo_texture = ExtResource("1_baroc")
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_w7mgy"]
+rayleigh_color = Color(0.019607844, 0.007843138, 0.17254902, 1)
+mie_color = Color(0.5089866, 0.51438135, 0.40157318, 1)
+night_sky = ExtResource("25_oqeuv")
+
+[sub_resource type="Sky" id="Sky_h4t55"]
+sky_material = SubResource("PhysicalSkyMaterial_w7mgy")
+
+[sub_resource type="Environment" id="Environment_8w0r3"]
+background_mode = 2
+sky = SubResource("Sky_h4t55")
+glow_enabled = true
+glow_strength = 1.5
+glow_bloom = 0.4
+glow_blend_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_8w0r3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4t55"]
+shading_mode = 0
+albedo_texture = ExtResource("26_mjnom")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6p2dc"]
 albedo_color = Color(1, 1, 0.972549, 1)
@@ -46,9 +91,6 @@ albedo_texture = ExtResource("1_baroc")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joegk"]
 albedo_texture = ExtResource("2_vb5p2")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b60u5"]
-albedo_texture = ExtResource("1_baroc")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8gss"]
 albedo_color = Color(1, 1, 0.972549, 1)
@@ -70,39 +112,556 @@ albedo_texture = ExtResource("1_baroc")
 albedo_color = Color(0.4509804, 0.47058824, 0.49019608, 1)
 albedo_texture = ExtResource("3_j31uw")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jvy75"]
-albedo_color = Color(0.4509804, 0.47058824, 0.49019608, 1)
-albedo_texture = ExtResource("3_j31uw")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_keufu"]
-albedo_color = Color(0.4509804, 0.47058824, 0.49019608, 1)
-albedo_texture = ExtResource("3_j31uw")
-
 [sub_resource type="Curve3D" id="Curve3D_d6vcq"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.926031, -6.947237, -28.206738, 0, 0, 0, 0, 0, 0, 1.6963739, -6.947237, -28.25386, 0, 0, 0, 0, 0, 0, -14.627449, -12.301419, -28.333061, 0, 0, 0, 0, 0, 0, -17.507095, -12.301419, -28.556835, 0, 0, 0, 0, 0, 0, -18.223309, -12.301419, -28.528805, 0, 0, 0, 0, 0, 0, -18.820915, -12.301419, -28.348053, 0, 0, 0, 0, 0, 0, -19.381302, -12.301419, -28.04878, 0, 0, 0, 0, 0, 0, -19.844147, -12.301419, -27.633324, 0, 0, 0, 0, 0, 0, -20.185398, -12.301419, -27.194374, 0, 0, 0, 0, 0, 0, -20.627983, -12.31515, -26.239223, 0, 0, 0, 0, 0, 0, -21.603184, -12.31515, -25.267815, 0, 0, 0, 0, 0, 0, -22.762573, -12.31515, -24.094688, 0, 0, 0, 0, 0, 0, -23.036137, -12.31515, -23.3209, 0, 0, 0, 0, 0, 0, -23.924839, -12.31515, -21.552126, 0, 0, 0, 0, 0, 0, -24.17575, -12.31515, -20.305084, 0, 0, 0, 0, 0, 0, -24.220978, -12.31515, -17.927128, 0, 0, 0, 0, 0, 0, -24.134892, -12.31515, -17.427616, 0, 0, 0, 0, 0, 0, -23.684315, -12.31515, -17.105751, 0, 0, 0, 0, 0, 0, -23.062973, -12.31515, -16.85071, 0, 0, 0, 0, 0, 0, -22.248074, -12.31515, -16.654276, 0, 0, 0, 0, 0, 0, -21.293068, -12.31515, -16.459518, 0, 0, 0, 0, 0, 0, -20.510275, -12.31515, -16.328722, 0, 0, 0, 0, 0, 0, -19.633106, -12.315151, -16.133648, 0, 0, 0, 0, 0, 0, -18.679737, -12.31515, -15.945483, 0, 0, 0, 0, 0, 0, -17.011307, -12.31515, -15.894868, 0, 0, 0, 0, 0, 0, -16.132027, -12.31515, -16.269985, 0, 0, 0, 0, 0, 0, -14.728002, -12.31515, -16.534742, 0, 0, 0, 0, 0, 0, -11.97934, -12.31515, -16.516064, 0, 0, 0, 0, 0, 0, -9.1334095, -12.31515, -16.381662, 0, 0, 0, 0, 0, 0, -6.3502064, -12.31515, -16.49053, 0, 0, 0, 0, 0, 0, -5.294567, -12.31515, -17.164536, 0, 0, 0, 0, 0, 0, -4.9949894, -12.31515, -17.649126, 0, 0, 0, 0, 0, 0, -4.5912933, -12.315151, -19.251656, 0, 0, 0, 0, 0, 0, -4.446486, -12.31515, -20.742672, 0, 0, 0, 0, 0, 0, -4.222842, -12.31515, -23.440374, 0, 0, 0, 0, 0, 0, -4.569935, -12.31515, -22.69987, 0, 0, 0, 0, 0, 0, -6.583747, -12.31515, -19.51506, 0, 0, 0, 0, 0, 0, -15.715589, -12.315151, -19.480597, 0, 0, 0, 0, 0, 0, -16.98233, -12.31515, -15.494257, 0, 0, 0, 0, 0, 0, -22.278217, -12.315151, -14.74569, 0, 0, 0, 0, 0, 0, -21.80394, -12.31515, -20.274559, 0, 0, 0, 0, 0, 0, -22.60646, -12.31515, -22.44314, 0, 0, 0, 0, 0, 0, -24.402199, -12.315152, -24.188969, 0, 0, 0, 0, 0, 0, -26.443947, -12.315154, -25.922062, 0, 0, 0, 0, 0, 0, -29.152172, -12.315152, -25.786877, 0, 0, 0, 0, 0, 0, -32.262615, -12.31515, -25.489243, 0, 0, 0, 0, 0, 0, -34.116955, -12.31515, -25.086895, 0, 0, 0, 0, 0, 0, -37.197807, -12.31515, -23.297203, 0, 0, 0, 0, 0, 0, -37.63858, -12.31515, -20.381474, 0, 0, 0, 0, 0, 0, -38.588863, -12.31515, -15.571696, 0, 0, 0, 0, 0, 0, -38.616817, -12.31515, -11.887473, 0, 0, 0, 0, 0, 0, -38.915073, -12.315148, -7.9623013, 0, 0, 0, 0, 0, 0, -38.87654, -12.315152, -3.9047985, 0, 0, 0, 0, 0, 0, -38.550205, -12.315152, -1.2495708, 0, 0, 0, 0, 0, 0, -37.777504, -12.315152, 1.2012262, 0, 0, 0, 0, 0, 0, -35.996017, -12.315154, 3.3009949, 0, 0, 0, 0, 0, 0, -33.8712, -12.31515, 4.635231, 0, 0, 0, 0, 0, 0, -31.813553, -12.315152, 5.6557198, 0, 0, 0, 0, 0, 0, -30.087708, -12.315152, 5.7810135, 0, 0, 0, 0, 0, 0, -27.06778, -12.31515, 5.068928),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 60
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_w7mgy"]
-rayleigh_color = Color(0.019607844, 0.007843138, 0.17254902, 1)
-mie_color = Color(0.5089866, 0.51438135, 0.40157318, 1)
-night_sky = ExtResource("25_oqeuv")
+[sub_resource type="LabelSettings" id="LabelSettings_23ppi"]
+font = ExtResource("29_tdcap")
+font_size = 40
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 0.7294118)
 
-[sub_resource type="Sky" id="Sky_h4t55"]
-sky_material = SubResource("PhysicalSkyMaterial_w7mgy")
+[sub_resource type="Animation" id="Animation_h834t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraRail/RailFollow:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraRail/RailFollow/Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.8000002, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CameraRail/RailFollow/Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.32550246, -0.28499275, -0.006419205)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextAnimation/LabelMensaje:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["grab the weapon"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextAnimation/LabelMensaje:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
-[sub_resource type="Environment" id="Environment_8w0r3"]
-background_mode = 2
-sky = SubResource("Sky_h4t55")
-glow_enabled = true
-glow_strength = 1.5
-glow_bloom = 0.5
-glow_blend_mode = 0
+[sub_resource type="Animation" id="Animation_cad1p"]
+resource_name = "start"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraRail/RailFollow:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5, 8, 10.00736, 14.229833, 18.033333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 18.45, 34.95, 34.95, 34.95, 61.3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraRail/RailFollow/Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 7.020824, 8.027698, 18.166386),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.272, 0), Vector3(0, 1.272, 0), Vector3(0, 1.272, 0), Vector3(0, 1.271532, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CameraRail/RailFollow/Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 7.020824, 8.4, 9.4, 10.0101595, 14.240001, 14.333879, 18.166386),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.2846763, -0.24924755, -0.0056140763), Vector3(0.76020885, -0.38311508, -0.19151574), Vector3(0.2846763, -0.24924755, -0.0056140763), Vector3(0, -1.09364, 0), Vector3(0, -1.09364, 0), Vector3(0, 0, 0), Vector3(0, 2.225694, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Zombies/FinalBoss")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(9.966666),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_scream"
+}]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 3.8299997,
+"start_offset": 0.0,
+"stream": ExtResource("28_xh8bp")
+}],
+"times": PackedFloat32Array(9.966666)
+}
+tracks/4/use_blend = true
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextAnimation/LabelMensaje:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(18.101046),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["grab the weapon"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextAnimation/LabelMensaje:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 18.101046),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
-[sub_resource type="SphereMesh" id="SphereMesh_8w0r3"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4v4rs"]
+_data = {
+&"RESET": SubResource("Animation_h834t"),
+&"start": SubResource("Animation_cad1p")
+}
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4t55"]
-shading_mode = 0
-albedo_texture = ExtResource("26_mjnom")
+[node name="level_3" type="Node3D" unique_id=643824674 node_paths=PackedStringArray("camera_ref", "boss_ref")]
+script = ExtResource("1_h834t")
+zombie_minion_scene = ExtResource("29_cad1p")
+camera_ref = NodePath("CameraRail/RailFollow/Camera3D")
+boss_ref = NodePath("Zombies/FinalBoss")
 
-[node name="level_3" type="Node3D" unique_id=643824674]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=219519323]
+navigation_mesh = SubResource("NavigationMesh_8w0r3")
+
+[node name="base_case_level3" type="Node3D" parent="NavigationRegion3D" unique_id=946358985]
+
+[node name="Lights" type="Node3D" parent="NavigationRegion3D/base_case_level3" unique_id=1840582658]
+
+[node name="library_lights" type="Node3D" parent="NavigationRegion3D/base_case_level3/Lights" unique_id=1271324586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.0577226, 0)
+
+[node name="light1" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=763052225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9994597, -1.166748, 15.500018)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light2" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=192528712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.566292, -1.166748, 15.500018)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light5" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1060217916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6888, -1.166748, 15.500018)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light8" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1293313382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.566292, -1.166748, 11.048334)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light9" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=806021801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.003405, -1.166748, 11.048334)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light11" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1380898862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.197115, -1.166748, 11.048334)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light12" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=133982232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6302834, -1.166748, 11.048334)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light13" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=772170959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9994597, -1.166748, 6.150481)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light15" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1933972608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.003405, -1.166748, 6.150481)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light17" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1785117824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.197115, -1.166748, 6.150481)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light18" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1547319079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6302834, -1.166748, 6.150481)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light20" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=870057870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.566292, -1.166748, 1.3821087)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light21" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=2112940237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.003405, -1.166748, 1.3821087)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light24" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1354473939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6302834, -1.166748, 1.3821087)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light25" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1363149269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9994597, -1.166748, -3.5157442)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light28" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=441842166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.563427, -1.166748, -3.5157442)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light29" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1626494738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.197115, -1.166748, -3.5157442)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light30" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1746321881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6302834, -1.166748, -3.5157442)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light31" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=375228460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9994597, -1.166748, -9.637646)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light32" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=873245452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.566292, -1.166748, -9.637646)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light35" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1207481564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.197115, -1.166748, -9.637646)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light37" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=800242491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.828705, -1.7156997, -16.896696)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light38" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1070188194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.828705, -1.7156997, -13.963377)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light33" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=888918100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.210205, -0.6912122, -10.552425)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light41" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=557357460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.056822, -0.6912122, -17.099068)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light43" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1765926439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.867295, -0.6912122, -8.064828)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light44" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=469772700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.867295, -0.6912122, 7.990844)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light40" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=175254830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.210205, -0.6912122, 12.446548)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light45" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1379688289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.210205, -0.6912122, 1.8434525)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light46" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1844630549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.210205, -6.14092, 1.8434525)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light47" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=1544666073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.243958, -6.14092, 1.8434525)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="light42" type="OmniLight3D" parent="NavigationRegion3D/base_case_level3/Lights/library_lights" unique_id=465440319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.571095, -0.6912122, 20.763494)
+light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
+light_energy = 0.3
+light_size = 50.0
+omni_range = 5.5
+
+[node name="floors" type="Node3D" parent="NavigationRegion3D/base_case_level3" unique_id=1159722442]
+
+[node name="floor17" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/floors" unique_id=1829174167]
+transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 0, -10.11515, 11.030457)
+use_collision = true
+size = Vector3(1, 1, 0.16720581)
+material = SubResource("StandardMaterial3D_keufu")
+
+[node name="floor24" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/floors" unique_id=1740288091]
+transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 0, -10.11515, 17.427597)
+use_collision = true
+size = Vector3(1, 1, 0.21629333)
+material = SubResource("StandardMaterial3D_keufu")
+
+[node name="floor18" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/floors" unique_id=897281095]
+transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 0, -10.11515, 4.946626)
+use_collision = true
+size = Vector3(1, 1, 0.20127869)
+material = SubResource("StandardMaterial3D_keufu")
+
+[node name="floor19" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/floors" unique_id=674439701]
+transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 0, -10.11515, -1.5540123)
+use_collision = true
+size = Vector3(1, 1, 0.20127869)
+material = SubResource("StandardMaterial3D_keufu")
+
+[node name="floor20" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/floors" unique_id=405060475]
+transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 0, -10.11515, -8.406927)
+use_collision = true
+size = Vector3(1, 1, 0.20127869)
+material = SubResource("StandardMaterial3D_keufu")
+
+[node name="floor22" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/floors" unique_id=1041912827]
+transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 0, -10.11515, -11.967314)
+use_collision = true
+size = Vector3(1, 1, 0.102321625)
+material = SubResource("StandardMaterial3D_keufu")
+
+[node name="floor21" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/floors" unique_id=1283589848]
+transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, -23.213114, -10.11515, 11.030457)
+use_collision = true
+size = Vector3(1, 1, 0.16720581)
+material = SubResource("StandardMaterial3D_keufu")
+
+[node name="floor25" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/floors" unique_id=720935067]
+transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, -23.213114, -10.11515, 17.516062)
+use_collision = true
+size = Vector3(1, 1, 0.22142029)
+material = SubResource("StandardMaterial3D_keufu")
+
+[node name="floor23" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/floors" unique_id=267565265]
+transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, -23.213114, -10.11515, 4.946626)
+use_collision = true
+size = Vector3(1, 1, 0.20127869)
+material = SubResource("StandardMaterial3D_keufu")
+
+[node name="floor26" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/floors" unique_id=470116561]
+transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, -23.213114, -10.11515, -1.5540123)
+use_collision = true
+size = Vector3(1, 1, 0.20127869)
+material = SubResource("StandardMaterial3D_keufu")
+
+[node name="floor27" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/floors" unique_id=530630309]
+transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, -23.213114, -10.11515, -8.406927)
+use_collision = true
+size = Vector3(1, 1, 0.20127869)
+material = SubResource("StandardMaterial3D_keufu")
+
+[node name="floor28" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/floors" unique_id=1704437509]
+transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, -23.213114, -10.11515, -11.967314)
+use_collision = true
+size = Vector3(1, 1, 0.102321625)
+material = SubResource("StandardMaterial3D_keufu")
+
+[node name="floor29" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/floors" unique_id=120795424]
+transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, -23.16173, -10.101419, -15.499496)
+use_collision = true
+size = Vector3(1, 1, 0.102321625)
+material = SubResource("StandardMaterial3D_jvy75")
+
+[node name="Walls" type="Node3D" parent="NavigationRegion3D/base_case_level3" unique_id=1225606794]
+
+[node name="wall1" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/Walls" unique_id=406388792]
+transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, -11.490686, -8.259999, 2.2002797)
+use_collision = true
+size = Vector3(4.081114, 1.0717163, 1)
+material = SubResource("StandardMaterial3D_b60u5")
+
+[node name="wall2" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/Walls" unique_id=671070173]
+transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, -11.490686, -8.24233, 13.0742445)
+use_collision = true
+size = Vector3(6.3147507, 1.0817261, 1)
+material = SubResource("StandardMaterial3D_b60u5")
+
+[node name="wall3" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/Walls" unique_id=1043872957]
+transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, -11.490686, -8.242975, -9.5126705)
+use_collision = true
+size = Vector3(7.533066, 1.0510864, 1)
+material = SubResource("StandardMaterial3D_b60u5")
+
+[node name="wall4" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/Walls" unique_id=1274937918]
+transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 4.9717464, 0, -1.117, 0, -1.7484556e-08, 8.019454, -7.4940968, 1.6990901)
+use_collision = true
+size = Vector3(7.680984, 1.0717163, 1)
+material = SubResource("StandardMaterial3D_b60u5")
+
+[node name="wall5" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/Walls" unique_id=1384977413]
+transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 4.9717464, 0, -1.117, 0, -1.7484556e-08, 8.019454, -7.469214, 13.0742445)
+use_collision = true
+size = Vector3(6.3147507, 1.0817261, 1)
+material = SubResource("StandardMaterial3D_b60u5")
+
+[node name="wall6" type="CSGBox3D" parent="NavigationRegion3D/base_case_level3/Walls" unique_id=1848684319]
+transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 4.9717464, 0, -1.117, 0, -1.7484556e-08, 8.019454, -7.470123, -9.5126705)
+use_collision = true
+size = Vector3(7.533066, 1.0510864, 1)
+material = SubResource("StandardMaterial3D_b60u5")
+
+[node name="sky" type="Node3D" parent="." unique_id=1170370001]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="sky" unique_id=827910798]
+environment = SubResource("Environment_8w0r3")
+
+[node name="MoonLight" type="DirectionalLight3D" parent="sky" unique_id=434053048]
+transform = Transform3D(0.89749455, 0.08956571, 0.431835, -0.4410255, 0.18226779, 0.87879175, 0, -0.9791611, 0.20308511, 0, 11.247618, 0)
+light_color = Color(0.56492084, 0.49233466, 0.24854791, 1)
+light_energy = 0.05
+shadow_enabled = true
+sky_mode = 1
+
+[node name="Moon" type="MeshInstance3D" parent="sky" unique_id=1815683281]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -39.416164, 43.738373, 53.67153)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_8w0r3")
+surface_material_override/0 = SubResource("StandardMaterial3D_h4t55")
 
 [node name="base_case_level2" type="Node3D" parent="." unique_id=2039323643]
 
@@ -228,6 +787,12 @@ use_collision = true
 size = Vector3(4.443066, 0.61582947, 1)
 material = SubResource("StandardMaterial3D_kmy7e")
 
+[node name="wall53" type="CSGBox3D" parent="base_case_level2/Walls" unique_id=1384944786]
+transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, -10.365327, -9.424913, 18.900572)
+use_collision = true
+size = Vector3(4.4295406, 0.7693405, 1)
+material = SubResource("StandardMaterial3D_kmy7e")
+
 [node name="wall37" type="CSGBox3D" parent="base_case_level2/Walls" unique_id=167268192]
 transform = Transform3D(1.117, 0, 0, 0, 3.5304334, 0, 0, 0, 0.4, -0.12309736, -8.606792, 21.157911)
 use_collision = true
@@ -345,383 +910,6 @@ transform = Transform3D(2.1398022, 0, 0, 0, 1, 0, 0, 0, 4.7353487, -3.6314182, -
 
 [node name="stairsOpen4" parent="base_case_level2/bleachersLeft" unique_id=1271550379 instance=ExtResource("4_xh8bp")]
 transform = Transform3D(2.1398022, 0, 0, 0, 1, 0, 0, 0, 4.7353487, -7.497575, -9.983155, -13.756037)
-
-[node name="base_case_level3" type="Node3D" parent="." unique_id=946358985]
-
-[node name="Lights" type="Node3D" parent="base_case_level3" unique_id=1840582658]
-
-[node name="library_lights" type="Node3D" parent="base_case_level3/Lights" unique_id=1271324586]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.0577226, 0)
-
-[node name="light1" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=763052225]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9994597, -1.166748, 15.500018)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light2" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=192528712]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.566292, -1.166748, 15.500018)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light3" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=1237965535]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.003405, -1.166748, 15.500018)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light5" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=1060217916]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6888, -1.166748, 15.500018)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light7" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=252496189]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9994597, -1.166748, 11.048334)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light8" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=1293313382]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.566292, -1.166748, 11.048334)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light9" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=806021801]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.003405, -1.166748, 11.048334)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light11" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=1380898862]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.197115, -1.166748, 11.048334)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light12" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=133982232]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6302834, -1.166748, 11.048334)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light13" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=772170959]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9994597, -1.166748, 6.150481)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light14" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=187818494]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.566292, -1.166748, 6.150481)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light15" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=1933972608]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.003405, -1.166748, 6.150481)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light17" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=1785117824]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.197115, -1.166748, 6.150481)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light18" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=1547319079]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6302834, -1.166748, 6.150481)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light19" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=833611026]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9994597, -1.166748, 1.3821087)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light20" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=870057870]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.566292, -1.166748, 1.3821087)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light21" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=2112940237]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.003405, -1.166748, 1.3821087)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light23" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=1538114696]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.197115, -1.166748, 1.3821087)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light24" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=1354473939]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6302834, -1.166748, 1.3821087)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light25" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=1363149269]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9994597, -1.166748, -3.5157442)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light26" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=419348542]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.566292, -1.166748, -3.5157442)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light28" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=441842166]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.563427, -1.166748, -3.5157442)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light29" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=1626494738]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.197115, -1.166748, -3.5157442)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light30" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=1746321881]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6302834, -1.166748, -3.5157442)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light31" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=375228460]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9994597, -1.166748, -9.637646)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light32" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=873245452]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.566292, -1.166748, -9.637646)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light34" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=601198498]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7218409, -1.166748, -9.637646)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light35" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=1207481564]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.197115, -1.166748, -9.637646)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light37" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=800242491]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.828705, -1.7156997, -16.896696)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light38" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=1070188194]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.828705, -1.7156997, -13.963377)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light33" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=888918100]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.210205, -0.6912122, -10.552425)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light41" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=557357460]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.056822, -0.6912122, -17.099068)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light43" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=1765926439]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.867295, -0.6912122, -8.064828)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light44" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=469772700]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.867295, -0.6912122, 7.990844)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light40" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=175254830]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.210205, -0.6912122, 12.446548)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="light42" type="OmniLight3D" parent="base_case_level3/Lights/library_lights" unique_id=465440319]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.571095, -0.6912122, 20.763494)
-light_color = Color(0.39215687, 0.627451, 0.54901963, 1)
-light_energy = 0.3
-light_size = 50.0
-omni_range = 5.5
-
-[node name="floors" type="Node3D" parent="base_case_level3" unique_id=1159722442]
-
-[node name="floor17" type="CSGBox3D" parent="base_case_level3/floors" unique_id=1829174167]
-transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 0, -10.11515, 11.030457)
-use_collision = true
-size = Vector3(1, 1, 0.16720581)
-material = SubResource("StandardMaterial3D_keufu")
-
-[node name="floor24" type="CSGBox3D" parent="base_case_level3/floors" unique_id=1740288091]
-transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 0, -10.11515, 17.427597)
-use_collision = true
-size = Vector3(1, 1, 0.21629333)
-material = SubResource("StandardMaterial3D_keufu")
-
-[node name="floor18" type="CSGBox3D" parent="base_case_level3/floors" unique_id=897281095]
-transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 0, -10.11515, 4.946626)
-use_collision = true
-size = Vector3(1, 1, 0.20127869)
-material = SubResource("StandardMaterial3D_keufu")
-
-[node name="floor19" type="CSGBox3D" parent="base_case_level3/floors" unique_id=674439701]
-transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 0, -10.11515, -1.5540123)
-use_collision = true
-size = Vector3(1, 1, 0.20127869)
-material = SubResource("StandardMaterial3D_keufu")
-
-[node name="floor20" type="CSGBox3D" parent="base_case_level3/floors" unique_id=405060475]
-transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 0, -10.11515, -8.406927)
-use_collision = true
-size = Vector3(1, 1, 0.20127869)
-material = SubResource("StandardMaterial3D_keufu")
-
-[node name="floor22" type="CSGBox3D" parent="base_case_level3/floors" unique_id=1041912827]
-transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, 0, -10.11515, -11.967314)
-use_collision = true
-size = Vector3(1, 1, 0.102321625)
-material = SubResource("StandardMaterial3D_keufu")
-
-[node name="floor21" type="CSGBox3D" parent="base_case_level3/floors" unique_id=1283589848]
-transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, -23.213114, -10.11515, 11.030457)
-use_collision = true
-size = Vector3(1, 1, 0.16720581)
-material = SubResource("StandardMaterial3D_keufu")
-
-[node name="floor25" type="CSGBox3D" parent="base_case_level3/floors" unique_id=720935067]
-transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, -23.213114, -10.11515, 17.516062)
-use_collision = true
-size = Vector3(1, 1, 0.22142029)
-material = SubResource("StandardMaterial3D_keufu")
-
-[node name="floor23" type="CSGBox3D" parent="base_case_level3/floors" unique_id=267565265]
-transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, -23.213114, -10.11515, 4.946626)
-use_collision = true
-size = Vector3(1, 1, 0.20127869)
-material = SubResource("StandardMaterial3D_keufu")
-
-[node name="floor26" type="CSGBox3D" parent="base_case_level3/floors" unique_id=470116561]
-transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, -23.213114, -10.11515, -1.5540123)
-use_collision = true
-size = Vector3(1, 1, 0.20127869)
-material = SubResource("StandardMaterial3D_keufu")
-
-[node name="floor27" type="CSGBox3D" parent="base_case_level3/floors" unique_id=530630309]
-transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, -23.213114, -10.11515, -8.406927)
-use_collision = true
-size = Vector3(1, 1, 0.20127869)
-material = SubResource("StandardMaterial3D_keufu")
-
-[node name="floor28" type="CSGBox3D" parent="base_case_level3/floors" unique_id=1704437509]
-transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, -23.213114, -10.11515, -11.967314)
-use_collision = true
-size = Vector3(1, 1, 0.102321625)
-material = SubResource("StandardMaterial3D_keufu")
-
-[node name="floor29" type="CSGBox3D" parent="base_case_level3/floors" unique_id=120795424]
-transform = Transform3D(23.340137, 0, 0, 0, 0.2, 0, 0, 0, 34.50966, -23.16173, -10.101419, -15.499496)
-use_collision = true
-size = Vector3(1, 1, 0.102321625)
-material = SubResource("StandardMaterial3D_jvy75")
-
-[node name="Walls" type="Node3D" parent="base_case_level3" unique_id=1225606794]
-
-[node name="wall1" type="CSGBox3D" parent="base_case_level3/Walls" unique_id=406388792]
-transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, -11.490686, -8.259999, 2.2002797)
-use_collision = true
-size = Vector3(4.081114, 1.0717163, 1)
-material = SubResource("StandardMaterial3D_b60u5")
-
-[node name="wall2" type="CSGBox3D" parent="base_case_level3/Walls" unique_id=671070173]
-transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, -11.490686, -8.24233, 13.0742445)
-use_collision = true
-size = Vector3(6.3147507, 1.0817261, 1)
-material = SubResource("StandardMaterial3D_b60u5")
-
-[node name="wall3" type="CSGBox3D" parent="base_case_level3/Walls" unique_id=1043872957]
-transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 3.5304334, 0, -1.117, 0, -1.7484556e-08, -11.490686, -8.242975, -9.5126705)
-use_collision = true
-size = Vector3(7.533066, 1.0510864, 1)
-material = SubResource("StandardMaterial3D_b60u5")
-
-[node name="wall4" type="CSGBox3D" parent="base_case_level3/Walls" unique_id=1274937918]
-transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 4.9717464, 0, -1.117, 0, -1.7484556e-08, 8.019454, -7.4940968, 1.6990901)
-use_collision = true
-size = Vector3(7.680984, 1.0717163, 1)
-material = SubResource("StandardMaterial3D_b60u5")
-
-[node name="wall5" type="CSGBox3D" parent="base_case_level3/Walls" unique_id=1384977413]
-transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 4.9717464, 0, -1.117, 0, -1.7484556e-08, 8.019454, -7.469214, 13.0742445)
-use_collision = true
-size = Vector3(6.3147507, 1.0817261, 1)
-material = SubResource("StandardMaterial3D_b60u5")
-
-[node name="wall6" type="CSGBox3D" parent="base_case_level3/Walls" unique_id=1848684319]
-transform = Transform3D(-4.882562e-08, 0, 0.4, 0, 4.9717464, 0, -1.117, 0, -1.7484556e-08, 8.019454, -7.470123, -9.5126705)
-use_collision = true
-size = Vector3(7.533066, 1.0510864, 1)
-material = SubResource("StandardMaterial3D_b60u5")
 
 [node name="Decoration" type="Node3D" parent="." unique_id=202174566]
 
@@ -1285,7 +1473,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.366, 2.3, 12.917)
 curve = SubResource("Curve3D_d6vcq")
 
 [node name="RailFollow" type="PathFollow3D" parent="CameraRail" unique_id=884577264]
-transform = Transform3D(0.015282836, 0, -0.9998769, 0, 1.0000021, 0, 0.99986047, 0, 0.015283087, -12.179416, -0.90892863, -28.70839)
+transform = Transform3D(0.038288742, 0, 0.99913025, 0, 1.0000021, 0, -0.99913025, 0, 0.038288742, 2.926031, -6.947237, -28.206738)
 rotation_mode = 1
 loop = false
 tilt_enabled = false
@@ -1293,7 +1481,7 @@ script = ExtResource("20_yyj56")
 speed = 0.2
 
 [node name="Camera3D" type="Camera3D" parent="CameraRail/RailFollow" unique_id=537057922]
-transform = Transform3D(-0.48564067, -0.21976012, 0.8461014, -0.041526854, 0.9725904, 0.22878681, -0.8731832, 0.07597012, -0.48145914, 35.59279, -3.9776592, 1.40657)
+transform = Transform3D(0.9603336, -0.083745405, -0.26641846, -0.006082805, 0.9474685, -0.3198223, 0.27920744, 0.3086837, 0.90937823, 0, 0.8000002, 0)
 fov = 53.437496
 script = ExtResource("21_wig1a")
 fixed_pitch_angle = -10.0
@@ -1325,25 +1513,104 @@ camera_path = NodePath("../CameraRail/RailFollow/Camera3D")
 [node name="RayCast3D" type="RayCast3D" parent="PlayerP2" unique_id=1635218191]
 collide_with_areas = true
 
-[node name="sky" type="Node3D" parent="." unique_id=1170370001]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="sky" unique_id=827910798]
-environment = SubResource("Environment_8w0r3")
-
-[node name="MoonLight" type="DirectionalLight3D" parent="sky" unique_id=434053048]
-transform = Transform3D(0.89749455, 0.08956571, 0.431835, -0.4410255, 0.18226779, 0.87879175, 0, -0.9791611, 0.20308511, 0, 11.247618, 0)
-light_color = Color(0.56492084, 0.49233466, 0.24854791, 1)
-light_energy = 0.05
-shadow_enabled = true
-sky_mode = 1
-
-[node name="Moon" type="MeshInstance3D" parent="sky" unique_id=1815683281]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -39.416164, 43.738373, 53.67153)
-cast_shadow = 0
-mesh = SubResource("SphereMesh_8w0r3")
-surface_material_override/0 = SubResource("StandardMaterial3D_h4t55")
-
 [node name="Zombies" type="Node3D" parent="." unique_id=1398288929]
 
 [node name="FinalBoss" parent="Zombies" unique_id=25704447 instance=ExtResource("27_vb5p2")]
-transform = Transform3D(0.3548533, 0, 0.934922, 0, 1, 0, -0.934922, 0, 0.3548533, -29.930624, -10.148673, 0)
+transform = Transform3D(-0.7881813, 0, 1.2762327, 0, 1.5, 0, -1.2762327, 0, -0.7881813, -26.003294, -10.148673, 0)
+
+[node name="CharacterBody3D" parent="Zombies" unique_id=373837389 instance=ExtResource("29_cad1p")]
+
+[node name="TextAnimation" type="CanvasLayer" parent="." unique_id=2044137596]
+
+[node name="ColorRectFade" type="ColorRect" parent="TextAnimation" unique_id=1616942625]
+self_modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LabelMensaje" type="Label" parent="TextAnimation" unique_id=1444474956]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -106.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "grab the weapon"
+label_settings = SubResource("LabelSettings_23ppi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelMensaje2" type="Label" parent="TextAnimation" unique_id=1719995908]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU WON!
+You escaped from the university"
+label_settings = SubResource("LabelSettings_23ppi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinionSpawners" type="Node3D" parent="." unique_id=919727226]
+
+[node name="Marker3D_Left" type="Marker3D" parent="MinionSpawners" unique_id=638239708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.986961, -8.864007, -14.792605)
+
+[node name="Marker3D_Right" type="Marker3D" parent="MinionSpawners" unique_id=1913891248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.086451, -7.941675, 11.224762)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=67884775]
+libraries/ = SubResource("AnimationLibrary_4v4rs")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1872463925]
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=64711347]
+wait_time = 20.0
+
+[node name="PointerManager" type="CanvasLayer" parent="." unique_id=93549657 groups=["pointer_manager"]]
+layer = 2
+script = ExtResource("32_23ppi")
+
+[node name="Control" type="Control" parent="PointerManager" unique_id=1982488495]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PointerP1" type="TextureRect" parent="PointerManager/Control" unique_id=91395502]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 273.0
+offset_right = 354.0
+offset_bottom = 353.0
+mouse_filter = 2
+texture = ExtResource("33_lhbuk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PointerP2" type="TextureRect" parent="PointerManager/Control" unique_id=1536896654]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 273.0
+offset_right = 769.0
+offset_bottom = 353.0
+mouse_filter = 2
+texture = ExtResource("34_0ijad")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="theme_finalBoss" type="AudioStreamPlayer" parent="." unique_id=1517171777]
+stream = ExtResource("35_lhbuk")
+volume_db = -15.0

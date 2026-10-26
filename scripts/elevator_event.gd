@@ -26,7 +26,7 @@ extends Node3D
 
 # Textos (sin signos ni tildes especiales porque la fuente 28 Days Later no los tiene)
 @export var mensaje_elegir_objeto: String = "Choose an object to defend yourself against the zombie"
-@export var mensaje_nivel_superado: String = "Level One Completed"
+@export var mensaje_nivel_superado: String = "Level 1 Completed..."
 
 # Tiempos editables desde el Inspector
 @export var espera_tras_muerte_zombie: float = 1.5  # Deja ver la animación de muerte del zombie

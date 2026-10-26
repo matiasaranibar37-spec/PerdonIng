@@ -167,7 +167,7 @@ func completar_nivel_1() -> void:
 
 	# Notifica al HUD si la función existe
 	if hud and hud.has_method("mostrar_mensaje_transicion"):
-		hud.mostrar_mensaje_transicion("¡Acertijo resuelto! Pasando al Nivel 2...")
+		hud.mostrar_mensaje_transicion("Riddle solved!")
 
 	await get_tree().create_timer(2.0).timeout
 

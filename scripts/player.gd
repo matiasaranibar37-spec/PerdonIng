@@ -43,7 +43,11 @@ func shoot(screen_position: Vector2) -> void:
 			var pid_str: String = str(player_id)
 			
 			# Compatibilidad con zombies y enemigos generales
-			if target.has_method("recibir_disparo"):
+			# Enemigos que necesitan saber DÓNDE los golpeó el disparo (puntos débiles del jefe)
+			if target.has_method("recibir_disparo_en_punto"):
+				target.call("recibir_disparo_en_punto", pid_str, end_point)
+				hit_enemy = true
+			elif target.has_method("recibir_disparo"):
 				target.call("recibir_disparo", pid_str)
 				hit_enemy = true
 			elif target.has_method("recibir_dano"):

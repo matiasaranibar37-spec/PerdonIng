@@ -34,6 +34,8 @@ signal died
 @export var sound_dying_1: AudioStream
 @export var sound_dying_2: AudioStream
 @export var sound_running: AudioStream
+@export_group("Grito (cinemáticas)")
+@export var scream_animation: String = "attack"
 
 @onready var animation_player: AnimationPlayer = get_node_or_null("zombie_model/AnimationPlayer")
 @onready var ray_cast: RayCast3D = get_node_or_null("RayCast3D")
@@ -90,7 +92,10 @@ func _physics_process(delta: float) -> void:
 	if en_agonia:
 		velocity = Vector3.ZERO
 		return
-		
+	# Mientras grita (play_scream) se queda quieto y no se pisa su animación
+	if _gritando:
+		velocity = Vector3.ZERO
+		return
 	# ... (resto de tu código de _physics_process habitual)
 	if target_node == null:
 		target_node = get_viewport().get_camera_3d()
@@ -341,3 +346,24 @@ func play_animation(anim_name: String) -> void:
 	if animation_player and animation_player.has_animation(anim_name):
 		if animation_player.current_animation != anim_name:
 			animation_player.play(anim_name)
+
+
+# Se llama desde pistas de método de una AnimationPlayer (ej. "zombie_ambush" del ascensor)
+var _gritando: bool = false
+
+func play_scream() -> void:
+	if is_dead or is_attacking or _gritando:
+		return
+	_gritando = true
+	if sound_screech and audio_player:
+		audio_player.stream = sound_screech
+		audio_player.play()
+	var duracion: float = 2.0
+	if animation_player and animation_player.has_animation(scream_animation):
+		animation_player.stop()
+		animation_player.play(scream_animation)
+		duracion = animation_player.get_animation(scream_animation).length
+	await get_tree().create_timer(duracion).timeout
+	_gritando = false
+	if not is_dead and not is_player_detected:
+		play_animation("idle")

@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://bdujschlundal" path="res://level/enemies/Zombie_Librarian.tscn" id="28_2es18"]
 [ext_resource type="PackedScene" uid="uid://cdmpjpvhhuiuv" path="res://assets/Furnitures/Scenes/WoodFurnitures/shelf_book_2.tscn" id="28_n1d7p"]
 [ext_resource type="PackedScene" uid="uid://utbp3hkqngb6" path="res://assets/Furnitures_2/Scenes/computer.tscn" id="29_echyv"]
+[ext_resource type="AudioStream" uid="uid://od3t7xacsdvs" path="res://assets/sounds/falling-debris.wav" id="31_hl86o"]
 [ext_resource type="AudioStream" uid="uid://btet2b3kr70vl" path="res://assets/sounds/music_speakers.mp3" id="36_blm5u"]
 [ext_resource type="PackedScene" uid="uid://dod5b2q3plpb1" path="res://level_2/UI/puzzle_musica_ui.tscn" id="36_t02ur"]
 [ext_resource type="Script" uid="uid://baega4w3vmalp" path="res://scripts/music_speakers.gd" id="37_l27sa"]
@@ -554,6 +555,21 @@ tracks/10/keys = {
 "update": 0,
 "values": [0.0, 66.8, 83.0, 83.14, 84.6, 84.6, 85.85]
 }
+tracks/11/type = "audio"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("falling_debris")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"clips": [{
+"end_offset": 2.58,
+"start_offset": 0.17,
+"stream": ExtResource("31_hl86o")
+}],
+"times": PackedFloat32Array(16.636667)
+}
+tracks/11/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_enmhl"]
 _data = {
@@ -1868,7 +1884,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.366, 2.3, 12.917)
 curve = SubResource("Curve3D_c7y74")
 
 [node name="RailFollow" type="PathFollow3D" parent="CameraRail" unique_id=847713185]
-transform = Transform3D(0.55431026, 0, -0.8321397, 0, 1.0000021, 0, 0.8321397, 0, 0.55431026, -0.92782503, -6.9472365, -21.974358)
+transform = Transform3D(0.5543152, 0, -0.8321471, 0, 1.0000021, 0, 0.8321471, 0, 0.5543152, -0.92782503, -6.9472365, -21.974358)
 progress = 138.3215
 rotation_mode = 1
 loop = false
@@ -2216,3 +2232,5 @@ autoplay = true
 parameters/looping = true
 
 [node name="PuzzleMusicaUI" parent="." unique_id=1988723743 instance=ExtResource("36_t02ur")]
+
+[node name="falling_debris" type="AudioStreamPlayer" parent="." unique_id=734998303]
